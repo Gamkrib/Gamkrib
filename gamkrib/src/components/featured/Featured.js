@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Featured = () => {
     return (
-        <div>Featured</div>
+        <div>Featured </div>
     )
 }
