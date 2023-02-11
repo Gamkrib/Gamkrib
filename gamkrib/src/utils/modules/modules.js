@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 // export const DefaultBtn = ({ text }) => {
@@ -7,7 +8,7 @@ import styled from "styled-components";
 //   return <GreenBtn>{text}</GreenBtn>;
 // };
 
-export const GreenBtn = styled.button`
+export const GreenBtn = styled(motion.button)`
   background-color: ${(p) => p.theme.colors.brand.primary};
   height: ${(p) => p.theme.sizes[4]};
   width: ${(p) => p.theme.sizes[6]};
@@ -15,8 +16,9 @@ export const GreenBtn = styled.button`
   color: white;
   font-size: ${(p) => p.theme.fontSizes.button};
   border: none;
+  cursor: pointer;
 `;
-export const GreenBtnOutine = styled.button`
+export const GreenBtnOutine = styled(motion.button)`
   background-color: white;
   height: ${(p) => p.theme.sizes[4]};
   width: ${(p) => p.theme.sizes[6]};
@@ -26,6 +28,7 @@ export const GreenBtnOutine = styled.button`
   border: solid 2px;
   border-color: ${(p) => p.theme.colors.brand.primary};
   margin-right: ${(p) => p.theme.sizes[1]};
+  cursor: pointer;
 `;
 
 export const ParentContainer = styled.div`

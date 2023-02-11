@@ -4,7 +4,7 @@ export const sizes = [
   "16px",
   "32px",
   "44px",
-  "64px",
+  "70px",
   "120px",
   "128px",
 ];

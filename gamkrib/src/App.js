@@ -1,13 +1,15 @@
 import "./App.css";
 import { theme } from "./theme";
 import styled, { ThemeProvider } from "styled-components";
-import { DefaultBtn, GreenBtn, GreenBtnOutine } from "./utils/modules/modules";
-import IndexComponent from "./components/exports/IndexComponent";
+
+import IndexComponent, { router } from "./components/router/IndexComponent";
+import { RouterProvider } from "react-router-dom";
 
 function App() {
   return (
     <ThemeProvider ThemeProvider theme={theme}>
       <IndexComponent />
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }
