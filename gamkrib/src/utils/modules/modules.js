@@ -37,3 +37,12 @@ export const ParentContainer = styled.div`
 export const NavContainer = styled.div`
   margin: 1.313rem 4.688rem;
 `;
+
+export const HeaderText = styled.div`
+  font-family: "Poppins";
+  font-size: ${(p) => p.theme.fontSizes.title};
+  font-weight: 500;
+`;
+export const DescriptionText = styled.div`
+  font-family: "Poppins";
+`;
