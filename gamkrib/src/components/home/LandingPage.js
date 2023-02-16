@@ -10,6 +10,8 @@ import {
 
 import landingImage from "../../asserts/images/Frame299.png";
 import { WhyGamkrib } from "./WhyGamkrib";
+import { Card } from "../../customComponetns/Card";
+import { BrowseProperties } from "./BrowseProperties";
 
 export const LandingPage = () => {
   return (
@@ -30,6 +32,7 @@ export const LandingPage = () => {
         </LandingImage>
       </LandingContainer>
       <WhyGamkrib />
+      <BrowseProperties />
     </>
   );
 };

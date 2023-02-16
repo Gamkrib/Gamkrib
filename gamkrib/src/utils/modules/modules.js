@@ -33,6 +33,10 @@ export const GreenBtnOutine = styled(motion.button)`
 
 export const ParentContainer = styled.div`
   margin: 1.313rem 4.688rem;
+
+  @media (max-width: 768px) {
+    margin: 0.313rem 0.688rem;
+  }
 `;
 export const NavContainer = styled.div`
   margin: 1.313rem 4.688rem;
@@ -48,4 +52,16 @@ export const HeaderText = styled.div`
 `;
 export const DescriptionText = styled.div`
   font-family: "Poppins";
+`;
+
+export const FlexibleContainer = styled.div`
+  width: 30rem;
+  display: flex;
+  margin-top: ${(p) => p.theme.space[2]};
+
+  @media (max-width: 768px) {
+    width: 90%;
+    background-color: palegoldenrod;
+    margin-top: ${(p) => p.theme.space[2]};
+  }
 `;

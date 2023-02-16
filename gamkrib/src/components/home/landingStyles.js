@@ -26,9 +26,14 @@ export const GrayBackground = styled.div`
   background-color: ${(p) => p.theme.colors.ui.darkGray};
   display: flex;
   border-radius: 60px;
-  padding: 4rem;
+  padding: ${(p) => p.theme.space[2]};
+  flex-wrap: wrap;
 
   justify-content: space-around;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    border-radius: 30px;
+  }
 `;
 export const ItemLogo = styled.img`
   height: 29px;
@@ -37,11 +42,18 @@ export const ItemLogo = styled.img`
 export const WhyContainer = styled.div`
   width: 30rem;
   display: flex;
+  margin-top: ${(p) => p.theme.space[2]};
+
+  @media (max-width: 768px) {
+    width: 90%;
+    background-color: palegoldenrod;
+    margin-top: ${(p) => p.theme.space[2]};
+  }
 `;
 
 export const BigText = styled.div`
   font-family: "poppins";
   font-size: ${(p) => p.theme.fontSizes.h4};
   text-align: center;
-  margin-bottom: ${(p) => p.theme.space[5]};
+  margin-bottom: ${(p) => p.theme.space[2]};
 `;

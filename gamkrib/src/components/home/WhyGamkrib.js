@@ -31,9 +31,7 @@ export const WhyGamkrib = () => {
               labore pariatur laborum ex ullamco aliqua minim aute laboris.
               Aliquip proident sunt labore occaecat proident qui velit. Deserunt
               minim aliqua ut et consectetur sint irure magna eu enim consequat
-              incididunt incididunt. Voluptate occaecat minim anim magna mollit
-              tempor. Non in in reprehenderit sint est eiusmod anim. Aliquip
-              consectetur eiusmod ut mollit ipsum elit adipisicing dolor velit.{" "}
+              ipisicing dolor velit.{" "}
             </DescriptionText>
           </div>
         </WhyContainer>
@@ -60,9 +58,7 @@ export const WhyGamkrib = () => {
               labore pariatur laborum ex ullamco aliqua minim aute laboris.
               Aliquip proident sunt labore occaecat proident qui velit. Deserunt
               minim aliqua ut et consectetur sint irure magna eu enim consequat
-              incididunt incididunt. Voluptate occaecat minim anim magna mollit
-              tempor. Non in in reprehenderit sint est eiusmod anim. Aliquip
-              consectetur eiusmod ut mollit ipsum elit adipisicing dolor velit.{" "}
+              adipisicing dolor velit.{" "}
             </DescriptionText>
           </div>
         </WhyContainer>
