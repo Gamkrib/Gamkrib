@@ -26,7 +26,7 @@ export const LandingPage = () => {
           </SmallText>
         </LandingScript>
         <LandingImage>
-          <img src={landingImage} />
+          <img src={landingImage} width="100%" />
         </LandingImage>
       </LandingContainer>
       <WhyGamkrib />
