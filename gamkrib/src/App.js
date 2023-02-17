@@ -4,12 +4,15 @@ import styled, { ThemeProvider } from "styled-components";
 
 import IndexComponent, { router } from "./components/router/IndexComponent";
 import { RouterProvider } from "react-router-dom";
+import { MockApiContextProvider } from "./context/MockApiContext";
 
 function App() {
   return (
     <ThemeProvider ThemeProvider theme={theme}>
-      <IndexComponent />
-      <RouterProvider router={router} />
+      <MockApiContextProvider>
+        <IndexComponent />
+        <RouterProvider router={router} />
+      </MockApiContextProvider>
     </ThemeProvider>
   );
 }

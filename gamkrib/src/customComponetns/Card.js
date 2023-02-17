@@ -42,6 +42,7 @@ export const Card = (props) => {
 const Image = styled.img`
   width: 327px;
   height: 317px;
+  border-radius: 60px;
 `;
 const IconImage = styled.img`
   width: 17px;
