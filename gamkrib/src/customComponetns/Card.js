@@ -19,7 +19,7 @@ export const Card = (props) => {
       <CardDescription>
         {props.locationText && (
           <div>
-            <IconImage src={props.icon || icon} />
+            {props.icon && <IconImage src={props.icon || icon} />}
             <LocationText> {props.locationText}</LocationText>
           </div>
         )}
@@ -31,9 +31,11 @@ export const Card = (props) => {
         )}
       </CardDescription>
       <div>
-        <DescriptionText>
-          From <LitleBigText>GHC {props.price} </LitleBigText>
-        </DescriptionText>
+        {props.price && (
+          <DescriptionText>
+            From <LitleBigText>GHC {props.price} </LitleBigText>
+          </DescriptionText>
+        )}
       </div>
     </div>
   );
@@ -42,7 +44,7 @@ export const Card = (props) => {
 const Image = styled.img`
   width: 327px;
   height: 317px;
-  border-radius: 60px;
+  border-radius: 30px;
 `;
 const IconImage = styled.img`
   width: 17px;

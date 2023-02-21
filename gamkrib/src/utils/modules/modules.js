@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { BigText } from "../../components/home/landingStyles";
 
 // export const DefaultBtn = ({ text }) => {
 //   return <GreenBtn>{text}</GreenBtn>;
@@ -64,4 +65,12 @@ export const FlexibleContainer = styled.div`
     background-color: palegoldenrod;
     margin-top: ${(p) => p.theme.space[2]};
   }
+`;
+
+export const Spacer = styled.div`
+  margin-top: ${(p) => p.theme.space[4]};
+`;
+
+export const MidText = styled(BigText)`
+  font-size: ${(p) => p.theme.fontSizes.title};
 `;

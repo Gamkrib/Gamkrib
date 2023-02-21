@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { ParentContainer } from "../../utils/modules/modules";
+import { ParentContainer, Spacer } from "../../utils/modules/modules";
 import {
   LandingImage,
   LandingScript,
@@ -12,8 +12,11 @@ import landingImage from "../../asserts/images/Frame299.png";
 import { WhyGamkrib } from "./WhyGamkrib";
 import { Card } from "../../customComponetns/Card";
 import { BrowseProperties } from "./BrowseProperties";
+import { PropertyType } from "./PropetyType";
 
 export const LandingPage = () => {
+  const [scroll, setScroll] = useState(0);
+
   return (
     <>
       <LandingContainer>
@@ -31,8 +34,12 @@ export const LandingPage = () => {
           <img src={landingImage} width="100%" />
         </LandingImage>
       </LandingContainer>
+      <Spacer />
       <WhyGamkrib />
-      <BrowseProperties />
+      <Spacer />
+      <PropertyType />
+      <Spacer />
+      <BrowseProperties scroll={scroll} />
     </>
   );
 };
