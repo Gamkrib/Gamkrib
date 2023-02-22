@@ -25,15 +25,10 @@ export const router = createBrowserRouter([
         path: "help",
         element: <Help />,
       },
-
-      {
-        path: "listProperties",
-        element: <ListProperties />,
-      },
     ],
   },
   {
-    path: "Properties",
+    path: "listProperties",
     element: <ListProperties />,
     children: [
       { index: true, element: <HostelComponent /> },

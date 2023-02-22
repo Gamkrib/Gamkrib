@@ -1,39 +1,40 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { ComponentContainer, NavLinks } from "../navbar/navbarStyles";
 import "../navbar/navbar.css";
 import { Outlet } from "react-router-dom";
+import { GeneralNavbar } from "../navbar/Navbar";
+import { SelectedPropertyContext } from "../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 export const ListProperties = () => {
-  const [active, setActive] = useState("hostel");
-  const [toggle, setToggle] = useState("yes");
-
-  const toggleNav = () => {
-    setToggle((prev) => (prev === "no" ? "yes" : "no"));
-    console.log(displayNav);
-  };
-
-  const displayNav = toggle === "no" ? "block" : "none";
+  const { isActive, setIsActive } = useContext(SelectedPropertyContext);
 
   return (
     <div>
+      <GeneralNavbar />
       <ComponentContainer>
         <SelectSection>
           <div>
             <Link
-              onClick={() => setActive("hostel")}
-              className={active === "hostel" ? "active" : ""}
-              to={`Properties`}
+              onClick={() => setIsActive("hostel")}
+              className={isActive === "hostel" ? "active" : ""}
+              to={`/listProperties`}
             >
               Hostel
             </Link>
             <Link
-              onClick={() => setActive("homestel")}
-              className={active === "homestel" ? "active" : ""}
-              to={`Properties/homestel`}
+              onClick={() => setIsActive("homestel")}
+              className={isActive === "homestel" ? "active" : ""}
+              to={`/listProperties/homestel`}
             >
               Homestel
             </Link>
-            <Link>Apartment</Link>
+            <Link
+              onClick={() => setIsActive("apartment")}
+              className={isActive === "apartment" ? "active" : ""}
+              to={`/listProperties/apartment`}
+            >
+              Apartment
+            </Link>
           </div>
         </SelectSection>
       </ComponentContainer>
@@ -44,7 +45,7 @@ export const ListProperties = () => {
 
 const SelectSection = styled.div`
   display: flex;
-  background-color: green;
+
   width: 100%;
   align-items: center;
   justify-content: center;

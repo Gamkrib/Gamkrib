@@ -5,13 +5,16 @@ import styled, { ThemeProvider } from "styled-components";
 import IndexComponent, { router } from "./components/router/IndexComponent";
 import { RouterProvider } from "react-router-dom";
 import { MockApiContextProvider } from "./context/MockApiContext";
+import { SelectedPropertyContextProvider } from "./context/selectedPropertyContext/SelectedPropertyContextProvider";
 
 function App() {
   return (
     <ThemeProvider ThemeProvider theme={theme}>
       <MockApiContextProvider>
-        <IndexComponent />
-        <RouterProvider router={router} />
+        <SelectedPropertyContextProvider>
+          <IndexComponent />
+          <RouterProvider router={router} />
+        </SelectedPropertyContextProvider>
       </MockApiContextProvider>
     </ThemeProvider>
   );

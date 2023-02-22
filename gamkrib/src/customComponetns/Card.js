@@ -4,13 +4,13 @@ import styled from "styled-components";
 import picture from "../asserts/mockImages/Rectangle 22735.png";
 import icon from "../asserts/siteLogos/Vector.png";
 import reviewIcon from "../asserts/siteLogos/Vector(1).png";
-
+import { motion } from "framer-motion";
 import { SmallText } from "../components/home/landingStyles";
 import { DescriptionText } from "../utils/modules/modules";
 
 export const Card = (props) => {
   return (
-    <div>
+    <motion.div whileTap={{ scale: 0.9 }}>
       <Image src={props.image || picture} />
       <div>
         <DescriptionText>{props.name} </DescriptionText>
@@ -37,7 +37,7 @@ export const Card = (props) => {
           </DescriptionText>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

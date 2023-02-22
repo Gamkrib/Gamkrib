@@ -11,7 +11,7 @@ import {
 import landingImage from "../../asserts/images/Frame299.png";
 import { WhyGamkrib } from "./WhyGamkrib";
 import { Card } from "../../customComponetns/Card";
-import { BrowseProperties } from "./BrowseProperties";
+import { BrowseProperties } from "./FeaturedProperties";
 import { PropertyType } from "./PropetyType";
 
 export const LandingPage = () => {
