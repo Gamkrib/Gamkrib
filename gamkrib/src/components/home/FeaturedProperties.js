@@ -4,6 +4,7 @@ import { MockApiContext } from "../../context/MockApiContext";
 import { Card } from "../../customComponetns/Card";
 import { MidText, ParentContainer } from "../../utils/modules/modules";
 import { BigText } from "./landingStyles";
+import "./swiper.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -32,10 +33,7 @@ export const BrowseProperties = ({ scroll }) => {
           pagination={{
             type: "fraction",
           }}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
+          navigation={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
           loop={true}
@@ -74,10 +72,12 @@ export const BrowseProps = styled.div`
 const SwiSlider = styled(Swiper)`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 `;
 const CardSlider = styled(SwiperSlide)`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+
+// const next = styled(nextEl);
