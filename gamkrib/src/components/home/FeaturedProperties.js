@@ -26,13 +26,15 @@ export const BrowseProperties = ({ scroll }) => {
       <MidText>Trending Properties 🔥🔥🔥</MidText>
       <BrowseProps>
         <SwiSlider
-          onSwiper={setSwiperRef}
-          slidesPerView={4}
           centeredSlides={false}
-          spaceBetween={30}
-          pagination={{
-            type: "fraction",
+          spaceBetween={20}
+          breakpoints={{
+            1800: { slidesPerView: 4 },
+            1080: { slidesPerView: 3 },
+            768: { slidesPerView: 2 },
+            640: { slidesPerView: 1 },
           }}
+          pagination={false}
           navigation={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
