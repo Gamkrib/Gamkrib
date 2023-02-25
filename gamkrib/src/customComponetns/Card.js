@@ -51,7 +51,7 @@ const IconImage = styled.img`
   height: 17px;
 `;
 
-const LocationText = styled.small`
+export const LocationText = styled.small`
   font-family: "poppins";
   color: ${(p) => p.theme.colors.text.secondary};
 `;
@@ -61,6 +61,7 @@ const CardDescription = styled.div`
   gap: ${(p) => p.theme.space[2]};
 `;
 
-const LitleBigText = styled.span`
+export const LitleBigText = styled.span`
   font-weight: 500;
+  font-family: "poppins";
 `;
