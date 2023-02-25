@@ -46,7 +46,7 @@ export const WhyContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 90%;
-    background-color: palegoldenrod;
+
     margin-top: ${(p) => p.theme.space[2]};
   }
 `;

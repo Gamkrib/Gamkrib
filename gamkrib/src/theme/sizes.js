@@ -7,4 +7,5 @@ export const sizes = [
   "70px",
   "120px",
   "128px",
+  "215px",
 ];
