@@ -16,6 +16,7 @@ import { PropertyType } from "./PropetyType";
 import { RectangularCard } from "../../customComponetns/RectangularCard";
 import { Testimonies } from "./Testimonies";
 import { PropertyManagers } from "./PropertyManagers";
+import { Help } from "../help/Help";
 
 export const LandingPage = () => {
   const [scroll, setScroll] = useState(0);
@@ -45,6 +46,7 @@ export const LandingPage = () => {
       <BrowseProperties scroll={scroll} />
       <Testimonies />
       <PropertyManagers />
+      <Help />
     </>
   );
 };
