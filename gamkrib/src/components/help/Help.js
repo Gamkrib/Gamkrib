@@ -6,11 +6,12 @@ import {
 } from "@coreui/react";
 import "@coreui/coreui/dist/css/coreui.min.css";
 import React from "react";
-import { ParentContainer } from "../../utils/modules/modules";
+import { MidText, ParentContainer } from "../../utils/modules/modules";
 
 export const Help = () => {
   return (
     <ParentContainer>
+      <MidText>Frequently Asked Questions</MidText>
       <CAccordion alwaysOpen activeItemKey={1} style={vars}>
         <CAccordionItem style={vars} itemKey={1}>
           <CAccordionHeader style={vars}>Accordion Item #1</CAccordionHeader>

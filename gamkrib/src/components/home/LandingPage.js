@@ -17,6 +17,7 @@ import { RectangularCard } from "../../customComponetns/RectangularCard";
 import { Testimonies } from "./Testimonies";
 import { PropertyManagers } from "./PropertyManagers";
 import { Help } from "../help/Help";
+import { EmailSubscriptions } from "../email/EmailSubscriptions";
 
 export const LandingPage = () => {
   const [scroll, setScroll] = useState(0);
@@ -47,6 +48,7 @@ export const LandingPage = () => {
       <Testimonies />
       <PropertyManagers />
       <Help />
+      <EmailSubscriptions />
     </>
   );
 };
