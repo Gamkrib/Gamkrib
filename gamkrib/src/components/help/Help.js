@@ -11,9 +11,9 @@ import { ParentContainer } from "../../utils/modules/modules";
 export const Help = () => {
   return (
     <ParentContainer>
-      <CAccordion alwaysOpen activeItemKey={1}>
-        <CAccordionItem itemKey={1}>
-          <CAccordionHeader>Accordion Item #1</CAccordionHeader>
+      <CAccordion alwaysOpen activeItemKey={1} style={vars}>
+        <CAccordionItem style={vars} itemKey={1}>
+          <CAccordionHeader style={vars}>Accordion Item #1</CAccordionHeader>
 
           <CAccordionBody>
             <strong>This is the first item's accordion body.</strong> It is
@@ -59,4 +59,15 @@ export const Help = () => {
       </CAccordion>
     </ParentContainer>
   );
+};
+
+const vars = {
+  "--cui-accordion-btn-focus-border-color": "blue",
+  "--cui-accordion-active-bg": "#30D158",
+  "--cui-accordion-btn-bg": "#EAFAEE",
+  "--cui-accordion-btn-color": "black",
+  "--cui-accordion-active-color": "white",
+  "--cui-accordion-border-width": "0px",
+  "--cui-accordion-border-color": "pink",
+  "--cui-accordion-btn-focus-box-shadow": "-1px 1px 5px 0px rgba(0,0,0,0.21)",
 };
