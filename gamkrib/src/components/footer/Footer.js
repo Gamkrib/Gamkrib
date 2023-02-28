@@ -7,6 +7,7 @@ import twitter from "../../asserts/socialMediaIcons/Path.png";
 import instagram from "../../asserts/socialMediaIcons/Vector-1.png";
 import whatsApp from "../../asserts/socialMediaIcons/Vector-2.png";
 import facebook from "../../asserts/socialMediaIcons/Vector.png";
+import { NavLinks } from "../navbar/navbarStyles";
 
 export const Footer = () => {
   let year = new Date();
@@ -22,7 +23,9 @@ export const Footer = () => {
         }}
       >
         <ModifiedDescriptionText>
-          se see what we have here
+          <ModifiedNavLinks>List Properties</ModifiedNavLinks>
+          <ModifiedNavLinks>FAQs</ModifiedNavLinks>
+          <ModifiedNavLinks to={`/help`}>Help Center</ModifiedNavLinks>
         </ModifiedDescriptionText>
         <div>
           <SocialIcon src={twitter} />
@@ -62,4 +65,9 @@ const CenteredContainer = styled.div`
 const SocialIcon = styled.img`
   height: 18px;
   margin: 0 4px;
+`;
+
+const ModifiedNavLinks = styled(NavLinks)`
+  color: white;
+  margin-left: 0;
 `;
