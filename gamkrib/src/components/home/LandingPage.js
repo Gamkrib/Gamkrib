@@ -18,6 +18,7 @@ import { Testimonies } from "./Testimonies";
 import { PropertyManagers } from "./PropertyManagers";
 import { Help } from "../help/Help";
 import { EmailSubscriptions } from "../email/EmailSubscriptions";
+import { Footer } from "../footer/Footer";
 
 export const LandingPage = () => {
   const [scroll, setScroll] = useState(0);
@@ -49,6 +50,7 @@ export const LandingPage = () => {
       <PropertyManagers />
       <Help />
       <EmailSubscriptions />
+      <Footer />
     </>
   );
 };

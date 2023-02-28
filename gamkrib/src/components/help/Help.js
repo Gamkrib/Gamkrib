@@ -7,10 +7,11 @@ import {
 import "@coreui/coreui/dist/css/coreui.min.css";
 import React from "react";
 import { MidText, ParentContainer } from "../../utils/modules/modules";
+import styled from "styled-components";
 
 export const Help = () => {
   return (
-    <ParentContainer>
+    <ModifiedParentContainer>
       <MidText>Frequently Asked Questions</MidText>
       <CAccordion alwaysOpen activeItemKey={1} style={vars}>
         <CAccordionItem style={vars} itemKey={1}>
@@ -58,7 +59,7 @@ export const Help = () => {
           </CAccordionBody>
         </CAccordionItem>
       </CAccordion>
-    </ParentContainer>
+    </ModifiedParentContainer>
   );
 };
 
@@ -72,3 +73,17 @@ const vars = {
   "--cui-accordion-border-color": "pink",
   "--cui-accordion-btn-focus-box-shadow": "-1px 1px 5px 0px rgba(0,0,0,0.21)",
 };
+
+const ModifiedParentContainer = styled(ParentContainer)`
+  margin: 1.313rem 20.688rem;
+
+  @media (max-width: 768px) {
+    margin: 0.313rem 0.688rem;
+  }
+`;
+export const NavContainer = styled.div`
+  margin: 1.313rem 4.688rem;
+  @media (max-width: 768px) {
+    margin: 0.313rem 0.688rem;
+  }
+`;
