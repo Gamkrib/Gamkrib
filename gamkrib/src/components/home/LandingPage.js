@@ -16,7 +16,10 @@ import { PropertyType } from "./PropetyType";
 import { RectangularCard } from "../../customComponetns/RectangularCard";
 import { Testimonies } from "./Testimonies";
 import { PropertyManagers } from "./PropertyManagers";
-import { Help } from "../help/Help";
+import {
+  FrequentlyAskedQuestions,
+  Help,
+} from "../help/FrequentlyAskedQuestions";
 import { EmailSubscriptions } from "../email/EmailSubscriptions";
 import { Footer } from "../footer/Footer";
 
@@ -48,7 +51,7 @@ export const LandingPage = () => {
       <BrowseProperties scroll={scroll} />
       <Testimonies />
       <PropertyManagers />
-      <Help />
+      <FrequentlyAskedQuestions />
       <EmailSubscriptions />
       <Footer />
     </>

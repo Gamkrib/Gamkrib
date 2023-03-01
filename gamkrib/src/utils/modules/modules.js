@@ -20,7 +20,7 @@ export const GreenBtn = styled(motion.button)`
   cursor: pointer;
 `;
 export const GreenBtnOutine = styled(motion.button)`
-  background-color: white;
+  background-color: transparent;
   height: ${(p) => p.theme.sizes[4]};
   width: ${(p) => p.theme.sizes[6]};
   border-radius: ${(p) => p.theme.sizes[1]};
