@@ -25,13 +25,12 @@ export const WhyGamkrib = () => {
             <ItemLogo src={logo2} />{" "}
           </div>
           <div>
-            <HeaderText>Save your time</HeaderText>
+            <HeaderText>SAVES YOU TIME</HeaderText>
             <DescriptionText>
-              Est reprehenderit ut Lorem ex. Cillum anim commodo sit enim enim
-              labore pariatur laborum ex ullamco aliqua minim aute laboris.
-              Aliquip proident sunt labore occaecat proident qui velit. Deserunt
-              minim aliqua ut et consectetur sint irure magna eu enim consequat
-              ipisicing dolor velit.{" "}
+              Find your perfect off-campus accommodation in under 10 minutes
+              with Gamkrib! Easily browse, compare prices and amenities, and
+              book directly through the platform. Save time and hassle with
+              Gamkrib – sign up now!"
             </DescriptionText>
           </div>
         </WhyContainer>
@@ -40,10 +39,14 @@ export const WhyGamkrib = () => {
             <ItemLogo src={logo3} />
           </div>
           <div>
-            <HeaderText>Save your money</HeaderText>
+            <HeaderText>SAVES YOU MONEY</HeaderText>
             <DescriptionText>
-              On average 20%, as much as 30%-50% of your money when compared to
-              other hostel sites
+              Say goodbye to costly off-campus housing searches! With Gamkrib,
+              you can find your dream home without paying any inspection or
+              viewing fees. Our platform lets you browse everything from the
+              comfort of your own home, eliminating the need for expensive
+              travel. Let us help you save money and find the perfect room with
+              ease
             </DescriptionText>
           </div>
         </WhyContainer>
@@ -52,13 +55,10 @@ export const WhyGamkrib = () => {
             <ItemLogo src={logo1} />
           </div>
           <div>
-            <HeaderText>Variety to choose from</HeaderText>
+            <HeaderText>VARIETY TO CHOOSE FROM</HeaderText>
             <DescriptionText>
-              Est reprehenderit ut Lorem ex. Cillum anim commodo sit enim enim
-              labore pariatur laborum ex ullamco aliqua minim aute laboris.
-              Aliquip proident sunt labore occaecat proident qui velit. Deserunt
-              minim aliqua ut et consectetur sint irure magna eu enim consequat
-              adipisicing dolor velit.{" "}
+              On Gamkrib, you can find hostels, homestels, apartments and single
+              rooms among other types of properties.
             </DescriptionText>
           </div>
         </WhyContainer>

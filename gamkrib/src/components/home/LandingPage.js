@@ -31,7 +31,7 @@ export const LandingPage = () => {
       <LandingContainer>
         <LandingScript>
           <LandingText>
-            Find off - campus accommodation with {<br />} ease.
+            FIND YOUR OFF-CAMPUS ACCOMMODATION {<br />} WITH EASE.
           </LandingText>
           <SmallText>
             So we are writing some dommy text here because we have to write

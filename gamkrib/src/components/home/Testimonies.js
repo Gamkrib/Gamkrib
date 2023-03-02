@@ -24,6 +24,15 @@ export const Testimonies = () => {
           <div>
             <RectangularCard image={userMock3} />
           </div>
+          <div>
+            <RectangularCard image={userMock1} />
+          </div>
+          <div>
+            <RectangularCard image={userMock2} />
+          </div>
+          <div>
+            <RectangularCard image={userMock3} />
+          </div>
         </RectangularCardContainer>
       </ParentContainer>
     </TestimoniesContianer>
@@ -37,7 +46,7 @@ const TestimoniesContianer = styled.div`
   align-items: center;
   height: 25rem;
   width: 100vw;
-  overflow-x: scroll;
+  overflow-x: hidden;
 `;
 
 const ModifiedMidText = styled(MidText)`
@@ -49,4 +58,7 @@ const RectangularCardContainer = styled.div`
   gap: ${(p) => p.theme.space[2]};
   justify-content: start;
   align-items: center;
+  overflow-x: scroll;
+  cursor: pointer;
+  width: 100vw;
 `;
