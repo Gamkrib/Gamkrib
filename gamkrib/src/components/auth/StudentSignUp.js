@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./auth.css";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
@@ -19,40 +19,26 @@ const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
-  channel: "",
-  comments: "",
-  address: "",
   school: "",
   gender: "",
   level: "",
-  social: {
-    facebook: "",
-    twitter: "",
-  },
   phone: "",
-  phNumbers: [""],
+  password: "",
+  passwordConfirmation: "",
 };
 
-// const savedValues = {
-//   firstName: "Vishwas",
-//   email: "v@example.com",
-//   channel: "codevolution",
-//   comments: "Welcome to Formik",
-//   address: "221B Baker Street",
-//   social: {
-//     facebook: "",
-//     twitter: "",
-//   },
-//   phoneNumbers: ["", ""],
-//   phNumbers: [""],
-// };
-
+//get all values of the forms from this section
 const onSubmit = (values, submitProps) => {
   console.log("Form data", values);
   console.log("submitProps", submitProps);
   submitProps.setSubmitting(false);
   submitProps.resetForm();
 };
+
+/* ========================= form Validation ======================== */
+
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validationSchema = Yup.object({
   firstName: Yup.string()
@@ -62,22 +48,24 @@ const validationSchema = Yup.object({
     .required("Required")
     .min(3, "must be at least 3 characters long"),
   email: Yup.string().email("Invalid email format").required("Required"),
-  channel: Yup.string().required("Required"),
+  password: Yup.string()
+    .required("Required")
+    .min(6, " Password must be at least 6 characters long"),
+
+  passwordConfirmation: Yup.string()
+    .required("Confirm password is required")
+    .oneOf([Yup.ref("password"), null], "Password mismatched"),
   school: Yup.string().required("Required"),
   gender: Yup.string().required("Required"),
   level: Yup.string().required("Required"),
-  phone: Yup.number()
-    .required("Required")
-    .min(9, "Enter a valid number please"),
+  phone: Yup.string()
+    .required("required")
+    .matches(phoneRegExp, "Phone number is not valid")
+    .min(12, "enter a valid phone number please")
+    .max(15, "too long"),
 });
 
-const validateComments = (value) => {
-  let error;
-  if (!value) {
-    error = "Required";
-  }
-  return error;
-};
+/* ===================xxx============== form Validation ===================xxx=============== */
 
 export const StudentSignUp = () => {
   const [formValues, setFormValues] = useState(null);
@@ -116,6 +104,7 @@ export const StudentSignUp = () => {
     { key: "600", value: "600" },
     { key: "700", value: "700" },
   ];
+  /*=========xxx========= Dropdown Options  ============xxx=============*/
 
   return (
     <div>
@@ -156,6 +145,7 @@ export const StudentSignUp = () => {
                   label="School / Institution"
                   options={dropDownOptionsForSchool}
                 />
+                <ErrorMessage name="school" component={TextError} />
               </FormContainer>
               <FormContainer>
                 <SelectComponent
@@ -163,6 +153,7 @@ export const StudentSignUp = () => {
                   label="Gender"
                   options={dropDownOptionsForGender}
                 />
+                <ErrorMessage name="gender" component={TextError} />
               </FormContainer>
               <FormContainer>
                 <SelectComponent
@@ -170,78 +161,65 @@ export const StudentSignUp = () => {
                   label="Level"
                   options={dropDownOptionsForLevel}
                 />
+                <ErrorMessage name="level" component={TextError} />
               </FormContainer>
-              {/* <div>
-                <StyledLabel htmlFor="phoneNumber">Phone</StyledLabel>
-                <br />
-                <StyledField
+              <FormContainer>
+                <StyledLabel htmlFor="phone">Phone</StyledLabel> <br />
+                <PhoneInputField
+                  label="Phone Number"
+                  name="phone"
                   type="tel"
-                  as="tel"
-                  id="phoneNumber"
-                  name="phoneNumber"
+                  placeholder="Write your phone number here"
                 />
-              </div> */}
-              <PhoneInputField
-                label="Phone Number"
-                name="phone"
-                type="tel"
-                placeholder="Write your phone number here"
-              />
+                <ErrorMessage name="phone" component={TextError} />
+              </FormContainer>
+
               <FormContainer>
                 <StyledLabel htmlFor="email">Email</StyledLabel>
                 <br />
                 <StyledField type="email" id="email" name="email" />
-                {/* <ErrorMessage name="email">
-                  {(error) => <div className="error">{error}</div>}
-                </ErrorMessage> */}
+                <ErrorMessage name="email" component={TextError} />
               </FormContainer>
 
               <FormContainer>
-                <StyledLabel htmlFor="channel">Channel</StyledLabel>
+                <StyledLabel htmlFor="password">Password</StyledLabel>
                 <br />
                 <StyledField
-                  type="text"
-                  id="channel"
-                  name="channel"
-                  placeholder="YouTube channel name"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Create a new password"
                 />
-                {/* <ErrorMessage name="channel" /> */}
+                <ErrorMessage name="password" component={TextError} />
               </FormContainer>
-
               <FormContainer>
-                <StyledLabel htmlFor="facebook">Facebook profile</StyledLabel>
-                <br />
-                <StyledField type="text" id="facebook" name="social.facebook" />
-              </FormContainer>
-
-              <FormContainer>
-                <StyledLabel htmlFor="twitter">Twitter profile</StyledLabel>
-                <br />
-                <StyledField type="text" id="twitter" name="social.twitter" />
-              </FormContainer>
-
-              <FormContainer>
-                <StyledLabel htmlFor="secondaryPh">
-                  Secondary phone number
+                <StyledLabel htmlFor="passwordConfirmation">
+                  Confirm Password
                 </StyledLabel>
                 <br />
                 <StyledField
                   type="text"
-                  id="secondaryPh"
-                  name="phoneNumbers[1]"
+                  id="passwordConfirmation"
+                  name="passwordConfirmation"
+                  placeholder="Confirm your password"
+                />
+                <ErrorMessage
+                  name="passwordConfirmation"
+                  component={TextError}
                 />
               </FormContainer>
 
               {/* <button type="button" onClick={() => setFormValues(savedValues)}>
                 Load saved data
               </button> */}
-              <button type="reset">Reset</button>
-              <button
+
+              {/* <button type="reset">Reset</button> */}
+              <CustomBtn
                 type="submit"
                 disabled={!formik.isValid || formik.isSubmitting}
               >
-                Submit
-              </button>
+                Create my Account
+              </CustomBtn>
             </Form>
           );
         }}
@@ -249,3 +227,17 @@ export const StudentSignUp = () => {
     </div>
   );
 };
+
+const CustomBtn = styled.button.attrs()`
+  height: 2.9rem;
+  width: 28.75rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: "poppins";
+  background-color: ${(p) => p.theme.colors.brand.primary};
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+`;
