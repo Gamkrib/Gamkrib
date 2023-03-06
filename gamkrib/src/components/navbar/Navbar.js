@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {
+  CustomLink,
   GreenBtn,
   GreenBtnOutine,
   NavContainer,
@@ -34,7 +35,7 @@ export const Navbar = () => {
   //this puts a dommy image as profile will be replaced with user profile from api call
   let userProfilePicture = mockProfile;
 
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [toggle, setToggle] = useState("yes");
 
   const toggleNav = () => {
@@ -120,7 +121,10 @@ export const Navbar = () => {
                   <GreenBtnOutine whileTap={{ scale: 0.8 }}>
                     Log In
                   </GreenBtnOutine>
-                  <GreenBtn whileTap={{ scale: 0.8 }}>Sign Up</GreenBtn>
+
+                  <CustomLink to={"/studentSignup"}>
+                    <GreenBtn whileTap={{ scale: 0.8 }}>Sign Up</GreenBtn>
+                  </CustomLink>
                 </>
               )}
             </UserContainer>
@@ -192,7 +196,9 @@ export const Navbar = () => {
                   <GreenBtnOutine whileTap={{ scale: 0.8 }}>
                     Log In
                   </GreenBtnOutine>
-                  <GreenBtn whileTap={{ scale: 0.8 }}>Sign Up</GreenBtn>
+                  <CustomLink to={"/studentSignup"}>
+                    <GreenBtn whileTap={{ scale: 0.8 }}>Sign Up</GreenBtn>
+                  </CustomLink>
                 </>
               )}
             </UserContainer>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BigText } from "../../components/home/landingStyles";
 
@@ -73,4 +74,8 @@ export const Spacer = styled.div`
 
 export const MidText = styled(BigText)`
   font-size: ${(p) => p.theme.fontSizes.title};
+`;
+
+export const CustomLink = styled(Link)`
+  text-decoration: none;
 `;

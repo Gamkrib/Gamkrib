@@ -1,0 +1,15 @@
+.selectOption {
+ height: 2.9rem;
+  width: 28.75rem;
+  border: solid 1.5px #b7b7b7;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  
+  }
+
+  @media (max-width: 768px) {
+    .selectOption{
+        width: 90vw;
+    }
+  }

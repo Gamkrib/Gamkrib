@@ -1,6 +1,7 @@
 import React, { Children } from "react";
 import { createBrowserRouter, Route, Router } from "react-router-dom";
 import { AboutUs } from "../aboutus/AboutUs";
+import { StudentSignUp } from "../auth/StudentSignUp";
 import ErrorPage from "../error/ErrorPage";
 import { Help } from "../help/Help";
 import { LandingPage } from "../home/LandingPage";
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "listProperties",
     element: <ListProperties />,
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
       { path: "homestel", element: <HomestelComponent /> },
       { path: "apartment", element: <ApartmentComponent /> },
     ],
+  },
+  {
+    path: "studentSignup",
+    element: <StudentSignUp />,
   },
 ]);
 
