@@ -1,6 +1,7 @@
 import React, { Children } from "react";
 import { createBrowserRouter, Route, Router } from "react-router-dom";
 import { AboutUs } from "../aboutus/AboutUs";
+import { LandLordSignUp } from "../auth/LandLordSignUp";
 import { StudentSignUp } from "../auth/StudentSignUp";
 import ErrorPage from "../error/ErrorPage";
 import { Help } from "../help/Help";
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
   {
     path: "studentSignup",
     element: <StudentSignUp />,
+  },
+  {
+    path: "landLordSignup",
+    element: <LandLordSignUp />,
   },
 ]);
 

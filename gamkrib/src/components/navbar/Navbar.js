@@ -122,7 +122,7 @@ export const Navbar = () => {
                     Log In
                   </GreenBtnOutine>
 
-                  <CustomLink to={"/studentSignup"}>
+                  <CustomLink to={"/landLordSignup"}>
                     <GreenBtn whileTap={{ scale: 0.8 }}>Sign Up</GreenBtn>
                   </CustomLink>
                 </>
