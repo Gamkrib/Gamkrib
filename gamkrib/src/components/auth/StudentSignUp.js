@@ -42,7 +42,7 @@ const onSubmit = (values, submitProps) => {
   submitProps.setSubmitting(false);
   submitProps.resetForm();
 
-  // this gives the user an alert message if the form inputs are collected
+  // this gives the user an alert message if from values are collected
   MySwal.fire({
     title: "Form Submitted Successfully!",
     text: "Click okay to return",
@@ -268,7 +268,7 @@ export const StudentSignUp = () => {
   );
 };
 
-const CustomBtn = styled.button.attrs()`
+export const CustomBtn = styled.button.attrs()`
   height: 2.9rem;
   width: 28.75rem;
   border: none;
@@ -282,7 +282,7 @@ const CustomBtn = styled.button.attrs()`
   }
 `;
 
-const FormParent = styled.div`
+export const FormParent = styled.div`
   width: 50vw;
   display: flex;
   justify-content: center;
@@ -305,18 +305,18 @@ const ImageContainer = styled.div`
   align-items: center;
 `;
 
-const ParentContainer = styled.div`
+export const ParentContainer = styled.div`
   display: flex;
 `;
 
-const ModifiedMidText = styled(MidText)`
+export const ModifiedMidText = styled(MidText)`
   color: white;
   font-size: 4rem;
   font-weight: 500;
   text-align: start;
 `;
 
-const TextContainer = styled.div`
+export const TextContainer = styled.div`
   height: 30rem;
   width: 40rem;
   display: flex;
