@@ -15,6 +15,14 @@ import { PhoneInputField } from "../../utils/formModules/PhoneInputField";
 import { TextError } from "../../utils/formModules/ErrorText";
 // import TextError from "./TextError";
 
+import stuSignUpImg from "../../asserts/backgroundImages/stSU.webp";
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { MidText } from "../../utils/modules/modules";
+
+const MySwal = withReactContent(Swal);
+
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -33,6 +41,14 @@ const onSubmit = (values, submitProps) => {
   console.log("submitProps", submitProps);
   submitProps.setSubmitting(false);
   submitProps.resetForm();
+
+  // this gives the user an alert message if the form inputs are collected
+  MySwal.fire({
+    title: "Form Submitted Successfully!",
+    text: "Click okay to return",
+    icon: "success",
+    confirmButtonColor: "#30D158",
+  });
 };
 
 /* ========================= form Validation ======================== */
@@ -51,7 +67,6 @@ const validationSchema = Yup.object({
   password: Yup.string()
     .required("Required")
     .min(6, " Password must be at least 6 characters long"),
-
   passwordConfirmation: Yup.string()
     .required("Confirm password is required")
     .oneOf([Yup.ref("password"), null], "Password mismatched"),
@@ -107,124 +122,149 @@ export const StudentSignUp = () => {
   /*=========xxx========= Dropdown Options  ============xxx=============*/
 
   return (
-    <div>
-      <div></div>
-      <Formik
-        initialValues={formValues || initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-        enableReinitialize
-        validateOnChange={false}
-        validateOnBlur={true}
-        // validateOnMount
-      >
-        {(formik) => {
-          console.log("Formik props", formik);
-          return (
-            <Form>
-              <NameFieldContainer>
+    <ParentContainer>
+      <FormParent>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            textAlign: "start",
+
+            width: "48%",
+          }}
+        >
+          <MidText>Create an account as a student</MidText>
+        </div>
+
+        <Formik
+          initialValues={formValues || initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+          enableReinitialize
+          validateOnChange={false}
+          validateOnBlur={true}
+          // validateOnMount
+        >
+          {(formik) => {
+            console.log("Formik props", formik);
+            return (
+              <Form>
+                <NameFieldContainer>
+                  <FormContainer>
+                    <StyledLabel htmlFor="firstName">First Name</StyledLabel>{" "}
+                    <br />
+                    <StyledFieldForName
+                      type="text"
+                      id="name"
+                      name="firstName"
+                    />
+                    <ErrorMessage name="firstName" component={TextError} />
+                  </FormContainer>
+                  <FormContainer>
+                    <StyledLabel htmlFor="lastName">Last Name</StyledLabel>{" "}
+                    <br />
+                    <StyledFieldForName
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                    />
+                    <ErrorMessage name="lastName" component={TextError} />
+                  </FormContainer>
+                </NameFieldContainer>
                 <FormContainer>
-                  <StyledLabel htmlFor="firstName">First Name</StyledLabel>{" "}
-                  <br />
-                  <StyledFieldForName type="text" id="name" name="firstName" />
-                  <ErrorMessage name="firstName" component={TextError} />
-                </FormContainer>
-                <FormContainer>
-                  <StyledLabel htmlFor="lastName">Last Name</StyledLabel> <br />
-                  <StyledFieldForName
-                    type="text"
-                    id="lastName"
-                    name="lastName"
+                  <SelectComponent
+                    name="school"
+                    label="School / Institution"
+                    options={dropDownOptionsForSchool}
                   />
-                  <ErrorMessage name="lastName" component={TextError} />
+                  <ErrorMessage name="school" component={TextError} />
                 </FormContainer>
-              </NameFieldContainer>
-              <FormContainer>
-                <SelectComponent
-                  name="school"
-                  label="School / Institution"
-                  options={dropDownOptionsForSchool}
-                />
-                <ErrorMessage name="school" component={TextError} />
-              </FormContainer>
-              <FormContainer>
-                <SelectComponent
-                  name="gender"
-                  label="Gender"
-                  options={dropDownOptionsForGender}
-                />
-                <ErrorMessage name="gender" component={TextError} />
-              </FormContainer>
-              <FormContainer>
-                <SelectComponent
-                  name="level"
-                  label="Level"
-                  options={dropDownOptionsForLevel}
-                />
-                <ErrorMessage name="level" component={TextError} />
-              </FormContainer>
-              <FormContainer>
-                <StyledLabel htmlFor="phone">Phone</StyledLabel> <br />
-                <PhoneInputField
-                  label="Phone Number"
-                  name="phone"
-                  type="tel"
-                  placeholder="Write your phone number here"
-                />
-                <ErrorMessage name="phone" component={TextError} />
-              </FormContainer>
+                <FormContainer>
+                  <SelectComponent
+                    name="gender"
+                    label="Gender"
+                    options={dropDownOptionsForGender}
+                  />
+                  <ErrorMessage name="gender" component={TextError} />
+                </FormContainer>
+                <FormContainer>
+                  <SelectComponent
+                    name="level"
+                    label="Level"
+                    options={dropDownOptionsForLevel}
+                  />
+                  <ErrorMessage name="level" component={TextError} />
+                </FormContainer>
+                <FormContainer>
+                  <StyledLabel htmlFor="phone">Phone</StyledLabel> <br />
+                  <PhoneInputField
+                    label="Phone Number"
+                    name="phone"
+                    type="tel"
+                    placeholder="Write your phone number here"
+                  />
+                  <ErrorMessage name="phone" component={TextError} />
+                </FormContainer>
 
-              <FormContainer>
-                <StyledLabel htmlFor="email">Email</StyledLabel>
-                <br />
-                <StyledField type="email" id="email" name="email" />
-                <ErrorMessage name="email" component={TextError} />
-              </FormContainer>
+                <FormContainer>
+                  <StyledLabel htmlFor="email">Email</StyledLabel>
+                  <br />
+                  <StyledField type="email" id="email" name="email" />
+                  <ErrorMessage name="email" component={TextError} />
+                </FormContainer>
 
-              <FormContainer>
-                <StyledLabel htmlFor="password">Password</StyledLabel>
-                <br />
-                <StyledField
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Create a new password"
-                />
-                <ErrorMessage name="password" component={TextError} />
-              </FormContainer>
-              <FormContainer>
-                <StyledLabel htmlFor="passwordConfirmation">
-                  Confirm Password
-                </StyledLabel>
-                <br />
-                <StyledField
-                  type="text"
-                  id="passwordConfirmation"
-                  name="passwordConfirmation"
-                  placeholder="Confirm your password"
-                />
-                <ErrorMessage
-                  name="passwordConfirmation"
-                  component={TextError}
-                />
-              </FormContainer>
+                <FormContainer>
+                  <StyledLabel htmlFor="password">Password</StyledLabel>
+                  <br />
+                  <StyledField
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a new password"
+                  />
+                  <ErrorMessage name="password" component={TextError} />
+                </FormContainer>
+                <FormContainer>
+                  <StyledLabel htmlFor="passwordConfirmation">
+                    Confirm Password
+                  </StyledLabel>
+                  <br />
+                  <StyledField
+                    type="text"
+                    id="passwordConfirmation"
+                    name="passwordConfirmation"
+                    placeholder="Confirm your password"
+                  />
+                  <ErrorMessage
+                    name="passwordConfirmation"
+                    component={TextError}
+                  />
+                </FormContainer>
 
-              {/* <button type="button" onClick={() => setFormValues(savedValues)}>
+                {/* <button type="button" onClick={() => setFormValues(savedValues)}>
                 Load saved data
               </button> */}
 
-              {/* <button type="reset">Reset</button> */}
-              <CustomBtn
-                type="submit"
-                disabled={!formik.isValid || formik.isSubmitting}
-              >
-                Create my Account
-              </CustomBtn>
-            </Form>
-          );
-        }}
-      </Formik>
-    </div>
+                {/* <button type="reset">Reset</button> */}
+                <CustomBtn
+                  type="submit"
+                  disabled={!formik.isValid || formik.isSubmitting}
+                >
+                  Create my Account
+                </CustomBtn>
+              </Form>
+            );
+          }}
+        </Formik>
+      </FormParent>
+      <ImageContainer>
+        <TextContainer>
+          <ModifiedMidText>
+            Your off - campus accommodation starts here.
+          </ModifiedMidText>
+        </TextContainer>
+      </ImageContainer>
+    </ParentContainer>
   );
 };
 
@@ -240,4 +280,46 @@ const CustomBtn = styled.button.attrs()`
   @media (max-width: 768px) {
     width: 90vw;
   }
+`;
+
+const FormParent = styled.div`
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: start;
+`;
+
+const ImageContainer = styled.div`
+  /* background-image: url(${stuSignUpImg}); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(${stuSignUpImg});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ParentContainer = styled.div`
+  display: flex;
+`;
+
+const ModifiedMidText = styled(MidText)`
+  color: white;
+  font-size: 4rem;
+  font-weight: 500;
+  text-align: start;
+`;
+
+const TextContainer = styled.div`
+  height: 30rem;
+  width: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
