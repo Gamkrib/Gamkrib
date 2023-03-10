@@ -2,6 +2,7 @@ import React, { Children } from "react";
 import { createBrowserRouter, Route, Router } from "react-router-dom";
 import { AboutUs } from "../aboutus/AboutUs";
 import { LandLordSignUp } from "../auth/LandLordSignUp";
+import { LoginPage } from "../auth/LoginPage";
 import { StudentSignUp } from "../auth/StudentSignUp";
 import ErrorPage from "../error/ErrorPage";
 import { Help } from "../help/Help";
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
   {
     path: "landLordSignup",
     element: <LandLordSignUp />,
+  },
+  {
+    path: "longInPage",
+    element: <LoginPage />,
   },
 ]);
 

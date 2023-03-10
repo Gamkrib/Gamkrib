@@ -118,9 +118,11 @@ export const Navbar = () => {
                 </ProfileContainer>
               ) : (
                 <>
-                  <GreenBtnOutine whileTap={{ scale: 0.8 }}>
-                    Log In
-                  </GreenBtnOutine>
+                  <CustomLink to={"/longInPage"}>
+                    <GreenBtnOutine whileTap={{ scale: 0.8 }}>
+                      Log In
+                    </GreenBtnOutine>
+                  </CustomLink>
 
                   <CustomLink to={"/landLordSignup"}>
                     <GreenBtn whileTap={{ scale: 0.8 }}>Sign Up</GreenBtn>

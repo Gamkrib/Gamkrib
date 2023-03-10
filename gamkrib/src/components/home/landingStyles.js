@@ -57,3 +57,9 @@ export const BigText = styled.div`
   text-align: center;
   margin-bottom: ${(p) => p.theme.space[2]};
 `;
+
+export const BigTextWithoutMargin = styled.div`
+  font-family: "poppins";
+  font-size: ${(p) => p.theme.fontSizes.h4};
+  text-align: center;
+`;
