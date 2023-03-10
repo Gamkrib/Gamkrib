@@ -4,6 +4,7 @@ import { AboutUs } from "../aboutus/AboutUs";
 import { LandLordSignUp } from "../auth/LandLordSignUp";
 import { LoginPage } from "../auth/LoginPage";
 import { StudentSignUp } from "../auth/StudentSignUp";
+import { FilterCard } from "../cards/Modules/FilterCard";
 import ErrorPage from "../error/ErrorPage";
 import { Help } from "../help/Help";
 import { LandingPage } from "../home/LandingPage";
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
   {
     path: "longInPage",
     element: <LoginPage />,
+  },
+  {
+    path: "FilterCard",
+    element: <FilterCard />,
   },
 ]);
 
