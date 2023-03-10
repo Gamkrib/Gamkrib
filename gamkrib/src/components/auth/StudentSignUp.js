@@ -303,10 +303,20 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const ParentContainer = styled.div`
   display: flex;
+  @media (max-width: 968px) {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ModifiedMidText = styled(MidText)`
