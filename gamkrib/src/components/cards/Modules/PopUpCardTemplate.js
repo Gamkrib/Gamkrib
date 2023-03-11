@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const FilterCard = (props) => {
+export const PopUpCardTemp = (props) => {
   return (
     <PopUpContainer>
       <PopUPCard>{props.children}</PopUPCard>
