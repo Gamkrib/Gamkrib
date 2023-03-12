@@ -2,13 +2,15 @@ import React, { useState } from "react";
 
 import "../../components/auth/auth.css";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
+
 import styled from "styled-components";
 import {
   FormContainer,
   StyledField,
 } from "../../components/auth/FormStyles.js";
 import { SelectComponent } from "../../utils/formModules/SelectComponent";
+
+import PropertyImage from "../../asserts/siteLogos/Vector(4).png";
 
 // import TextError from "./TextError";
 
@@ -32,14 +34,14 @@ export const SearchComponent = () => {
   /*================== Dropdown Options  =========================*/
 
   const dropDownOptionsForLevel = [
-    { key: "Select Level", value: "" },
-    { key: "100", value: "100" },
-    { key: "200", value: "200" },
-    { key: "300", value: "300" },
-    { key: "400", value: "400" },
-    { key: "500", value: "500" },
-    { key: "600", value: "600" },
-    { key: "700", value: "700" },
+    { key: "Room Type", value: "" },
+    { key: "1 in i", value: "1 in i" },
+    { key: "2 in 1", value: "2 in 1" },
+    { key: "3 in 1", value: "3 in 1" },
+    { key: "4 in 1", value: "4 in 1" },
+    { key: "5 in 1", value: "5 in 1" },
+    { key: "6 in 1", value: "6 in 1" },
+    { key: "Single", value: "Single" },
   ];
   /*=========xxx========= Dropdown Options  ============xxx=============*/
 
@@ -48,39 +50,38 @@ export const SearchComponent = () => {
       <FormParent>
         <Formik
           initialValues={formValues || initialValues}
-          //   validationSchema={validationSchema}
           onSubmit={onSubmit}
           enableReinitialize
           validateOnChange={false}
           validateOnBlur={true}
-          // validateOnMount
         >
           {(formik) => {
             console.log("Formik props", formik);
             return (
               <Form>
-                <FormContainer>
-                  <SelectComponent
-                    name="roomType"
-                    options={dropDownOptionsForLevel}
-                  />
-                </FormContainer>
+                <FormLayout>
+                  <FormContainer>
+                    <ModifiedStyledField
+                      type="text"
+                      id="searchValue"
+                      name="searchValue"
+                      placeholder=" Search by city"
+                    />
+                  </FormContainer>
+                  <SelectFormContainer>
+                    <CustomSelectComponent
+                      name="roomType"
+                      options={dropDownOptionsForLevel}
+                    />
+                  </SelectFormContainer>
 
-                <FormContainer>
-                  <br />
-                  <StyledField
-                    type="text"
-                    id="searchValue"
-                    name="searchValue"
-                  />
-                </FormContainer>
-
-                <CustomBtn
-                  type="submit"
-                  disabled={!formik.isValid || formik.isSubmitting}
-                >
-                  Search
-                </CustomBtn>
+                  <CustomBtn
+                    type="submit"
+                    disabled={!formik.isValid || formik.isSubmitting}
+                  >
+                    Search
+                  </CustomBtn>
+                </FormLayout>
               </Form>
             );
           }}
@@ -92,9 +93,9 @@ export const SearchComponent = () => {
 
 export const CustomBtn = styled.button.attrs()`
   height: 2.9rem;
-  width: 28.75rem;
+  width: 8.75rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
   font-family: "poppins";
   background-color: ${(p) => p.theme.colors.brand.primary};
@@ -109,6 +110,37 @@ export const FormParent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+
   text-align: start;
+`;
+
+const ModifiedStyledField = styled(StyledField)`
+  padding-left: 30px;
+  width: 24.75rem;
+  background: url("https://static.thenounproject.com/png/101791-200.png")
+    no-repeat left 10px;
+  background-size: 25px;
+  border-radius: 10px;
+`;
+
+const FormLayout = styled.div`
+  display: flex;
+  gap: 2rem;
+`;
+
+const SelectFormContainer = styled(FormContainer)``;
+const CustomSelectComponent = styled(SelectComponent)`
+  height: 2.9rem;
+  width: 9.75rem;
+  border: solid 1.5px #b7b7b7;
+  border-radius: 10px;
+
+  font-family: "poppins";
+  background-color: white;
+  padding-left: 30px;
+  background: url(${PropertyImage}) no-repeat left;
+  background-size: 25px;
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
 `;

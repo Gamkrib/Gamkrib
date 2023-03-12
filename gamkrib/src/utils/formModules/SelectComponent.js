@@ -10,8 +10,8 @@ export const SelectComponent = (props) => {
   return (
     <div>
       <div>
-        <StyledLabel htmlFor={name}>{label}</StyledLabel>
-        <br />
+        {label && <StyledLabel htmlFor={name}>{label}</StyledLabel>}
+        {label && <br />}
         <Field
           className="selectOption"
           as="select"
