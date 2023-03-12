@@ -21,7 +21,7 @@ import {
   ParentContainer,
   TextContainer,
 } from "./StudentSignUp";
-import { BigText, BigTextWithoutMargin } from "../home/landingStyles";
+import { BigTextWithoutMargin } from "../home/landingStyles";
 import { LogoContainer } from "../navbar/navbarStyles";
 import { Logo } from "../../utils/modules/Logo";
 
