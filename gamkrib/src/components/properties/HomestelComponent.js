@@ -4,30 +4,34 @@ import { SearchBar } from "../searchBar/SearchBar";
 import styled from "styled-components";
 import { MockApiContext } from "../../context/MockApiContext";
 import { Card } from "../../customComponetns/Card";
+import { Footer } from "../footer/Footer";
 
 export const HomestelComponent = () => {
   const { mockHotel, farm } = useContext(MockApiContext);
 
   return (
-    <ParentContainer>
-      <SearchBarContainer>
-        <SearchBar />
-      </SearchBarContainer>
-      <CardContainer>
-        {mockHotel &&
-          mockHotel.map((hotel) => {
-            return (
-              <Card
-                image={hotel.max_1440_photo_url}
-                name={hotel.hotel_name}
-                locationText={hotel.address}
-                review={hotel.review_score}
-                price="300"
-              />
-            );
-          })}
-      </CardContainer>
-    </ParentContainer>
+    <>
+      <ParentContainer>
+        <SearchBarContainer>
+          <SearchBar />
+        </SearchBarContainer>
+        <CardContainer>
+          {mockHotel &&
+            mockHotel.map((hotel) => {
+              return (
+                <Card
+                  image={hotel.max_1440_photo_url}
+                  name={hotel.hotel_name}
+                  locationText={hotel.address}
+                  review={hotel.review_score}
+                  price="300"
+                />
+              );
+            })}
+        </CardContainer>
+      </ParentContainer>
+      <Footer />
+    </>
   );
 };
 
@@ -39,5 +43,6 @@ const SearchBarContainer = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: space-around;
+  gap: 2rem 1rem;
 `;

@@ -11,6 +11,7 @@ import {
 import { SelectComponent } from "../../utils/formModules/SelectComponent";
 
 import PropertyImage from "../../asserts/siteLogos/Vector(4).png";
+import searchIcon from "../../asserts/siteLogos/Ellipse_739.png";
 
 // import TextError from "./TextError";
 
@@ -115,10 +116,11 @@ export const FormParent = styled.div`
 `;
 
 const ModifiedStyledField = styled(StyledField)`
-  padding-left: 30px;
+  padding-left: 40px;
   width: 24.75rem;
   background: url("https://static.thenounproject.com/png/101791-200.png")
     no-repeat left 10px;
+  background-position-x: 8px;
   background-size: 25px;
   border-radius: 10px;
 `;
@@ -137,9 +139,12 @@ const CustomSelectComponent = styled(SelectComponent)`
 
   font-family: "poppins";
   background-color: white;
-  padding-left: 30px;
+
   background: url(${PropertyImage}) no-repeat left;
+  background-position-x: 8px;
   background-size: 25px;
+  padding-left: 40px;
+
   @media (max-width: 768px) {
     width: 90vw;
   }

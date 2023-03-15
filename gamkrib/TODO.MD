@@ -17,3 +17,12 @@ Components to create
 #
 #
 
+
+
+
+
+
+<!-- Redo  -->
+1. Creates an auto slide for the about us Section 
+2. Make the home page super responsive 
+3  fix the search bar on the home screen 
