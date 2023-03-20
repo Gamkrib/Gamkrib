@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ParentContainer } from "../../utils/modules/modules";
-import { SearchBar } from "../searchBar/SearchBar";
+import { SearchBar } from "../searchAndFilterContainer/SearchBar";
 import styled from "styled-components";
 import { MockApiContext } from "../../context/MockApiContext";
 import { Card } from "../../customComponetns/Card";

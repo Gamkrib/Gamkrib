@@ -57,7 +57,6 @@ export const SearchComponent = () => {
           validateOnBlur={true}
         >
           {(formik) => {
-            console.log("Formik props", formik);
             return (
               <Form>
                 <FormLayout>
@@ -96,7 +95,7 @@ export const CustomBtn = styled.button.attrs()`
   height: 2.9rem;
   width: 8.75rem;
   border: none;
-  border-radius: 10px;
+  border-radius: ${(p) => p.theme.radius[3]};
   color: white;
   font-family: "poppins";
   background-color: ${(p) => p.theme.colors.brand.primary};
@@ -122,7 +121,7 @@ const ModifiedStyledField = styled(StyledField)`
     no-repeat left 10px;
   background-position-x: 8px;
   background-size: 25px;
-  border-radius: 10px;
+  border-radius: ${(p) => p.theme.radius[3]};
 `;
 
 const FormLayout = styled.div`
@@ -135,7 +134,7 @@ const CustomSelectComponent = styled(SelectComponent)`
   height: 2.9rem;
   width: 9.75rem;
   border: solid 1.5px #b7b7b7;
-  border-radius: 10px;
+  border-radius: ${(p) => p.theme.radius[3]};
 
   font-family: "poppins";
   background-color: white;

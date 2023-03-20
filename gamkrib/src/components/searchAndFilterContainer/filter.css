@@ -1,0 +1,19 @@
+
+
+/* .checkColor{
+    background-color: pink;
+   
+    border: 3px solid black ;
+} */
+
+
+.ui input:checked + .checkColor {
+ border: 3px solid #8373e6;
+
+}
+
+
+.ui input:checked{ 
+
+    background-color: #8373e6;
+}
