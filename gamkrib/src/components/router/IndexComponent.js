@@ -4,7 +4,6 @@ import { AboutUs } from "../aboutus/AboutUs";
 import { LandLordSignUp } from "../auth/LandLordSignUp";
 import { LoginPage } from "../auth/LoginPage";
 import { StudentSignUp } from "../auth/StudentSignUp";
-import { PopUpCardTemp } from "../cards/Modules/PopUpCardTemplate";
 import ErrorPage from "../error/ErrorPage";
 import { Help } from "../help/Help";
 import { LandingPage } from "../home/LandingPage";
@@ -13,6 +12,7 @@ import { ApartmentComponent } from "../properties/ApartmentComponent";
 import { HomestelComponent } from "../properties/HomestelComponent";
 import { HostelComponent } from "../properties/HostelComponent";
 import { ListProperties } from "../properties/ListProperties";
+import { FilerProperty } from "../searchAndFilterContainer/FilerProperty";
 
 export const router = createBrowserRouter([
   {
@@ -54,8 +54,8 @@ export const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "FilterCard",
-    element: <PopUpCardTemp />,
+    path: "filterCard",
+    element: <FilerProperty />,
   },
 ]);
 
