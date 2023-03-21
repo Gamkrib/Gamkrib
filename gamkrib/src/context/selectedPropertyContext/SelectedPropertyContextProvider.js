@@ -15,9 +15,20 @@ export const SelectedPropertyContextProvider = ({ children }) => {
 export const SelectedHostelContext = createContext();
 
 export const SelectedHostelContextProvider = ({ children }) => {
-  const [value, setValue] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [roomType, setRoomType] = useState("");
+  const [propertyRating, setPropertyRating] = useState("");
   return (
-    <SelectedHostelContext.Provider value={{ value, setValue }}>
+    <SelectedHostelContext.Provider
+      value={{
+        propertyType,
+        setPropertyType,
+        roomType,
+        setRoomType,
+        propertyRating,
+        setPropertyRating,
+      }}
+    >
       {children}
     </SelectedHostelContext.Provider>
   );

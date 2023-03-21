@@ -1,3 +1,14 @@
-.active {
+.propertySelected {
     border: 2px solid #30D158 !important ;
+}
+
+.selectedRoomType {
+    background-color: #30D158 !important;
+    border: none !important;
+    color: white;
+}
+.propertyRatingType {
+    background-color: #30D158 !important;
+    border: none !important;
+    color: white;
 }
