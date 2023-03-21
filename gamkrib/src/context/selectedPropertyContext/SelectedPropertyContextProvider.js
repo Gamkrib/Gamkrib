@@ -11,3 +11,14 @@ export const SelectedPropertyContextProvider = ({ children }) => {
     </SelectedPropertyContext.Provider>
   );
 };
+
+export const SelectedHostelContext = createContext();
+
+export const SelectedHostelContextProvider = ({ children }) => {
+  const [value, setValue] = useState("");
+  return (
+    <SelectedHostelContext.Provider value={{ value, setValue }}>
+      {children}
+    </SelectedHostelContext.Provider>
+  );
+};

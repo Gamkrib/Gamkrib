@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { SelectedHostelContextProvider } from "../../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 
 export const PopUpCardTemp = (props) => {
   return (
