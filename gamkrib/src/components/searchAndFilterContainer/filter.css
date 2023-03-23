@@ -12,3 +12,8 @@
     border: none !important;
     color: white;
 }
+
+
+input[type='checkbox'] {
+    accent-color: #30D158;
+}
