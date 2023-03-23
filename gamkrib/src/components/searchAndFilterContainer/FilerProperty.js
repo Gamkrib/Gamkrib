@@ -14,7 +14,12 @@ import {
   StyledFieldForName,
   StyledLabel,
 } from "../auth/FormStyles";
-import { MidText } from "../../utils/modules/modules";
+import { GreenBtn, MidText } from "../../utils/modules/modules";
+
+import wifi from "../../asserts/inputIcons/internet.png";
+import television from "../../asserts/inputIcons/television.png";
+import fun from "../../asserts/inputIcons/fun.png";
+import kitchen from "../../asserts/inputIcons/kitchen.png";
 
 export const FilerProperty = () => {
   const {
@@ -31,6 +36,7 @@ export const FilerProperty = () => {
     minPrice: "",
     maxPrice: "",
     roomType: "",
+    facilities: "",
   };
 
   const onSubmit = (values, submitProps) => {
@@ -42,6 +48,10 @@ export const FilerProperty = () => {
     //se color props to none
 
     // this gives the user an alert message if from values are collected
+  };
+
+  const resetFunc = (submitProps) => {
+    submitProps.resetForm();
   };
 
   return (
@@ -338,9 +348,71 @@ export const FilerProperty = () => {
                   </div>
                 </PropertyRating>
               </div>
+              <div>
+                <HeadingText>Property Rating</HeadingText>
 
-              <div>Picked: {values.picked}</div>
-              <button type="submit">Submit</button>
+                <CheckGroup role="group" aria-labelledby="checkbox-group">
+                  <CheckSubGroup>
+                    <label>
+                      <Field type="checkbox" name="facilities" value="wifi" />
+                      <RatingImage src={wifi} />
+                      Wifi
+                    </label>
+                    <label style={{ marginLeft: 43 }}>
+                      <Field type="checkbox" name="facilities" value="fan" />
+                      <RatingImage src={fun} />
+                      Fan
+                    </label>
+                  </CheckSubGroup>
+                  <CheckSubGroup>
+                    <label>
+                      <Field
+                        type="checkbox"
+                        name="facilities"
+                        value="television"
+                      />
+                      <RatingImage src={television} />
+                      <span> Television</span>
+                    </label>
+                    <label>
+                      <Field
+                        type="checkbox"
+                        name="facilities"
+                        value="kitchen"
+                      />
+                      <RatingImage src={kitchen} />
+                      <span>Kitchen</span>
+                    </label>
+                  </CheckSubGroup>
+                </CheckGroup>
+              </div>
+              <div
+                style={{
+                  borderBottom: "1px solid #919191 ",
+                  marginLeft: 0,
+                  marginRight: 0,
+                  paddingBottom: 10,
+                }}
+              ></div>
+              {/* <div>Picked: {values}</div> */}
+              <SubmitContainer>
+                {/* <button type=""></button> */}
+                <ResetButton
+                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ color: "red" }}
+                  onClick={() => handleReset}
+                >
+                  {" "}
+                  reset all
+                </ResetButton>
+                <div>
+                  <GreenBtn whileTap={{ scale: 0.9 }} type="submit">
+                    Filter Result
+                  </GreenBtn>
+                </div>
+              </SubmitContainer>
+
+              {/* <button type="submit">Submit</button> */}
             </Form>
           )}
         </Formik>
@@ -435,3 +507,29 @@ const HeadingText = styled(MidText)`
 `;
 
 const FormContainer = styled.div``;
+
+const CheckGroup = styled.div`
+  display: flex;
+  width: 40rem;
+  flex-direction: column;
+`;
+
+const CheckSubGroup = styled.div`
+  display: flex;
+  gap: 2rem;
+`;
+
+const RatingImage = styled.img`
+  height: 18px;
+  margin: 10px;
+`;
+
+const SubmitContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+`;
+
+const ResetButton = styled(motion.div)`
+  cursor: pointer;
+`;

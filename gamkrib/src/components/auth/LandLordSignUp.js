@@ -164,7 +164,6 @@ export const LandLordSignUp = () => {
                   />
                   <ErrorMessage name="phone" component={TextError} />
                 </FormContainer>
-
                 <FormContainer>
                   <StyledLabel htmlFor="email">Email</StyledLabel>
                   <br />
