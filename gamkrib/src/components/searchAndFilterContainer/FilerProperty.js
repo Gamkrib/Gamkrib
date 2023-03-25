@@ -4,9 +4,7 @@ import { Formik, Field, Form } from "formik";
 import styled from "styled-components";
 import "./filter.css";
 // images for the inputs
-import hostelImage from "../../asserts/inputIcons/bed.png";
-import homestelImage from "../../asserts/inputIcons/house.png";
-import apartmentImage from "../../asserts/inputIcons/houseWithoutThree.png";
+
 import { SelectedHostelContext } from "../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 import { motion } from "framer-motion";
 import {
@@ -16,10 +14,21 @@ import {
 } from "../auth/FormStyles";
 import { GreenBtn, MidText } from "../../utils/modules/modules";
 
+// Image imports
+import hostelImage from "../../asserts/inputIcons/bed.png";
+import homestelImage from "../../asserts/inputIcons/house.png";
+import apartmentImage from "../../asserts/inputIcons/houseWithoutThree.png";
+
 import wifi from "../../asserts/inputIcons/internet.png";
 import television from "../../asserts/inputIcons/television.png";
 import fun from "../../asserts/inputIcons/fun.png";
 import kitchen from "../../asserts/inputIcons/kitchen.png";
+
+import fire from "../../asserts/inputIcons/Fire.png";
+import tender from "../../asserts/inputIcons/highVoltage.png";
+import smileWithHeart from "../../asserts/inputIcons/smileWithHeartEyes.png";
+import smile from "../../asserts/inputIcons/SmileFace.png";
+import sleepy from "../../asserts/inputIcons/sleepy.png";
 
 export const FilerProperty = () => {
   const {
@@ -254,7 +263,10 @@ export const FilerProperty = () => {
                             value="Excellent"
                           />
 
-                          <span> 🔥</span>
+                          <span>
+                            {" "}
+                            <RatingImage src={fire} />
+                          </span>
                           <span> Excellent</span>
                         </RadioBox>
                       </StyledPropertyRatingField>
@@ -277,9 +289,7 @@ export const FilerProperty = () => {
                             name="propertyRating"
                             value="VeryGood"
                           />
-
-                          <span> ⚡ </span>
-                          <span> Very good</span>
+                          <RatingImage src={tender} /> <span> Very good</span>
                         </RadioBox>
                       </StyledPropertyRatingField>
                     </label>
@@ -300,7 +310,7 @@ export const FilerProperty = () => {
                             value="Good"
                           />
 
-                          <span> 😍</span>
+                          <RatingImage src={smileWithHeart} />
                           <span> Good</span>
                         </RadioBox>
                       </StyledPropertyRatingField>
@@ -322,7 +332,7 @@ export const FilerProperty = () => {
                             value="Fair"
                           />
 
-                          <span> 😊</span>
+                          <RatingImage src={smile} />
                           <span> Fair</span>
                         </RadioBox>
                       </StyledPropertyRatingField>
@@ -340,7 +350,7 @@ export const FilerProperty = () => {
                         <RadioBox className="checkColor">
                           <Field type="radio" name="roomType" value="Okay" />
 
-                          <span> 😒</span>
+                          <RatingImage src={sleepy} />
                           <span> Okay</span>
                         </RadioBox>
                       </StyledPropertyRatingField>
@@ -400,7 +410,7 @@ export const FilerProperty = () => {
                 <ResetButton
                   whileTap={{ scale: 0.9 }}
                   whileHover={{ color: "red" }}
-                  onClick={() => handleReset}
+                  // onClick={() => handleReset}
                 >
                   {" "}
                   reset all
