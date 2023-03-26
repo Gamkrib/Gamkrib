@@ -59,8 +59,11 @@ export const FilerProperty = () => {
     // this gives the user an alert message if from values are collected
   };
 
-  const resetFunc = (submitProps) => {
-    submitProps.resetForm();
+  const resetFunc = () => {
+    console.log("hi");
+    setRoomType("");
+    setPropertyType("");
+    setPropertyRating("");
   };
 
   return (
@@ -410,7 +413,8 @@ export const FilerProperty = () => {
                 <ResetButton
                   whileTap={{ scale: 0.9 }}
                   whileHover={{ color: "red" }}
-                  // onClick={() => handleReset}
+                  onClick={resetFunc}
+                  type="reset"
                 >
                   {" "}
                   reset all
@@ -540,6 +544,8 @@ const SubmitContainer = styled.div`
   margin-top: 10px;
 `;
 
-const ResetButton = styled(motion.div)`
+const ResetButton = styled(motion.button)`
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 `;

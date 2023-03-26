@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { SelectedHostelContextProvider } from "../../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 
 export const PopUpCardTemp = (props) => {
+  const [showElement, setShowElement] = useState(true);
+
+  const handleButtonClick = () => {
+    setShowElement(false);
+  };
+
   return (
-    <PopUpContainer>
-      <PopUPCard>{props.children}</PopUPCard>
-    </PopUpContainer>
+    showElement && (
+      <PopUpContainer>
+        <PopUPCard>{props.children}</PopUPCard>
+        <button onClick={handleButtonClick}> remove TRial </button>
+      </PopUpContainer>
+    )
   );
 };
 
