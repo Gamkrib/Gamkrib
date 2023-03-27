@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import "../../components/auth/auth.css";
 import { Formik, Form } from "formik";
@@ -11,7 +11,10 @@ import {
 import { SelectComponent } from "../../utils/formModules/SelectComponent";
 
 import PropertyImage from "../../asserts/siteLogos/Vector(4).png";
+import filterIcon from "../../asserts/siteLogos/chemistry.png";
 import searchIcon from "../../asserts/siteLogos/Ellipse_739.png";
+import { motion } from "framer-motion";
+import { SelectedHostelContext } from "../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 
 // import TextError from "./TextError";
 
@@ -31,6 +34,8 @@ const onSubmit = (values, submitProps) => {
 
 export const SearchComponent = () => {
   const [formValues, setFormValues] = useState(null);
+
+  const { filter, setFiler } = useContext(SelectedHostelContext);
 
   /*================== Dropdown Options  =========================*/
 
@@ -76,11 +81,18 @@ export const SearchComponent = () => {
                   </SelectFormContainer>
 
                   <CustomBtn
+                    whileTap={{ scale: 0.9 }}
                     type="submit"
                     disabled={!formik.isValid || formik.isSubmitting}
                   >
                     Search
                   </CustomBtn>
+                  <FilterBtn
+                    onClick={() => setFiler(true)}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    Filter
+                  </FilterBtn>
                 </FormLayout>
               </Form>
             );
@@ -91,7 +103,7 @@ export const SearchComponent = () => {
   );
 };
 
-export const CustomBtn = styled.button.attrs()`
+export const CustomBtn = styled(motion.button)`
   height: 2.9rem;
   width: 8.75rem;
   border: none;
@@ -140,6 +152,24 @@ const CustomSelectComponent = styled(SelectComponent)`
   background-color: white;
 
   background: url(${PropertyImage}) no-repeat left;
+  background-position-x: 8px;
+  background-size: 25px;
+  padding-left: 40px;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+`;
+export const FilterBtn = styled(motion.button)`
+  height: 2.9rem;
+  width: 5.75rem;
+  border: solid 1.5px #b7b7b7;
+  border-radius: ${(p) => p.theme.radius[3]};
+
+  font-family: "poppins";
+  background-color: white;
+
+  background: url(${filterIcon}) no-repeat left;
   background-position-x: 8px;
   background-size: 25px;
   padding-left: 40px;

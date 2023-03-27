@@ -18,6 +18,7 @@ export const SelectedHostelContextProvider = ({ children }) => {
   const [propertyType, setPropertyType] = useState("");
   const [roomType, setRoomType] = useState("");
   const [propertyRating, setPropertyRating] = useState("");
+  const [filter, setFiler] = useState(false);
   return (
     <SelectedHostelContext.Provider
       value={{
@@ -27,6 +28,8 @@ export const SelectedHostelContextProvider = ({ children }) => {
         setRoomType,
         propertyRating,
         setPropertyRating,
+        filter,
+        setFiler,
       }}
     >
       {children}
