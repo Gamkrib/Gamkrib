@@ -8,6 +8,7 @@ import ErrorPage from "../error/ErrorPage";
 import { Help } from "../help/Help";
 import { LandingPage } from "../home/LandingPage";
 import { Navbar } from "../navbar/Navbar";
+import { NotificationComponent } from "../notification/NotificationComponent";
 import { ApartmentComponent } from "../properties/ApartmentComponent";
 import { HomestelComponent } from "../properties/HomestelComponent";
 import { HostelComponent } from "../properties/HostelComponent";
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
   {
     path: "filterCard",
     element: <FilerProperty />,
+  },
+  {
+    path: "notification",
+    element: <NotificationComponent />,
   },
 ]);
 

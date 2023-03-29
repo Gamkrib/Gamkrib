@@ -252,11 +252,13 @@ export const GeneralNavbar = () => {
             <UserContainer>
               {user ? (
                 <ProfileContainer>
-                  <NotificationIcon whileTap={{ scale: 0.8 }}>
-                    <div>
-                      <img height="22px" src={notificationIcon} />
-                    </div>
-                  </NotificationIcon>
+                  <Link to="/notification">
+                    <NotificationIcon whileTap={{ scale: 0.8 }}>
+                      <div>
+                        <img height="22px" src={notificationIcon} />
+                      </div>
+                    </NotificationIcon>
+                  </Link>
                   <ProfilePicture>
                     <motion.img
                       src={userProfilePicture || avatar}
