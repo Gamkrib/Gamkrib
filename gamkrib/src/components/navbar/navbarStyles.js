@@ -87,3 +87,20 @@ export const ToggleContainer = styled.div`
     text-align: end;
   }
 `;
+
+export const NotificationCount = styled.div`
+  position: absolute;
+  background-color: #30d158;
+  height: 22px;
+  width: 22px;
+  padding-bottom: 10;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const MainNotificationCount = styled(NotificationCount)`
+  top: 25px;
+`;
