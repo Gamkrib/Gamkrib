@@ -21,12 +21,14 @@ import {
   Container,
   LogoContainer,
   NavLinks,
+  NotificationCount,
   NotificationIcon,
   PhoneContainer,
   ProfileContainer,
   ProfilePicture,
   ToggleContainer,
   UserContainer,
+  MainNotificationCount,
 } from "./navbarStyles";
 
 export const Navbar = () => {
@@ -35,7 +37,7 @@ export const Navbar = () => {
   //this puts a dommy image as profile will be replaced with user profile from api call
   let userProfilePicture = mockProfile;
 
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   const [toggle, setToggle] = useState("yes");
 
   const toggleNav = () => {
@@ -103,6 +105,7 @@ export const Navbar = () => {
             <UserContainer>
               {user ? (
                 <ProfileContainer>
+                  <MainNotificationCount>6</MainNotificationCount>
                   <NotificationIcon whileTap={{ scale: 0.8 }}>
                     <div>
                       <img height="22px" src={notificationIcon} />
@@ -135,6 +138,7 @@ export const Navbar = () => {
             <UserContainer>
               {user ? (
                 <ProfileContainer>
+                  <NotificationCount>6</NotificationCount>
                   <NotificationIcon whileTap={{ scale: 0.8 }}>
                     <div>
                       <img height="22px" src={notificationIcon} />
@@ -253,6 +257,7 @@ export const GeneralNavbar = () => {
               {user ? (
                 <ProfileContainer>
                   <Link to="/notification">
+                    <NotificationCount>6</NotificationCount>
                     <NotificationIcon whileTap={{ scale: 0.8 }}>
                       <div>
                         <img height="22px" src={notificationIcon} />
