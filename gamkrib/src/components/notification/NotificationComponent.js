@@ -6,12 +6,14 @@ import { MockApiContext } from "../../context/MockApiContext";
 import { motion } from "framer-motion";
 
 export const NotificationComponent = () => {
-  const { notification } = useContext(MockApiContext);
+  const { notification, setNotification } = useContext(MockApiContext);
   console.log(notification);
 
   //remove function goes here
-  const removeSecond = () => {
-    setFruits((current) => current.filter((fruit) => fruit.id !== 2));
+  const deleteNotification = (id) => {
+    setNotification((current) =>
+      current.filter((notification) => notification.id !== id)
+    );
   };
 
   return (
@@ -39,7 +41,28 @@ export const NotificationComponent = () => {
                     <img src={notificationIcon} height="22px" />
                   </Icon>
                   <NotificationBody>
-                    <NotificationHead>{post.title} 🔥 </NotificationHead>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignContent: "center",
+
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <NotificationHead>{post.title} 🔥 </NotificationHead>
+                      <CloseBtn
+                        whileHover={{
+                          shadow: 0.2,
+                          cursor: "pointer",
+                          backgroundColor: "#ff314e",
+                          color: "white",
+                        }}
+                        onClick={deleteNotification(post.id)}
+                      >
+                        X
+                      </CloseBtn>
+                    </div>
+
                     <p>{post.body}</p>
                   </NotificationBody>
                 </NotificationCard>
@@ -68,7 +91,7 @@ const Icon = styled.div`
   border-radius: 50px;
 `;
 
-const NotificationHead = styled.div`
+const NotificationHead = styled.span`
   font-family: "poppins";
   font-weight: 500;
   font-size: 2;
@@ -84,4 +107,13 @@ const ParentContainer = styled.div`
   margin: 4rem 20rem;
   display: flex;
   flex-direction: column;
+`;
+
+const CloseBtn = styled(motion.span)`
+  height: 20px;
+  background-color: ${(p) => p.theme.colors.bg.light};
+  width: 40px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 12px;
 `;

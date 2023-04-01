@@ -46,7 +46,9 @@ export const MockApiContextProvider = ({ children }) => {
   const farm = "king";
 
   return (
-    <MockApiContext.Provider value={{ mockHotel, farm, notification }}>
+    <MockApiContext.Provider
+      value={{ mockHotel, farm, setNotification, notification }}
+    >
       {children}
     </MockApiContext.Provider>
   );
