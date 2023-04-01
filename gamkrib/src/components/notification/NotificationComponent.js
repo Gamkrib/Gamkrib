@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import notificationIcon from "../../asserts/siteLogos/Combined-Shape.png";
 import { GeneralNavbar } from "../navbar/Navbar";
+import { MockApiContext } from "../../context/MockApiContext";
+import { motion } from "framer-motion";
 
 export const NotificationComponent = () => {
+  const { notification } = useContext(MockApiContext);
+  console.log(notification);
+
+  //remove function goes here
+  const removeSecond = () => {
+    setFruits((current) => current.filter((fruit) => fruit.id !== 2));
+  };
+
   return (
     <>
       <GeneralNavbar />
@@ -13,23 +23,29 @@ export const NotificationComponent = () => {
           {" "}
           Notification{" "}
         </p>
-
-        <NotificationCard>
-          <Icon>
-            <img height="22px" src={notificationIcon} />
-          </Icon>
-
-          <NotificationBody>
-            <NotificationHead>New Deal 🔥 </NotificationHead>
-            <p>
-              Just write some dummy text here for the sake of testing purpose
-              only Just write some dummy text here for the sake of testing
-              purpose only Just write some dummy text here for the sake of
-              testing purpose only Just write some dummy text here for the sake
-              of testing purpose only{" "}
-            </p>
-          </NotificationBody>
-        </NotificationCard>
+        {notification &&
+          notification.posts.map((post) => {
+            return (
+              <motion.div
+                whileHover={{
+                  shadow: 0.2,
+                  cursor: "pointer",
+                  backgroundColor: "#F2F5F0",
+                }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <NotificationCard>
+                  <Icon>
+                    <img src={notificationIcon} height="22px" />
+                  </Icon>
+                  <NotificationBody>
+                    <NotificationHead>{post.title} 🔥 </NotificationHead>
+                    <p>{post.body}</p>
+                  </NotificationBody>
+                </NotificationCard>
+              </motion.div>
+            );
+          })}
       </ParentContainer>{" "}
     </>
   );
@@ -38,14 +54,15 @@ export const NotificationComponent = () => {
 const NotificationCard = styled.div`
   display: flex;
   gap: 2rem;
+
   align-items: center;
 `;
 
 const Icon = styled.div`
   display: flex;
   background-color: ${(p) => p.theme.colors.bg.light};
-  height: 2.5rem;
-  width: 5.5rem;
+  height: 40px;
+  width: 40px;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
@@ -54,11 +71,17 @@ const Icon = styled.div`
 const NotificationHead = styled.div`
   font-family: "poppins";
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 2;
 `;
 
-const NotificationBody = styled.div``;
+const NotificationBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60rem;
+`;
 
 const ParentContainer = styled.div`
-  margin: 4rem 25rem;
+  margin: 4rem 20rem;
+  display: flex;
+  flex-direction: column;
 `;
