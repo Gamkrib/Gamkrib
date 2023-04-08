@@ -24,7 +24,7 @@ export const MockApiContextProvider = ({ children }) => {
     (async () => {
       let data = await fetch(api2);
       const retrivedData = await data.json();
-      setNotification(retrivedData);
+      setNotification(retrivedData.posts);
     })();
   }, [api2]);
 

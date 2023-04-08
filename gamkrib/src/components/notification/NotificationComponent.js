@@ -6,14 +6,15 @@ import { MockApiContext } from "../../context/MockApiContext";
 import { motion } from "framer-motion";
 
 export const NotificationComponent = () => {
-  const { notification, setNotification } = useContext(MockApiContext);
-  console.log(notification);
+  let { notification, setNotification } = useContext(MockApiContext);
 
   //remove function goes here
   const deleteNotification = (id) => {
-    setNotification((current) =>
-      current.filter((notification) => notification.id !== id)
-    );
+    const posts = notification;
+
+    // notification &&
+    const filtered = posts.filter((element) => element.id != id);
+    setNotification(filtered);
   };
 
   return (
@@ -26,15 +27,16 @@ export const NotificationComponent = () => {
           Notification{" "}
         </p>
         {notification &&
-          notification.posts.map((post) => {
+          notification.map((post) => {
             return (
               <motion.div
+                key={post.id}
                 whileHover={{
                   shadow: 0.2,
                   cursor: "pointer",
                   backgroundColor: "#F2F5F0",
                 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.999 }}
               >
                 <NotificationCard>
                   <Icon>
@@ -57,7 +59,7 @@ export const NotificationComponent = () => {
                           backgroundColor: "#ff314e",
                           color: "white",
                         }}
-                        onClick={deleteNotification(post.id)}
+                        onClick={() => deleteNotification(post.id)}
                       >
                         X
                       </CloseBtn>
@@ -69,6 +71,7 @@ export const NotificationComponent = () => {
               </motion.div>
             );
           })}
+        <div onClick={() => setNotification([])}>Clear All</div>
       </ParentContainer>{" "}
     </>
   );
