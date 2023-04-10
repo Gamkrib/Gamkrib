@@ -1,5 +1,14 @@
 import React from "react";
+import { Listing } from "../listining/Listing";
+import { GeneralNavbar } from "../../navbar/Navbar";
+import { Footer } from "../../footer/Footer";
 
 export const AdminContainer = () => {
-  return <div>AdminContainer</div>;
+  return (
+    <>
+      <GeneralNavbar />
+      <Listing />
+      <Footer />
+    </>
+  );
 };
