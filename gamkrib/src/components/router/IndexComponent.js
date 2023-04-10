@@ -14,6 +14,7 @@ import { HomestelComponent } from "../properties/HomestelComponent";
 import { HostelComponent } from "../properties/HostelComponent";
 import { ListProperties } from "../properties/ListProperties";
 import { FilerProperty } from "../searchAndFilterContainer/FilerProperty";
+import { AdminContainer } from "../admin/home/AdminContainer";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
   {
     path: "notification",
     element: <NotificationComponent />,
+  },
+  {
+    path: "dashboard",
+    element: <AdminContainer />,
   },
 ]);
 
