@@ -15,6 +15,7 @@ import { HostelComponent } from "../properties/HostelComponent";
 import { ListProperties } from "../properties/ListProperties";
 import { FilerProperty } from "../searchAndFilterContainer/FilerProperty";
 import { AdminContainer } from "../admin/home/AdminContainer";
+import { ProductDetails } from "../productDetails/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,11 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <AdminContainer />,
+  },
+
+  {
+    path: "productDetails",
+    element: <ProductDetails />,
   },
 ]);
 
