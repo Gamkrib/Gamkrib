@@ -219,6 +219,26 @@ export const Navbar = () => {
 export const GeneralNavbar = () => {
   const [active, setActive] = useState("/");
 
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
+
+  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+
   //this puts a dommy image as profile will be replaced with user profile from api call
   let userProfilePicture = mockProfile;
 
