@@ -16,6 +16,7 @@ import { ListProperties } from "../properties/ListProperties";
 import { FilerProperty } from "../searchAndFilterContainer/FilerProperty";
 import { AdminContainer } from "../admin/home/AdminContainer";
 import { ProductDetails } from "../productDetails/ProductDetails";
+import { DashBoard } from "../admin/landlord/pages/DashBoard";
 
 export const router = createBrowserRouter([
   {
@@ -66,7 +67,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <AdminContainer />,
+    element: <DashBoard />,
   },
 
   {

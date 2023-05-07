@@ -19,6 +19,22 @@ export const SelectedHostelContextProvider = ({ children }) => {
   const [roomType, setRoomType] = useState("");
   const [propertyRating, setPropertyRating] = useState("");
   const [filter, setFiler] = useState(false);
+
+  const initialState = {
+    chat: false,
+    cart: false,
+    userProfile: false,
+    notification: false,
+  };
+
+  //new navbar
+  const [screenSize, setScreenSize] = useState(undefined);
+  const [currentColor, setCurrentColor] = useState("#03C9D7");
+  const [currentMode, setCurrentMode] = useState("Light");
+  const [themeSettings, setThemeSettings] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(true);
+  const [isClicked, setIsClicked] = useState(initialState);
+
   return (
     <SelectedHostelContext.Provider
       value={{
