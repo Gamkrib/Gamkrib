@@ -4,6 +4,7 @@ import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { SelectedHostelContext } from "../../../context/selectedPropertyContext/SelectedPropertyContextProvider";
+import { links } from "../../../utils/data/dummy";
 
 export const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useContext(
