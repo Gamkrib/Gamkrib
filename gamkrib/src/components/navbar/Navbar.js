@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   CustomLink,
@@ -30,8 +30,21 @@ import {
   UserContainer,
   MainNotificationCount,
 } from "./navbarStyles";
+import { SelectedHostelContext } from "../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 
 export const Navbar = () => {
+  const {
+    setCurrentColor,
+    setCurrentMode,
+    currentMode,
+    screenSize,
+    setActiveMenu,
+    activeMenu,
+    currentColor,
+    themeSettings,
+    setThemeSettings,
+  } = useContext(SelectedHostelContext);
+
   const [active, setActive] = useState("/");
 
   //this puts a dommy image as profile will be replaced with user profile from api call
@@ -217,6 +230,19 @@ export const Navbar = () => {
 };
 
 export const GeneralNavbar = () => {
+  const {
+    setCurrentColor,
+    setCurrentMode,
+    currentMode,
+    screenSize,
+    setActiveMenu,
+    setScreenSize,
+    activeMenu,
+    currentColor,
+    themeSettings,
+    setThemeSettings,
+  } = useContext(SelectedHostelContext);
+
   const [active, setActive] = useState("/");
 
   useEffect(() => {
@@ -308,7 +334,11 @@ export const GeneralNavbar = () => {
                 <ProfileContainer>
                   <NotificationIcon whileTap={{ scale: 0.8 }}>
                     <div>
-                      <img height="22px" src={notificationIcon} />
+                      <img
+                        className="notificationBell"
+                        height="22px"
+                        src={notificationIcon}
+                      />
                     </div>
                   </NotificationIcon>
                   <ToggleContainer>
@@ -318,6 +348,7 @@ export const GeneralNavbar = () => {
                       }}
                     >
                       <motion.img
+                        className="img"
                         src={userProfilePicture || avatar}
                         height="46px"
                         whileTap={{ scale: 0.8 }}
