@@ -38,6 +38,16 @@ export const SelectedHostelContextProvider = ({ children }) => {
   return (
     <SelectedHostelContext.Provider
       value={{
+        screenSize,
+        setScreenSize,
+        currentColor,
+        setCurrentColor,
+        activeMenu,
+        setActiveMenu,
+        isClicked,
+        setIsClicked,
+        currentMode,
+        setCurrentMode,
         propertyType,
         setPropertyType,
         roomType,
