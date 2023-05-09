@@ -306,12 +306,17 @@ export const GeneralNavbar = () => {
                     <NotificationCount>6</NotificationCount>
                     <NotificationIcon whileTap={{ scale: 0.8 }}>
                       <div>
-                        <img height="22px" src={notificationIcon} />
+                        <img
+                          height="22px"
+                          className="notificationBell "
+                          src={notificationIcon}
+                        />
                       </div>
                     </NotificationIcon>
                   </Link>
                   <ProfilePicture>
                     <motion.img
+                      className="img "
                       src={userProfilePicture || avatar}
                       height="46px"
                       whileTap={{ scale: 0.8 }}
@@ -335,7 +340,7 @@ export const GeneralNavbar = () => {
                   <NotificationIcon whileTap={{ scale: 0.8 }}>
                     <div>
                       <img
-                        className="notificationBell"
+                        className="notificationBell "
                         height="22px"
                         src={notificationIcon}
                       />
@@ -348,9 +353,8 @@ export const GeneralNavbar = () => {
                       }}
                     >
                       <motion.img
-                        className="img"
+                        className="img "
                         src={userProfilePicture || avatar}
-                        height="46px"
                         whileTap={{ scale: 0.8 }}
                       />
                     </ProfilePicture>
