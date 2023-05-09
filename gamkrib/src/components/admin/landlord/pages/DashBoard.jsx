@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Sidebar } from "../../utils/Sidebar";
 import { DashBoardNav, GeneralNavbar, Navbar } from "../../../navbar/Navbar";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 export const DashBoard = () => {
   const [activeMenu, setActiveMenu] = useState(true);
@@ -26,6 +27,7 @@ export const DashBoard = () => {
         <div className="fixed md:static bg-main-bg  w-full shadow-sm">
           <DashBoardNav />
         </div>
+        <Outlet />
       </div>
     </div>
   );

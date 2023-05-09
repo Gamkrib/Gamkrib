@@ -4,7 +4,7 @@ import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { SelectedHostelContext } from "../../../context/selectedPropertyContext/SelectedPropertyContextProvider";
-import { links } from "../../../utils/data/dummy";
+import { links } from "../utils/NavLinks";
 import { Logo } from "../../../utils/modules/Logo";
 import logo from "../../../asserts/conrImages/GAMKRIBLogoBig.webp";
 
@@ -56,7 +56,7 @@ export const Sidebar = () => {
                 </p>
                 {item.links.map((link) => (
                   <NavLink
-                    to={`/${link.name}`}
+                    to={`/dashboard/${link.link}`}
                     key={link.name}
                     onClick={handleCloseSideBar}
                     style={({ isActive }) => ({

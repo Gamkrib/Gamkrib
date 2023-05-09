@@ -18,6 +18,12 @@ import { AdminContainer } from "../admin/home/AdminContainer";
 import { ProductDetails } from "../productDetails/ProductDetails";
 import { DashBoard } from "../admin/landlord/pages/DashBoard";
 
+import { Listing } from "../../components/admin/landlord/pages/Listing";
+import { Sales } from "../../components/admin/landlord/pages/Sales";
+import { Payment } from "../../components/admin/landlord/pages/Payment";
+import { Review } from "../../components/admin/landlord/pages/Review";
+import { General } from "../../components/admin/landlord/pages/General";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +74,13 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <DashBoard />,
+    children: [
+      { index: true, element: <General /> },
+      { path: "listing", element: <Listing /> },
+      { path: "sales", element: <Sales /> },
+      { path: "payment", element: <Payment /> },
+      { path: "review", element: <Review /> },
+    ],
   },
 
   {
