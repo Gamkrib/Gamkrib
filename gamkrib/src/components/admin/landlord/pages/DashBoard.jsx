@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Sidebar } from "../../utils/Sidebar";
-import { GeneralNavbar, Navbar } from "../../../navbar/Navbar";
+import { DashBoardNav, GeneralNavbar, Navbar } from "../../../navbar/Navbar";
 
 export const DashBoard = () => {
   const [activeMenu, setActiveMenu] = useState(true);
 
   return (
-    <div className="flex relative dark:bg-main-dark-bg">
+    <div className="flex relative  dark:bg-main-dark-bg">
       {activeMenu ? (
-        <div className="w-72 fixed sidebar  bg-white ">
+        <div className="w-72 fixed shadow sidebar  bg-white ">
           <Sidebar />
         </div>
       ) : (
@@ -23,8 +23,8 @@ export const DashBoard = () => {
             : "bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 "
         }
       >
-        <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg  w-full ">
-          <GeneralNavbar />
+        <div className="fixed md:static bg-main-bg  w-full shadow-sm">
+          <DashBoardNav />
         </div>
       </div>
     </div>
