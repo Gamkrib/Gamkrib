@@ -5,6 +5,8 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { SelectedHostelContext } from "../../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 import { links } from "../../../utils/data/dummy";
+import { Logo } from "../../../utils/modules/Logo";
+import logo from "../../../asserts/conrImages/GAMKRIBLogoBig.webp";
 
 export const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useContext(
@@ -18,21 +20,22 @@ export const Sidebar = () => {
   };
 
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 no-underline rounded-lg  text-white  text-md m-2";
   const normalLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 no-underline rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
 
   return (
-    <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+    <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto  pb-10">
       {activeMenu && (
         <>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between  items-center">
             <Link
               to="/dashboard"
               onClick={handleCloseSideBar}
-              className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
+              className="items-center gap-3 ml-3 mt-4 no-underline flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
-              <SiShopware /> <span>Shoppy</span>
+              <img src={logo} height="40px" className="w-[40px]" />
+              <span>Gamkrib</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
@@ -48,7 +51,7 @@ export const Sidebar = () => {
           <div className="mt-10 ">
             {links.map((item) => (
               <div key={item.title}>
-                <p className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase">
+                <p className="text-gray-400 dark:text-gray-400 m-3 mt-4 no-underline uppercase">
                   {item.title}
                 </p>
                 {item.links.map((link) => (
