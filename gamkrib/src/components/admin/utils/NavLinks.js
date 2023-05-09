@@ -7,6 +7,7 @@ import { BiWalletAlt } from "react-icons/bi";
 import { RiContactsLine } from "react-icons/ri";
 import { MdOutlineHelpOutline, MdOutlineInsertChart } from "react-icons/md";
 
+//  this components loops through the navlinks and prints them on the sidebar
 export const links = [
   {
     title: "Dashboard",
