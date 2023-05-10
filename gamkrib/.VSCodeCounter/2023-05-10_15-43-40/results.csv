@@ -1,0 +1,82 @@
+"filename", "language", "JavaScript", "JSON", "CSS", "Markdown", "HTML", "XML", "JavaScript JSX", "comment", "blank", "total"
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\README.md", "Markdown", 0, 0, 0, 38, 0, 0, 0, 0, 33, 71
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\package.json", "JSON", 0, 62, 0, 0, 0, 0, 0, 0, 1, 63
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\postcss.config.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\public\index.html", "HTML", 0, 0, 0, 0, 17, 0, 0, 23, 3, 43
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\public\manifest.json", "JSON", 0, 25, 0, 0, 0, 0, 0, 0, 1, 26
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\App.css", "CSS", 0, 0, 56, 0, 0, 0, 0, 1, 13, 70
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\App.js", "JavaScript", 28, 0, 0, 0, 0, 0, 0, 1, 5, 34
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\aboutus\AboutUs.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\data\DummyData.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 18489, 12, 1, 18502
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\home\AdminContainer.js", "JavaScript", 13, 0, 0, 0, 0, 0, 0, 0, 2, 15
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pageStyles\dashboard.css", "CSS", 0, 0, 50, 0, 0, 0, 0, 0, 10, 60
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\DashBoard.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 32, 0, 3, 35
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\General.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 172, 0, 3, 175
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Listing.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 4, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Payment.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 4, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Review.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 4, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Sales.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 104, 0, 5, 109
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\listining\Listing.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 4, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\utils\NavLinks.js", "JavaScript", 53, 0, 0, 0, 0, 0, 0, 1, 5, 59
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\utils\Sidebar.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 76, 1, 5, 82
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\FormStyles.js", "JavaScript", 33, 0, 0, 0, 0, 0, 0, 0, 9, 42
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\LandLordSignUp.js", "JavaScript", 215, 0, 0, 0, 0, 0, 0, 7, 23, 245
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\LoginPage.js", "JavaScript", 124, 0, 0, 0, 0, 0, 0, 9, 17, 150
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\StudentSignUp.js", "JavaScript", 296, 0, 0, 0, 0, 0, 0, 10, 30, 336
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\auth.css", "CSS", 0, 0, 6, 0, 0, 0, 0, 0, 1, 7
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\cards\Modules\PopUpCardTemplate.js", "JavaScript", 49, 0, 0, 0, 0, 0, 0, 4, 7, 60
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\email\EmailSubscriptions.js", "JavaScript", 27, 0, 0, 0, 0, 0, 0, 0, 2, 29
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\error\ErrorPage.js", "JavaScript", 14, 0, 0, 0, 0, 0, 0, 0, 3, 17
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\featured\Featured.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\footer\Footer.js", "JavaScript", 65, 0, 0, 0, 0, 0, 0, 1, 8, 74
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\help\FrequentlyAskedQuestions.js", "JavaScript", 80, 0, 0, 0, 0, 0, 0, 0, 10, 90
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\help\Help.js", "JavaScript", 70, 0, 0, 0, 0, 0, 0, 0, 8, 78
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\help\accordien.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 2, 2
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\FeaturedProperties.js", "JavaScript", 74, 0, 0, 0, 0, 0, 0, 1, 11, 86
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\LandingPage.js", "JavaScript", 59, 0, 0, 0, 0, 0, 0, 0, 5, 64
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\PropertyManagers.js", "JavaScript", 31, 0, 0, 0, 0, 0, 0, 0, 3, 34
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\PropetyType.js", "JavaScript", 57, 0, 0, 0, 0, 0, 0, 0, 5, 62
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\Testimonies.js", "JavaScript", 57, 0, 0, 0, 0, 0, 0, 1, 7, 65
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\WhyGamkrib.js", "JavaScript", 66, 0, 0, 0, 0, 0, 0, 0, 3, 69
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\landingStyles.js", "JavaScript", 52, 0, 0, 0, 0, 0, 0, 1, 13, 66
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\swiper.css", "CSS", 0, 0, 20, 0, 0, 0, 0, 14, 16, 50
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\navbar\Navbar.js", "JavaScript", 547, 0, 0, 0, 0, 0, 0, 8, 45, 600
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\navbar\navbar.css", "CSS", 0, 0, 3, 0, 0, 0, 0, 1, 4, 8
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\navbar\navbarStyles.js", "JavaScript", 92, 0, 0, 0, 0, 0, 0, 11, 15, 118
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\notification\NotificationComponent.js", "JavaScript", 107, 0, 0, 0, 0, 0, 0, 2, 14, 123
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\productDetails\ProductDetails.js", "JavaScript", 13, 0, 0, 0, 0, 0, 0, 0, 2, 15
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\ApartmentComponent.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\HomestelComponent.js", "JavaScript", 53, 0, 0, 0, 0, 0, 0, 0, 8, 61
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\HostelComponent.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\ListProperties.js", "JavaScript", 52, 0, 0, 0, 0, 0, 0, 0, 5, 57
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\router\IndexComponent.js", "JavaScript", 90, 0, 0, 0, 0, 0, 0, 0, 7, 97
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\script\script.js", "JavaScript", 14, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\searchAndFilterContainer\FilerProperty.js", "JavaScript", 500, 0, 0, 0, 0, 0, 0, 5, 47, 552
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\searchAndFilterContainer\SearchBar.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 0, 2, 11
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\searchAndFilterContainer\filter.css", "CSS", 0, 0, 16, 0, 0, 0, 0, 0, 3, 19
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\context\MockApiContext.js", "JavaScript", 38, 0, 0, 0, 0, 0, 0, 6, 12, 56
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\context\mock\MockNotification.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 0, 3, 12
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\context\selectedPropertyContext\SelectedPropertyContextProvider.js", "JavaScript", 55, 0, 0, 0, 0, 0, 0, 1, 9, 65
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\customComponetns\BigButton.js", "JavaScript", 27, 0, 0, 0, 0, 0, 0, 0, 3, 30
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\customComponetns\Card.js", "JavaScript", 60, 0, 0, 0, 0, 0, 0, 0, 8, 68
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\customComponetns\RectangularCard.js", "JavaScript", 51, 0, 0, 0, 0, 0, 0, 0, 4, 55
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\index.css", "CSS", 0, 0, 17, 0, 0, 0, 0, 0, 11, 28
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\index.js", "JavaScript", 14, 0, 0, 0, 0, 0, 0, 3, 5, 22
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\colors.js", "JavaScript", 47, 0, 0, 0, 0, 0, 0, 0, 1, 48
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\fonts.js", "JavaScript", 21, 0, 0, 0, 0, 0, 0, 0, 3, 24
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\index.js", "JavaScript", 14, 0, 0, 0, 0, 0, 0, 0, 2, 16
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\sizes.js", "JavaScript", 12, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\spacing.js", "JavaScript", 5, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\data\dummy.js", "JavaScript", 5644, 0, 0, 0, 0, 0, 0, 0, 107, 5751
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\data\welcome-bg.svg", "XML", 0, 0, 0, 0, 0, 12, 0, 0, 0, 12
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\ErrorText.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 0, 4, 14
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\PhoneInputField.js", "JavaScript", 26, 0, 0, 0, 0, 0, 0, 0, 3, 29
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\SelectComponent.js", "JavaScript", 32, 0, 0, 0, 0, 0, 0, 1, 4, 37
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\phoneField.css", "CSS", 0, 0, 18, 0, 0, 0, 0, 0, 8, 26
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\selectComp.css", "CSS", 0, 0, 11, 0, 0, 0, 0, 0, 4, 15
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\modules\Logo.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 0, 3, 13
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\modules\SpacerComponent.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\modules\modules.js", "JavaScript", 65, 0, 0, 0, 0, 0, 0, 6, 12, 83
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\searchModel\SearchComponent.js", "JavaScript", 150, 0, 0, 0, 0, 0, 0, 4, 27, 181
+"e:\codes\Professional Jobs\Gamkrib-1\gamkrib\tailwind.config.js", "JavaScript", 47, 0, 0, 0, 0, 0, 0, 0, 1, 48
+"Total", "-", 9305, 87, 197, 38, 17, 12, 18889, 135, 683, 29363

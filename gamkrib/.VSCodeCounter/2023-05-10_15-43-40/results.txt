@@ -1,0 +1,151 @@
+Date : 2023-05-10 15:43:40
+Directory : e:\codes\Professional Jobs\Gamkrib-1\gamkrib
+Total : 80 files,  28545 codes, 135 comments, 683 blanks, all 29363 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JavaScript JSX |          9 |     18,889 |         13 |         25 |     18,927 |
+| JavaScript     |         56 |      9,305 |         83 |        548 |      9,936 |
+| CSS            |         10 |        197 |         16 |         72 |        285 |
+| JSON           |          2 |         87 |          0 |          2 |         89 |
+| Markdown       |          1 |         38 |          0 |         33 |         71 |
+| HTML           |          1 |         17 |         23 |          3 |         43 |
+| XML            |          1 |         12 |          0 |          0 |         12 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                   |         80 |     28,545 |        135 |        683 |     29,363 |
+| . (Files)                                                                                                           |          4 |        153 |          0 |         36 |        189 |
+| public                                                                                                              |          2 |         42 |         23 |          4 |         69 |
+| src                                                                                                                 |         74 |     28,350 |        112 |        643 |     29,105 |
+| src (Files)                                                                                                         |          4 |        115 |          5 |         34 |        154 |
+| src\components                                                                                                      |         48 |     21,914 |         89 |        386 |     22,389 |
+| src\components\aboutus                                                                                              |          1 |          4 |          0 |          2 |          6 |
+| src\components\admin                                                                                                |         12 |     19,005 |         14 |         42 |     19,061 |
+| src\components\admin\data                                                                                           |          1 |     18,489 |         12 |          1 |     18,502 |
+| src\components\admin\home                                                                                           |          1 |         13 |          0 |          2 |         15 |
+| src\components\admin\landlord                                                                                       |          7 |        370 |          0 |         27 |        397 |
+| src\components\admin\landlord\pageStyles                                                                            |          1 |         50 |          0 |         10 |         60 |
+| src\components\admin\landlord\pages                                                                                 |          6 |        320 |          0 |         17 |        337 |
+| src\components\admin\listining                                                                                      |          1 |          4 |          0 |          2 |          6 |
+| src\components\admin\utils                                                                                          |          2 |        129 |          2 |         10 |        141 |
+| src\components\auth                                                                                                 |          5 |        674 |         26 |         80 |        780 |
+| src\components\cards                                                                                                |          1 |         49 |          4 |          7 |         60 |
+| src\components\cards\Modules                                                                                        |          1 |         49 |          4 |          7 |         60 |
+| src\components\email                                                                                                |          1 |         27 |          0 |          2 |         29 |
+| src\components\error                                                                                                |          1 |         14 |          0 |          3 |         17 |
+| src\components\featured                                                                                             |          1 |          6 |          0 |          2 |          8 |
+| src\components\footer                                                                                               |          1 |         65 |          1 |          8 |         74 |
+| src\components\help                                                                                                 |          3 |        150 |          0 |         20 |        170 |
+| src\components\home                                                                                                 |          8 |        416 |         17 |         63 |        496 |
+| src\components\navbar                                                                                               |          3 |        642 |         20 |         64 |        726 |
+| src\components\notification                                                                                         |          1 |        107 |          2 |         14 |        123 |
+| src\components\productDetails                                                                                       |          1 |         13 |          0 |          2 |         15 |
+| src\components\properties                                                                                           |          4 |        113 |          0 |         17 |        130 |
+| src\components\router                                                                                               |          1 |         90 |          0 |          7 |         97 |
+| src\components\script                                                                                               |          1 |         14 |          0 |          1 |         15 |
+| src\components\searchAndFilterContainer                                                                             |          3 |        525 |          5 |         52 |        582 |
+| src\context                                                                                                         |          3 |        102 |          7 |         24 |        133 |
+| src\context (Files)                                                                                                 |          1 |         38 |          6 |         12 |         56 |
+| src\context\mock                                                                                                    |          1 |          9 |          0 |          3 |         12 |
+| src\context\selectedPropertyContext                                                                                 |          1 |         55 |          1 |          9 |         65 |
+| src\customComponetns                                                                                                |          3 |        138 |          0 |         15 |        153 |
+| src\theme                                                                                                           |          5 |         99 |          0 |         10 |        109 |
+| src\utils                                                                                                           |         11 |      5,982 |         11 |        174 |      6,167 |
+| src\utils\data                                                                                                      |          2 |      5,656 |          0 |        107 |      5,763 |
+| src\utils\formModules                                                                                               |          5 |         97 |          1 |         23 |        121 |
+| src\utils\modules                                                                                                   |          3 |         79 |          6 |         17 |        102 |
+| src\utils\searchModel                                                                                               |          1 |        150 |          4 |         27 |        181 |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                                            | language       | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\README.md                                                              | Markdown       |         38 |          0 |         33 |         71 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\package.json                                                           | JSON           |         62 |          0 |          1 |         63 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\postcss.config.js                                                      | JavaScript     |          6 |          0 |          1 |          7 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\public\index.html                                                      | HTML           |         17 |         23 |          3 |         43 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\public\manifest.json                                                   | JSON           |         25 |          0 |          1 |         26 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\App.css                                                            | CSS            |         56 |          1 |         13 |         70 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\App.js                                                             | JavaScript     |         28 |          1 |          5 |         34 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\aboutus\AboutUs.js                                      | JavaScript     |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\data\DummyData.jsx                                | JavaScript JSX |     18,489 |         12 |          1 |     18,502 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\home\AdminContainer.js                            | JavaScript     |         13 |          0 |          2 |         15 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pageStyles\dashboard.css                 | CSS            |         50 |          0 |         10 |         60 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\DashBoard.jsx                      | JavaScript JSX |         32 |          0 |          3 |         35 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\General.jsx                        | JavaScript JSX |        172 |          0 |          3 |        175 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Listing.jsx                        | JavaScript JSX |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Payment.jsx                        | JavaScript JSX |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Review.jsx                         | JavaScript JSX |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\landlord\pages\Sales.jsx                          | JavaScript JSX |        104 |          0 |          5 |        109 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\listining\Listing.jsx                             | JavaScript JSX |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\utils\NavLinks.js                                 | JavaScript     |         53 |          1 |          5 |         59 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\admin\utils\Sidebar.jsx                                 | JavaScript JSX |         76 |          1 |          5 |         82 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\FormStyles.js                                      | JavaScript     |         33 |          0 |          9 |         42 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\LandLordSignUp.js                                  | JavaScript     |        215 |          7 |         23 |        245 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\LoginPage.js                                       | JavaScript     |        124 |          9 |         17 |        150 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\StudentSignUp.js                                   | JavaScript     |        296 |         10 |         30 |        336 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\auth\auth.css                                           | CSS            |          6 |          0 |          1 |          7 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\cards\Modules\PopUpCardTemplate.js                      | JavaScript     |         49 |          4 |          7 |         60 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\email\EmailSubscriptions.js                             | JavaScript     |         27 |          0 |          2 |         29 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\error\ErrorPage.js                                      | JavaScript     |         14 |          0 |          3 |         17 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\featured\Featured.js                                    | JavaScript     |          6 |          0 |          2 |          8 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\footer\Footer.js                                        | JavaScript     |         65 |          1 |          8 |         74 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\help\FrequentlyAskedQuestions.js                        | JavaScript     |         80 |          0 |         10 |         90 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\help\Help.js                                            | JavaScript     |         70 |          0 |          8 |         78 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\help\accordien.css                                      | CSS            |          0 |          0 |          2 |          2 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\FeaturedProperties.js                              | JavaScript     |         74 |          1 |         11 |         86 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\LandingPage.js                                     | JavaScript     |         59 |          0 |          5 |         64 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\PropertyManagers.js                                | JavaScript     |         31 |          0 |          3 |         34 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\PropetyType.js                                     | JavaScript     |         57 |          0 |          5 |         62 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\Testimonies.js                                     | JavaScript     |         57 |          1 |          7 |         65 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\WhyGamkrib.js                                      | JavaScript     |         66 |          0 |          3 |         69 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\landingStyles.js                                   | JavaScript     |         52 |          1 |         13 |         66 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\home\swiper.css                                         | CSS            |         20 |         14 |         16 |         50 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\navbar\Navbar.js                                        | JavaScript     |        547 |          8 |         45 |        600 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\navbar\navbar.css                                       | CSS            |          3 |          1 |          4 |          8 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\navbar\navbarStyles.js                                  | JavaScript     |         92 |         11 |         15 |        118 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\notification\NotificationComponent.js                   | JavaScript     |        107 |          2 |         14 |        123 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\productDetails\ProductDetails.js                        | JavaScript     |         13 |          0 |          2 |         15 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\ApartmentComponent.js                        | JavaScript     |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\HomestelComponent.js                         | JavaScript     |         53 |          0 |          8 |         61 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\HostelComponent.js                           | JavaScript     |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\properties\ListProperties.js                            | JavaScript     |         52 |          0 |          5 |         57 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\router\IndexComponent.js                                | JavaScript     |         90 |          0 |          7 |         97 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\script\script.js                                        | JavaScript     |         14 |          0 |          1 |         15 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\searchAndFilterContainer\FilerProperty.js               | JavaScript     |        500 |          5 |         47 |        552 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\searchAndFilterContainer\SearchBar.js                   | JavaScript     |          9 |          0 |          2 |         11 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\components\searchAndFilterContainer\filter.css                     | CSS            |         16 |          0 |          3 |         19 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\context\MockApiContext.js                                          | JavaScript     |         38 |          6 |         12 |         56 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\context\mock\MockNotification.js                                   | JavaScript     |          9 |          0 |          3 |         12 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\context\selectedPropertyContext\SelectedPropertyContextProvider.js | JavaScript     |         55 |          1 |          9 |         65 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\customComponetns\BigButton.js                                      | JavaScript     |         27 |          0 |          3 |         30 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\customComponetns\Card.js                                           | JavaScript     |         60 |          0 |          8 |         68 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\customComponetns\RectangularCard.js                                | JavaScript     |         51 |          0 |          4 |         55 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\index.css                                                          | CSS            |         17 |          0 |         11 |         28 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\index.js                                                           | JavaScript     |         14 |          3 |          5 |         22 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\colors.js                                                    | JavaScript     |         47 |          0 |          1 |         48 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\fonts.js                                                     | JavaScript     |         21 |          0 |          3 |         24 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\index.js                                                     | JavaScript     |         14 |          0 |          2 |         16 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\sizes.js                                                     | JavaScript     |         12 |          0 |          2 |         14 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\theme\spacing.js                                                   | JavaScript     |          5 |          0 |          2 |          7 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\data\dummy.js                                                | JavaScript     |      5,644 |          0 |        107 |      5,751 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\data\welcome-bg.svg                                          | XML            |         12 |          0 |          0 |         12 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\ErrorText.js                                     | JavaScript     |         10 |          0 |          4 |         14 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\PhoneInputField.js                               | JavaScript     |         26 |          0 |          3 |         29 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\SelectComponent.js                               | JavaScript     |         32 |          1 |          4 |         37 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\phoneField.css                                   | CSS            |         18 |          0 |          8 |         26 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\formModules\selectComp.css                                   | CSS            |         11 |          0 |          4 |         15 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\modules\Logo.js                                              | JavaScript     |         10 |          0 |          3 |         13 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\modules\SpacerComponent.js                                   | JavaScript     |          4 |          0 |          2 |          6 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\modules\modules.js                                           | JavaScript     |         65 |          6 |         12 |         83 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\src\utils\searchModel\SearchComponent.js                               | JavaScript     |        150 |          4 |         27 |        181 |
+| e:\codes\Professional Jobs\Gamkrib-1\gamkrib\tailwind.config.js                                                     | JavaScript     |         47 |          0 |          1 |         48 |
+| Total                                                                                                               |                |     28,545 |        135 |        683 |     29,363 |
++---------------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

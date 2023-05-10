@@ -43,12 +43,13 @@ const SAMPLE_CSS = `
          align :center
      }`;
 
-export const Sales = () => {
+export const Sales = (props) => {
   return (
     <div className="control-pane">
       <style>{SAMPLE_CSS}</style>
       <div className="control-section">
         <StockChartComponent
+          height={props.width ? props.width : "800px"}
           id="stockchartspline"
           primaryXAxis={{
             valueType: "DateTime",
