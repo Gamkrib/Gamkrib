@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+// import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { SelectedHostelContext } from "../../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 import { links } from "../utils/NavLinks";
 import { Logo } from "../../../utils/modules/Logo";
@@ -37,7 +37,7 @@ export const Sidebar = () => {
               <img src={logo} height="40px" className="w-[40px]" />
               <span>Gamkrib</span>
             </Link>
-            <TooltipComponent content="Menu" position="BottomCenter">
+            <div content="Menu" position="BottomCenter">
               <button
                 type="button"
                 onClick={() => setActiveMenu(!activeMenu)}
@@ -46,7 +46,7 @@ export const Sidebar = () => {
               >
                 <MdOutlineCancel />
               </button>
-            </TooltipComponent>
+            </div>
           </div>
           <div className="mt-10 ">
             {links.map((item) => (
