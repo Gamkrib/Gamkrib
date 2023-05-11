@@ -8,6 +8,8 @@ import { links } from "../utils/NavLinks";
 import { Logo } from "../../../utils/modules/Logo";
 import logo from "../../../asserts/conrImages/GAMKRIBLogoBig.webp";
 
+// there is tailwind in the component for specific use
+import "../landlord/pageStyles/taileindInit.css";
 export const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useContext(
     SelectedHostelContext

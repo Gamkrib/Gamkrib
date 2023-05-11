@@ -1,19 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
 * {
   margin: 0;
 }
-
 
 img,
 video {
   max-width: 100%;
   height: auto
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 
 .img {

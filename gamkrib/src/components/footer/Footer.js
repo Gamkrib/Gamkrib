@@ -8,7 +8,7 @@ import instagram from "../../asserts/socialMediaIcons/Vector-1.png";
 import whatsApp from "../../asserts/socialMediaIcons/Vector-2.png";
 import facebook from "../../asserts/socialMediaIcons/Vector.png";
 import { NavLinks } from "../navbar/navbarStyles";
-
+import "../../disaplePreflight.css";
 export const Footer = () => {
   let year = new Date();
 
