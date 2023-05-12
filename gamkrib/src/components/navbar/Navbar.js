@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   CustomLink,
+  DashBoardNavContainer,
   GreenBtn,
   GreenBtnOutine,
   NavContainer,
@@ -476,7 +477,7 @@ export const DashBoardNav = () => {
 
   return (
     <>
-      <NavContainer>
+      <DashBoardNavContainer>
         <Container>
           <LogoContainer whileTap={{ scale: 0.6 }}></LogoContainer>
           <ComponentContainer>
@@ -591,7 +592,7 @@ export const DashBoardNav = () => {
             </UserContainer>
           </PhoneContainer>
         </Container>
-      </NavContainer>
+      </DashBoardNavContainer>
     </>
   );
 };
