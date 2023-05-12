@@ -8,13 +8,16 @@ import instagram from "../../asserts/socialMediaIcons/Vector-1.png";
 import whatsApp from "../../asserts/socialMediaIcons/Vector-2.png";
 import facebook from "../../asserts/socialMediaIcons/Vector.png";
 import { NavLinks } from "../navbar/navbarStyles";
-import "../../disaplePreflight.css";
+
+import "../admin/landlord/pageStyles/taileindInit.css";
+
 export const Footer = () => {
   let year = new Date();
 
   return (
-    <FooterContainer>
+    <FooterContainer className="unreset">
       <CenteredContainer
+        className="unreset"
         style={{
           borderBottom: "1px solid #fff ",
           marginLeft: 20,
@@ -27,7 +30,7 @@ export const Footer = () => {
           <ModifiedNavLinks>FAQs</ModifiedNavLinks>
           <ModifiedNavLinks to={`/help`}>Help Center</ModifiedNavLinks>
         </ModifiedDescriptionText>
-        <div>
+        <div className="unreset  " style={{ display: "flex" }}>
           <SocialIcon src={twitter} />
           <SocialIcon src={instagram} />
           <SocialIcon src={facebook} />

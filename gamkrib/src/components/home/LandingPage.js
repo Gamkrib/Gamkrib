@@ -8,6 +8,8 @@ import {
   SmallText,
 } from "./landingStyles";
 
+import "../admin/landlord/pageStyles/taileindInit.css";
+
 import landingImage from "../../asserts/images/Frame299.png";
 import { WhyGamkrib } from "./WhyGamkrib";
 import { Card } from "../../customComponetns/Card";

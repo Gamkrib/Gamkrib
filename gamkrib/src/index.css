@@ -12,7 +12,7 @@ video {
 @tailwind components;
 @tailwind utilities;
 
-
+@import './unreset.scss';
 
 .img {
 
