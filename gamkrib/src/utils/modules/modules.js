@@ -48,7 +48,9 @@ export const NavContainer = styled.div`
   }
 `;
 export const DashBoardNavContainer = styled.div`
-  margin: 1.313rem 4.688rem;
+  margin: 0 4.688rem;
+  padding-top: 1.134rem;
+  justify-content: center;
   @media (max-width: 768px) {
     margin: 0.313rem 0.688rem;
   }
