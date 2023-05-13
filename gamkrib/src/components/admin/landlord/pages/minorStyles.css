@@ -1,0 +1,24 @@
+.isActiveColor {
+    background-color: #30D158;
+    color: white
+}
+
+.isActiveColor1 {
+    background-color: #FFB800;
+    color: white
+}
+
+.isActiveColor2 {
+    background-color: #FF0000;
+    color: white
+}
+
+.isActiveColor3 {
+    background-color: #B8D6B0;
+    color: white
+}
+
+.notActiveColor {
+
+    background-color: #F2F5F0;
+}
