@@ -7,7 +7,7 @@ export const DashBoard = () => {
   const [activeMenu, setActiveMenu] = useState(true);
 
   return (
-    <div className="flex relative  bg-main-dark-bg">
+    <div className="flex relative bg-[#f3f4f6] ">
       {activeMenu ? (
         <div className="w-72 fixed shadow sidebar  bg-white ">
           <Sidebar />
@@ -24,7 +24,7 @@ export const DashBoard = () => {
             : "bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 "
         }
       >
-        <div className="fixed md:static bg-main-bg  w-full shadow-sm">
+        <div className="fixed md:static  w-full  ">
           <DashBoardNav />
           <Outlet />
         </div>

@@ -48,9 +48,12 @@ export const NavContainer = styled.div`
   }
 `;
 export const DashBoardNavContainer = styled.div`
-  margin: 0 4.688rem;
-  padding-top: 1.134rem;
-  justify-content: center;
+  padding: 0.9rem 4.688rem;
+  box-shadow: -3px 5px 5px -1px rgba(0, 0, 0, 0.11);
+  -webkit-box-shadow: -3px 5px 5px -1px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: -3px 5px 5px -1px rgba(0, 0, 0, 0.11);
+
+  background-color: white;
   @media (max-width: 768px) {
     margin: 0.313rem 0.688rem;
   }
