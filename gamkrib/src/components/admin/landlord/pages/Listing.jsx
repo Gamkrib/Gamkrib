@@ -1,10 +1,21 @@
 import React from "react";
 import { HeaderText, ParentContainer } from "../../../../utils/modules/modules";
+import styled from "styled-components";
 
 export const Listing = () => {
   return (
     <div style={{ backgroundColor: "#f3f4f6", height: "100vh", marginTop: 0 }}>
-      <ParentContainer></ParentContainer>
+      <DashboardContainer>
+        <HeaderText>Now let the game begin</HeaderText>
+      </DashboardContainer>
     </div>
   );
 };
+
+const DashboardContainer = styled.div`
+  background-color: white;
+  margin: ${(p) => p.theme.space[3]};
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 85vh;
+`;
