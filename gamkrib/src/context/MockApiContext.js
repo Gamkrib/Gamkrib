@@ -29,7 +29,9 @@ export const MockApiContextProvider = ({ children }) => {
   }, [api2]);
 
   const [mockHotel, setMockHotel] = useState("");
-  useEffect(() => {
+  useEffect(() => {  
+
+    
     (async () => {
       let data = await fetch(api, options);
 

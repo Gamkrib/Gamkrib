@@ -94,7 +94,7 @@ export const Listing = () => {
   );
 };
 
-const DashboardContainer = styled.div`
+export const DashboardContainer = styled.div`
   background-color: white;
   margin: ${(p) => p.theme.space[2]};
   border-radius: 1rem;
