@@ -23,6 +23,7 @@ import { Sales } from "../../components/admin/landlord/pages/Sales";
 import { Payment } from "../../components/admin/landlord/pages/Payment";
 import { Review } from "../../components/admin/landlord/pages/Review";
 import { General } from "../../components/admin/landlord/pages/General";
+import { ParentListing } from "../admin/landlord/pages/ParentListing";
 
 export const router = createBrowserRouter([
   {
@@ -76,7 +77,11 @@ export const router = createBrowserRouter([
     element: <DashBoard />,
     children: [
       { index: true, element: <General /> },
-      { path: "listing", element: <Listing /> },
+      {
+        path: "listing",
+        element: <ParentListing />,
+        children: [{ index: true, element: <Listing /> }],
+      },
       { path: "sales", element: <Sales /> },
       { path: "payment", element: <Payment /> },
       { path: "review", element: <Review /> },
