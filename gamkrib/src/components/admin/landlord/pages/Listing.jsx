@@ -16,6 +16,7 @@ import { colors } from "../../../../theme/colors";
 
 import "./minorStyles.css";
 import { Card } from "../../../../customComponetns/Card";
+import { Link } from "react-router-dom";
 
 export const Listing = () => {
   const { selectedList, isActive, setSelectedList, setIsActive } =
@@ -28,18 +29,20 @@ export const Listing = () => {
       <DashboardContainer>
         <FlexDiv>
           <HeaderText>My Listing </HeaderText>
-
-          <AddBtn
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 4,
-            }}
-          >
-            <MdOutlineAddBox size={24} />
-            New Listing
-          </AddBtn>
+          <Link to="propertyDetails">
+            <AddBtn
+              whileTap={{ scale: 0.9 }}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
+              <MdOutlineAddBox size={24} />
+              New Listing
+            </AddBtn>{" "}
+          </Link>
         </FlexDiv>
         <PropertyState>
           <PropertyBtn
