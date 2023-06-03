@@ -26,13 +26,19 @@
 }
 
 .imagepreview #dropArea {
-    border: 1px dashed #c3c3cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed #3eff6f;
+    border-radius: 15px;
     position: relative;
     text-align: center;
     padding-top: 20px;
     display: block;
     width: 100%;
+    min-height: 20rem;
     overflow: hidden;
+    background-color: #defae5;
 }
 
 .imagepreview #dropArea .e-upload .e-upload-files {
@@ -43,7 +49,7 @@
 .imagepreview #dropArea .e-upload-files .e-file-delete-btn.e-icons,
 .imagepreview #dropArea .e-upload-files .e-file-remove-btn.e-icons {
     top: 120px;
-    background-color: white;
+    background-color: #fafcfa;
     border-radius: 50%;
     font-size: 12px;
     left: 80px;
@@ -300,6 +306,7 @@
     .imagepreview .dropTarget .e-upload .e-upload-files .e-file-remove-btn.e-icons,
     .e-bigger .imagepreview .dropTarget .e-upload .e-upload-files .e-file-remove-btn.e-icons {
         padding: 18px 25px 18px 12px;
+
     }
 }
 
