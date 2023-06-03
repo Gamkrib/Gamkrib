@@ -31,15 +31,21 @@ import { TextError } from "../../../../../utils/formModules/ErrorText";
 import { SelectComponent } from "../../../../../utils/formModules/SelectComponent";
 import { PhoneInputField } from "../../../../../utils/formModules/PhoneInputField";
 import { SmallText } from "../../../../home/landingStyles";
+import { CustomBtnNxt, CustomBtnPrev } from "./PropertyDetetails";
 // import { MidText } from "../../utils/modules/modules";
 
 const MySwal = withReactContent(Swal);
 
 const initialValues = {
-  propertyName: "",
-  city: "",
-  houseNumber: "",
-  region: "",
+  roomType: "",
+  room: "",
+  roomSize: "",
+  school: "",
+  gender: "",
+  level: "",
+  phone: "",
+  password: "",
+  passwordConfirmation: "",
 };
 
 //get all values of the forms from this section
@@ -64,17 +70,13 @@ const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validationSchema = Yup.object({
-  propertyName: Yup.string()
+  roomType: Yup.string()
     .required("Required")
     .min(3, "must be at least 3 characters long"),
-  city: Yup.string()
-    .required("Required")
-    .min(3, "must be at least 3 characters long"),
-  houseNumber: Yup.string().required("Required"),
-  region: Yup.string().required("Required"),
-});
 
-export const PropertyDetails = () => {
+  roomSize: Yup.string().required("Required"),
+});
+export const RoomDetetails = () => {
   const [formValues, setFormValues] = useState(null);
 
   /*================== Dropdown Options  =========================*/
@@ -156,31 +158,29 @@ export const PropertyDetails = () => {
                 <Form>
                   <FormContainer>
                     <SelectComponent
-                      name="region"
-                      label="Region"
+                      name="roomType"
+                      label="What tpe of room is this?"
                       options={dropDownOptionsForSchool}
                     />
-                    <ErrorMessage name="region" component={TextError} />
+                    <ErrorMessage name="roomType" component={TextError} />
                   </FormContainer>
                   <FormContainer>
                     <StyledLabel htmlFor="firstName">
-                      Street Name and House number
+                      How many rooms fo this type do you have?
                     </StyledLabel>{" "}
                     <br />
-                    <StyledField type="text" id="name" name="houseNumber" />
-                    <ErrorMessage name="houseNumber" component={TextError} />
+                    <StyledField type="number" id="name" name="room" />
+                    <ErrorMessage name="room" component={TextError} />
                   </FormContainer>
                   <FormContainer>
-                    <StyledLabel htmlFor="city">City</StyledLabel> <br />
-                    <StyledField type="text" id="city" name="city" />
-                    <ErrorMessage name="city" component={TextError} />
-                  </FormContainer>
-                  <FormContainer>
-                    <StyledLabel htmlFor="email">Property Name</StyledLabel>
+                    <StyledLabel htmlFor="roomSize">
+                      How big is this room ? (Optional)
+                    </StyledLabel>{" "}
                     <br />
-                    <StyledField type="text" id="email" name="propertyName" />
-                    <ErrorMessage name="propertyName" component={TextError} />
+                    <StyledField type="text" id="city" name="roomSize" />
+                    <ErrorMessage name="roomSize" component={TextError} />
                   </FormContainer>
+
                   {/* <button type="button" onClick={() => setFormValues(savedValues)}>
                 Load saved data
               </button> */}
@@ -208,11 +208,3 @@ export const PropertyDetails = () => {
     </DashboardContainer>
   );
 };
-
-export const CustomBtnNxt = styled(CustomBtn)`
-  width: 60%;
-`;
-export const CustomBtnPrev = styled(CustomBtn)`
-  width: 30%;
-  background-color: #30cf72;
-`;
