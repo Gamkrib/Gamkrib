@@ -7,7 +7,7 @@ import {
 import { DashboardContainer } from "../../pages/Listing";
 
 import "../../../../auth/auth.css";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 
@@ -40,12 +40,9 @@ const initialValues = {
   roomType: "",
   room: "",
   roomSize: "",
-  school: "",
-  gender: "",
-  level: "",
-  phone: "",
+
   password: "",
-  passwordConfirmation: "",
+  bathRoom: "",
 };
 
 //get all values of the forms from this section
@@ -103,6 +100,7 @@ export const RoomDetetails = () => {
 
   /*=========xxx========= Dropdown Options  ============xxx=============*/
 
+  const options = ["Yes", "No"];
   return (
     <DashboardContainer>
       <div
@@ -180,6 +178,23 @@ export const RoomDetetails = () => {
                     <StyledField type="text" id="city" name="roomSize" />
                     <ErrorMessage name="roomSize" component={TextError} />
                   </FormContainer>
+                  <FormContainer>
+                    <div className="form-control">
+                      {options.map((option) => {
+                        return (
+                          <label htmlFor="bathroom">
+                            <Field
+                              type="radio"
+                              name="bathRoom"
+                              value={option}
+                            />
+                            {option}
+                          </label>
+                        );
+                      })}
+                      <ErrorMessage name="bathRoom" component={TextError} />
+                    </div>
+                  </FormContainer>
 
                   {/* <button type="button" onClick={() => setFormValues(savedValues)}>
                 Load saved data
@@ -189,7 +204,7 @@ export const RoomDetetails = () => {
                     <CustomBtnPrev type="button">Prev</CustomBtnPrev>
 
                     <CustomBtnNxt
-                      type="button"
+                      type="submit"
                       disabled={!formik.isValid || formik.isSubmitting}
                     >
                       Next
