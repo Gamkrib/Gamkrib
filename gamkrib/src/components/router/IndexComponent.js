@@ -25,6 +25,7 @@ import { Review } from "../../components/admin/landlord/pages/Review";
 import { General } from "../../components/admin/landlord/pages/General";
 import { ParentListing } from "../admin/landlord/pages/ParentListing";
 import { PropertyDetails } from "../admin/landlord/subPages/propertyListing/PropertyDetetails";
+import Preview from "../admin/landlord/subPages/propertyListing/imageUploader/ImagePrev";
 
 export const router = createBrowserRouter([
   {
@@ -84,6 +85,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <Listing /> },
           { path: "propertyDetails", element: <PropertyDetails /> },
+          { path: "preview", element: <Preview /> },
         ],
       },
       { path: "sales", element: <Sales /> },
