@@ -16,6 +16,8 @@ import {
   isNullOrUndefined,
   EventHandler,
 } from "@syncfusion/ej2-base";
+import { DashboardContainer } from "../../../pages/Listing";
+import { RiImageAddLine } from "react-icons/ri";
 
 function Preview() {
   React.useEffect(() => {
@@ -286,53 +288,70 @@ function Preview() {
     args.postRawFile = false;
   }
   return (
-    <div className="control-pane" ref={dropContainerRef}>
-      <div className="control-section" id="uploadpreview">
-        <div className="col-lg-9">
-          <div className="imagepreview">
-            <div id="dropArea" ref={dropAreaRef} className="dropTarget">
-              <span
-                id="dropimage"
-                ref={dropImageRef}
-                className="file-name-drop"
-              >
-                {" "}
-                Drop image (JPG, PNG) files here or{" "}
-                <a href="" id="browse">
-                  <u>Browse</u>
-                </a>{" "}
-              </span>
-              <UploaderComponent
-                id="previewfileupload"
-                type="file"
-                ref={(upload) => (uploadObj = upload)}
-                asyncSettings={asyncSettings}
-                success={onUploadSuccess.bind(this)}
-                selected={onSelect.bind(this)}
-                removing={onRemoveFile.bind(this)}
-                progress={onFileUpload.bind(this)}
-                failure={onUploadFailed.bind(this)}
-                allowedExtensions={allowedExtensions}
-              ></UploaderComponent>
+    <DashboardContainer>
+      <div className="control-pane" ref={dropContainerRef}>
+        <div className="control-section" id="uploadpreview">
+          <div className="col-lg-9">
+            <div className="imagepreview">
+              <div id="dropArea" ref={dropAreaRef} className="dropTarget">
+                <div
+                  style={{
+                    display: "flex",
+
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div>
+                    <span
+                      id="dropimage"
+                      ref={dropImageRef}
+                      className="file-name-drop"
+                    >
+                      {" "}
+                      Drop image (JPG, PNG) files here or{" "}
+                      <a href="" id="browse">
+                        <RiImageAddLine color={"#00ff40"} size={100} />
+                      </a>
+                    </span>
+                    <UploaderComponent
+                      id="previewfileupload"
+                      type="file"
+                      ref={(upload) => (uploadObj = upload)}
+                      asyncSettings={asyncSettings}
+                      success={onUploadSuccess.bind(this)}
+                      selected={onSelect.bind(this)}
+                      removing={onRemoveFile.bind(this)}
+                      progress={onFileUpload.bind(this)}
+                      failure={onUploadFailed.bind(this)}
+                      allowedExtensions={allowedExtensions}
+                    ></UploaderComponent>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="property-section uploader-panel col-lg-3">
-          <PropertyPane title="Properties">
-            <div className="panel-style">
-              <button className="e-btn e-css" id="clearbtn" title="Clear All">
-                Clear All
-              </button>
-            </div>
-            <div className="panel-style">
-              <button className="e-btn e-css" id="uploadbtn" title="Upload All">
-                Upload All
-              </button>
-            </div>
-          </PropertyPane>
+          <div className="property-section uploader-panel col-lg-3">
+            <PropertyPane title="">
+              <div className="panel-style">
+                <button className="e-btn e-css" id="clearbtn" title="Clear All">
+                  Clear All
+                </button>
+              </div>
+              <div className="panel-style">
+                <button
+                  className="e-btn e-css"
+                  id="uploadbtn"
+                  title="Upload All"
+                >
+                  Upload All
+                </button>
+              </div>
+            </PropertyPane>
+          </div>
         </div>
       </div>
-    </div>
+    </DashboardContainer>
   );
 }
 export default Preview;
