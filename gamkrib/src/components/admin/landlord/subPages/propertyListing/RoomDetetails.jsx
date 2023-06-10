@@ -32,6 +32,7 @@ import { SelectComponent } from "../../../../../utils/formModules/SelectComponen
 import { PhoneInputField } from "../../../../../utils/formModules/PhoneInputField";
 import { SmallText } from "../../../../home/landingStyles";
 import { CustomBtnNxt, CustomBtnPrev } from "./PropertyDetetails";
+import { BiBed } from "react-icons/bi";
 // import { MidText } from "../../utils/modules/modules";
 
 const MySwal = withReactContent(Swal);
@@ -40,9 +41,9 @@ const initialValues = {
   roomType: "",
   room: "",
   roomSize: "",
-
   password: "",
   bathRoom: "",
+  bedType: "",
 };
 
 //get all values of the forms from this section
@@ -100,7 +101,10 @@ export const RoomDetetails = () => {
 
   /*=========xxx========= Dropdown Options  ============xxx=============*/
 
-  const options = ["Yes", "No"];
+  //=========================radio options ==========================//
+  const options = ["Private", "Shared"];
+  const bedOptions = ["Full Bed", "Bunk Bed", "Twin Bed"];
+
   return (
     <DashboardContainer>
       <div
@@ -179,21 +183,43 @@ export const RoomDetetails = () => {
                     <ErrorMessage name="roomSize" component={TextError} />
                   </FormContainer>
                   <FormContainer>
-                    <div className="form-control">
+                    <StyledLabel>IS the room private or shared</StyledLabel>
+                    <RadioStyles>
                       {options.map((option) => {
                         return (
-                          <label htmlFor="bathroom">
+                          <label htmlFor={option}>
                             <Field
+                              id={option}
                               type="radio"
                               name="bathRoom"
                               value={option}
                             />
-                            {option}
+                            {` ${option} `}
                           </label>
                         );
                       })}
                       <ErrorMessage name="bathRoom" component={TextError} />
-                    </div>
+                    </RadioStyles>
+                  </FormContainer>
+                  <FormContainer>
+                    <StyledLabel>Select Bed Type</StyledLabel>
+                    <RadioStyles>
+                      {bedOptions.map((bedOption) => {
+                        return (
+                          <label htmlFor={bedOption} style={{}}>
+                            <Field
+                              id={bedOption}
+                              type="radio"
+                              name="bedType"
+                              value={bedOption}
+                            />
+
+                            {`  ${bedOption} `}
+                          </label>
+                        );
+                      })}
+                      <ErrorMessage name="bathRoom" component={TextError} />
+                    </RadioStyles>
                   </FormContainer>
 
                   {/* <button type="button" onClick={() => setFormValues(savedValues)}>
@@ -223,3 +249,9 @@ export const RoomDetetails = () => {
     </DashboardContainer>
   );
 };
+
+const RadioStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
