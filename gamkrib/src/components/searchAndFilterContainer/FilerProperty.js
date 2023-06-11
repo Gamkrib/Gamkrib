@@ -362,7 +362,7 @@ export const FilerProperty = () => {
                 </PropertyRating>
               </div>
               <div>
-                <HeadingText>Property Rating</HeadingText>
+                <HeadingText>Facilities </HeadingText>
 
                 <CheckGroup role="group" aria-labelledby="checkbox-group">
                   <CheckSubGroup>
@@ -522,13 +522,13 @@ const HeadingText = styled(MidText)`
 
 const FormContainer = styled.div``;
 
-const CheckGroup = styled.div`
+export const CheckGroup = styled.div`
   display: flex;
   width: 40rem;
   flex-direction: column;
 `;
 
-const CheckSubGroup = styled.div`
+export const CheckSubGroup = styled.div`
   display: flex;
   gap: 2rem;
 `;
