@@ -5,6 +5,7 @@
   "dependencies": {
     "@coreui/coreui": "^4.2.6",
     "@coreui/react": "^4.6.0",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@syncfusion/ej2-base": "^21.2.3",
     "@syncfusion/ej2-react-buttons": "^21.2.3",
     "@syncfusion/ej2-react-charts": "^21.2.4",
