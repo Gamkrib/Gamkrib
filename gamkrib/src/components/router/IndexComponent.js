@@ -29,6 +29,7 @@ import Preview from "../admin/landlord/subPages/propertyListing/imageUploader/Im
 import { RoomDetetails } from "../admin/landlord/subPages/propertyListing/RoomDetetails";
 import { RoomPricing } from "../admin/landlord/subPages/propertyListing/RoomPricing";
 import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/FacilityAmenities";
+import { PropertyDetailsPage } from "../admin/landlord/pages/PropertyDetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
   {
     path: "studentSignup",
     element: <StudentSignUp />,
+  },
+  {
+    path: "propertydetailpage",
+    element: <PropertyDetailsPage />,
   },
   {
     path: "landLordSignup",
