@@ -44,7 +44,7 @@ export const MockApiContextProvider = ({ children }) => {
     //   .then((response) => console.log(response))
     //   .catch((err) => console.error(err));
   }, [api]);
-
+console.log(mockHotel)
   const farm = "king";
 
   return (

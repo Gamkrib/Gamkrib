@@ -110,6 +110,10 @@ const ParentContainer = styled.div`
   margin: 4rem 20rem;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    width: 90vw;
+    margin: 0;
+  }
 `;
 
 const CloseBtn = styled(motion.span)`

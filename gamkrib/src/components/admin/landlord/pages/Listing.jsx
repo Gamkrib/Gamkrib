@@ -103,6 +103,10 @@ export const DashboardContainer = styled.div`
   border-radius: 1rem;
   padding: 3rem;
   height: 84vh;
+  @media (max-width: 768px) {
+    margin: 0;
+    width: 100vw;
+  }
 `;
 
 const AddBtn = styled(GreenBtn)`
@@ -138,9 +142,19 @@ const PropertyBtn = styled(motion.div)`
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+  @media (max-width: 768px) {
+    width: 100%;
+    gap: 0.2rem;
+    border-radius: 10px;
+    font-size: 10px;
+  }
 `;
 
 const Properties = styled.div`
   display: flex;
   gap: 2rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;

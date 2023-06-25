@@ -24,14 +24,14 @@ export const BrowseProperties = ({ scroll }) => {
   return (
     <ParentContainer ref={BrowseProperties}>
       <MidText>Trending Properties 🔥🔥🔥</MidText>
-      <BrowseProps>
+      <BrowsePropsMain>
         <SwiSlider
           centeredSlides={false}
-          spaceBetween={20}
+          spaceBetween={10}
           breakpoints={{
             1800: { slidesPerView: 4 },
             1080: { slidesPerView: 3 },
-            768: { slidesPerView: 2 },
+            768: { slidesPerView: 1 },
             640: { slidesPerView: 1 },
           }}
           pagination={false}
@@ -56,7 +56,7 @@ export const BrowseProperties = ({ scroll }) => {
               );
             })}
         </SwiSlider>
-      </BrowseProps>
+      </BrowsePropsMain>
     </ParentContainer>
   );
 };
@@ -69,6 +69,21 @@ export const BrowseProps = styled.div`
   justify-content: center;
 
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+export const BrowsePropsMain = styled.div`
+  display: flex;
+  gap: ${(p) => p.theme.space[2]};
+  scroll-behavior: smooth;
+  overflow: scroll;
+  justify-content: center;
+
+  align-items: center;
+  /* @media (max-width: 768px) {
+    flex-direction: column; 
+  } */
 `;
 
 const SwiSlider = styled(Swiper)`

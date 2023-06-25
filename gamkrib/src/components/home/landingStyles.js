@@ -14,6 +14,10 @@ export const LandingText = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   font-size: ${(p) => p.theme.sizes[5]};
   font-weight: 700;
+  @media (max-width: 768px) {
+    font-size: ${(p) => p.theme.sizes[2]};
+    margin-top: 2rem;
+  }
 `;
 
 export const SmallText = styled.div`

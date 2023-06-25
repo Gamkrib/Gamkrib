@@ -87,12 +87,12 @@ export const SearchComponent = () => {
                   >
                     Search
                   </CustomBtn>
-                  <FilterBtn
+                  {/* <FilterBtn
                     onClick={() => setFiler(true)}
                     whileTap={{ scale: 0.9 }}
                   >
                     Filter
-                  </FilterBtn>
+                  </FilterBtn> */}
                 </FormLayout>
               </Form>
             );
@@ -124,6 +124,7 @@ export const FormParent = styled.div`
   align-items: center;
 
   text-align: start;
+  margin-bottom: 2rem;
 `;
 
 const ModifiedStyledField = styled(StyledField)`
@@ -138,7 +139,11 @@ const ModifiedStyledField = styled(StyledField)`
 
 const FormLayout = styled.div`
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+  @media (max-width: 768px) {
+    gap: 1rem 1rem;
+  }
 `;
 
 const SelectFormContainer = styled(FormContainer)``;
