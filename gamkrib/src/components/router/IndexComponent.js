@@ -30,6 +30,7 @@ import { RoomDetetails } from "../admin/landlord/subPages/propertyListing/RoomDe
 import { RoomPricing } from "../admin/landlord/subPages/propertyListing/RoomPricing";
 import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/FacilityAmenities";
 import { PropertyDetailsPage } from "../admin/landlord/pages/PropertyDetailsPage";
+import { WaitList } from "../waitList/WaitList";
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
   {
     path: "longInPage",
     element: <LoginPage />,
+  },
+  {
+    path: "waitlist",
+    element: <WaitList />,
   },
   {
     path: "filterCard",
