@@ -3,22 +3,24 @@ import axios from "axios"
 const URL = 'https://dev-gamkrib.onrender.com/api/v1/'
 
 
-export const base = axios.create({
-    baseURL: URL,
-    headers: {
-        Accept: 'application/json',
-        'X-CSRFToken': "UdyHUorwRirpQv36bPC3SC78ScSfuneHJqhVB90YOF7Q2D0QPl0GsGo1o98ojCLm"
-    }
-})
 
-const tryApi = async () => {
 
+const apiUrl = 'https://dev-gamkrib.onrender.com/api/v1/';
+const csrfToken = 'UdyHUorwRirpQv36bPC3SC78ScSfuneHJqhVB90YOF7Q2D0QPl0GsGo1o98ojCLm';
+
+
+
+export const base = async () => {
     try {
-        const resp = await axios(`${base}/listings`)
-        console.log(resp)
+        const resp = await axios(`${apiUrl}listings/`, {
+            headers: {
+                'accept': 'application/json',
+                'X-CSRFToken': csrfToken,
+            }
+        })
+        return console.log(resp)
     } catch (error) {
-        console.log(error)
+        return console.log(error)
     }
 
 }
-tryApi()
