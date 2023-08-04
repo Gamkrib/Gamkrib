@@ -23,7 +23,11 @@ export const PropertyDetailsPage = () => {
               <PreviewListing src={dummyImage} />
             </BigImage>
             <SubImages>
-              <SmallImge src={dummyImage} sizes="5rem" alt="img" />
+              <SmallImge
+                src={dummyImage}
+                sizes="5rem"
+                alt="img will be changed later "
+              />
               <SmallImge src={dummyImage1} sizes="5rem" alt="img" />
               <SmallImge src={dummyImage2} sizes="5rem" alt="img" />
               <SmallImge src={dummyImage3} sizes="5rem" alt="img" />
