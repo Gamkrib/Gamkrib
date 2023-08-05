@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ParentContainer, Spacer } from "../../utils/modules/modules";
 import {
@@ -24,6 +24,7 @@ import {
 } from "../help/FrequentlyAskedQuestions";
 import { EmailSubscriptions } from "../email/EmailSubscriptions";
 import { Footer } from "../footer/Footer";
+import { base } from "../apis/APIs";
 
 
 export const Banner = (props) => {
@@ -47,6 +48,11 @@ export const Banner = (props) => {
 }
 
 export const LandingPage = () => {
+
+  //------------------------ listing api----------------//
+  base('listing')
+
+
   const [scroll, setScroll] = useState(0);
 
   return (
