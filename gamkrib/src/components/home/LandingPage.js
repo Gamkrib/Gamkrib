@@ -29,7 +29,7 @@ import { base } from "../apis/APIs";
 export const LandingPage = () => {
 
   //------------------------ listing api----------------//
-  //  base()
+  base('listing')
 
 
   const [scroll, setScroll] = useState(0);
