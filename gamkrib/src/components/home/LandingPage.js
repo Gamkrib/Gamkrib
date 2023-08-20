@@ -24,12 +24,12 @@ import {
 } from "../help/FrequentlyAskedQuestions";
 import { EmailSubscriptions } from "../email/EmailSubscriptions";
 import { Footer } from "../footer/Footer";
-import { base } from "../apis/APIs";
+
+
 
 export const LandingPage = () => {
 
   //------------------------ listing api----------------//
-  base('listing')
 
 
   const [scroll, setScroll] = useState(0);

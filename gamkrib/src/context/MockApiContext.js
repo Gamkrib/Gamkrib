@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
+import { apiUrl, csrfToken } from "../components/apis/APIs";
 
 export const MockApiContext = createContext();
 
@@ -20,6 +22,7 @@ const api2 = "https://dummyjson.com/posts";
 export const MockApiContextProvider = ({ children }) => {
   //mock notification
   const [notification, setNotification] = useState("");
+  const [listedProperties, setListedProperties] = useState()
   useEffect(() => {
     (async () => {
       let data = await fetch(api2);
@@ -29,9 +32,9 @@ export const MockApiContextProvider = ({ children }) => {
   }, [api2]);
 
   const [mockHotel, setMockHotel] = useState("");
-  useEffect(() => {  
+  useEffect(() => {
 
-    
+
     (async () => {
       let data = await fetch(api, options);
 
@@ -44,14 +47,37 @@ export const MockApiContextProvider = ({ children }) => {
     //   .then((response) => console.log(response))
     //   .catch((err) => console.error(err));
   }, [api]);
-console.log(mockHotel)
+  console.log(mockHotel)
   const farm = "king";
+
+  useEffect(() => {
+    const base = async (route) => {
+      try {
+        const { data } = await axios(`${apiUrl}${route}/`,
+          {
+            headers: {
+              'accept': 'application/json',
+              'X-CSRFToken': csrfToken,
+            }
+          })
+        setListedProperties(data)
+      } catch (error) {
+        return console.log(error)
+      }
+    }
+    base('listings')
+
+  }, [apiUrl])
+
+
 
   return (
     <MockApiContext.Provider
-      value={{ mockHotel, farm, setNotification, notification }}
+      value={{ mockHotel, farm, setNotification, notification, listedProperties }}
     >
       {children}
     </MockApiContext.Provider>
   );
 };
+
+
