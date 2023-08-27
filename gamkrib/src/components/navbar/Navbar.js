@@ -47,7 +47,11 @@ export const Navbar = () => {
   } = useContext(SelectedHostelContext);
 
   const [active, setActive] = useState("/");
+  const [isLandlord, setIsLandlord] = useState(false)
 
+
+  //check if the person is a landlord to know how to make the nav work 
+  const statusLink = isLandlord ? '/dashboard' : ''
   //this puts a dommy image as profile will be replaced with user profile from api call
   let userProfilePicture = mockProfile;
 
@@ -164,11 +168,13 @@ export const Navbar = () => {
                         toggleNav();
                       }}
                     >
-                      <motion.img
-                        src={userProfilePicture || avatar}
-                        height="46px"
-                        whileTap={{ scale: 0.8 }}
-                      />
+                      <Link to={statusLink}>
+                        <motion.img
+                          src={userProfilePicture || avatar}
+                          height="46px important!"
+                          whileTap={{ scale: 0.8 }}
+                        />
+                      </Link>
                     </ProfilePicture>
                     <AnimatePresence exitBeforeEnter>
                       <Pages
@@ -249,7 +255,7 @@ export const GeneralNavbar = () => {
 
 
   //check if the person is a landlord to know how to make the nav work 
-  const statusLink = isLandlord ? 'dashboard' : ''
+  const statusLink = isLandlord ? '/dashboard' : ''
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
