@@ -78,7 +78,7 @@ export const Navbar = () => {
         <Container>
           <LogoContainer whileTap={{ scale: 0.6 }}>
             <Link to={`/`} onClick={() => setActive("/")}>
-              <img src={logo} />
+              <img src={logo} alt="logo" />
             </Link>
           </LogoContainer>
           <ComponentContainer>
@@ -122,7 +122,7 @@ export const Navbar = () => {
                   <MainNotificationCount>6</MainNotificationCount>
                   <NotificationIcon whileTap={{ scale: 0.8 }}>
                     <div>
-                      <img height="22px" src={notificationIcon} />
+                      <img height="22px" src={notificationIcon} alt="notification icon" />
                     </div>
                   </NotificationIcon>
                   <ProfilePicture>
@@ -245,7 +245,11 @@ export const GeneralNavbar = () => {
   } = useContext(SelectedHostelContext);
 
   const [active, setActive] = useState("/");
+  const [isLandlord, setIsLandlord] = useState(false)
 
+
+  //check if the person is a landlord to know how to make the nav work 
+  const statusLink = isLandlord ? 'dashboard' : ''
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -296,7 +300,7 @@ export const GeneralNavbar = () => {
         <Container>
           <LogoContainer whileTap={{ scale: 0.6 }}>
             <Link to={`/`} onClick={() => setActive("/")}>
-              <img src={logo} />
+              <img src={logo} alt="" />
             </Link>
           </LogoContainer>
           <ComponentContainer>
@@ -311,17 +315,20 @@ export const GeneralNavbar = () => {
                           height="22px"
                           className="notificationBell "
                           src={notificationIcon}
+                          alt=""
                         />
                       </div>
                     </NotificationIcon>
                   </Link>
                   <ProfilePicture>
-                    <motion.img
-                      className="img "
-                      src={userProfilePicture || avatar}
-                      height="46px"
-                      whileTap={{ scale: 0.8 }}
-                    />
+                    <Link to={statusLink}>
+                      <motion.img
+                        className="img "
+                        src={userProfilePicture || avatar}
+                        height="46px important!"
+                        whileTap={{ scale: 0.8 }}
+                      />
+                    </Link>
                   </ProfilePicture>
                 </ProfileContainer>
               ) : (
@@ -343,7 +350,7 @@ export const GeneralNavbar = () => {
                       <img
                         className="notificationBell "
                         height="22px"
-                        src={notificationIcon}
+                        src={notificationIcon} alt=""
                       />
                     </div>
                   </NotificationIcon>
@@ -491,7 +498,7 @@ export const DashBoardNav = () => {
                         <img
                           height="22px"
                           className="notificationBell "
-                          src={notificationIcon}
+                          src={notificationIcon} alt=""
                         />
                       </div>
                     </NotificationIcon>
@@ -524,7 +531,7 @@ export const DashBoardNav = () => {
                       <img
                         className="notificationBell "
                         height="22px"
-                        src={notificationIcon}
+                        src={notificationIcon} alt=""
                       />
                     </div>
                   </NotificationIcon>

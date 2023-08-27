@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 export const TextError = (props) => {
-  console.log("Hi am logging props", props);
 
   return <ErrorContainer className="error">{props.children}</ErrorContainer>;
 };

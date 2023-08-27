@@ -27,6 +27,8 @@ import {
   ParentContainer,
   TextContainer,
 } from "./StudentSignUp";
+import { apiUrl, csrfToken } from "../apis/APIs";
+import axios from "axios";
 
 const MySwal = withReactContent(Swal);
 
@@ -34,33 +36,23 @@ const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
-  ghanaCardNumber: "",
-
-  phone: "",
-  password: "",
-  passwordConfirmation: "",
+  school: "non",
+  gender: "any",
+  ghanaCardNumber: "1243",
+  level: "300",
+  phone_number: "",
+  password1: "",
+  password2: "",
+  is_landlord: true,
+  location: 'null'
 };
 
 //get all values of the forms from this section
-const onSubmit = (values, submitProps) => {
-  console.log("Form data from landLord ", values);
-  console.log("submitProps", submitProps);
-  submitProps.setSubmitting(false);
-  submitProps.resetForm();
 
-  // this gives the user an alert message if from values are collected
-  MySwal.fire({
-    title: "Form Submitted Successfully!",
-    text: "Click okay to return",
-    icon: "success",
-    confirmButtonColor: "#30D158",
-  });
-};
 
 /* ========================= form Validation ======================== */
 
-const phoneRegExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validationSchema = Yup.object({
   firstName: Yup.string()
@@ -87,7 +79,55 @@ const validationSchema = Yup.object({
 
 export const LandLordSignUp = () => {
   const [formValues, setFormValues] = useState(null);
+  const onSubmit = (values, submitProps) => {
+    const base = async (route) => {
 
+      try {
+        console.log('hi')
+        await axios.post(`${apiUrl}${route}/`, values,
+          {
+            headers: {
+              'accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrfToken,
+            }
+          })
+        MySwal.fire({
+          title: "Form Submitted Successfully!",
+          text: "Click okay to return",
+          icon: "success",
+          confirmButtonColor: "#30D158",
+        });
+
+        submitProps.setSubmitting(false);
+        submitProps.resetForm();
+      } catch (error) {
+        MySwal.fire({
+          title: "Ops, Field to Submit Forms!",
+          text: "Click okay to return",
+          icon: "error",
+          confirmButtonColor: "#30D158",
+        });
+        return console.log(error)
+      } finally {
+
+      }
+    }
+    base('users/register')
+    submitProps.setSubmitting(false);
+    submitProps.resetForm();
+
+    submitProps.setSubmitting(false);
+    submitProps.resetForm();
+
+    // this gives the user an alert message if from values are collected
+    MySwal.fire({
+      title: "Form Submitted Successfully!",
+      text: "Click okay to return",
+      icon: "success",
+      confirmButtonColor: "#30D158",
+    });
+  };
   /*=========xxx========= Dropdown Options  ============xxx=============*/
 
   return (
@@ -112,10 +152,10 @@ export const LandLordSignUp = () => {
           enableReinitialize
           validateOnChange={false}
           validateOnBlur={true}
-          // validateOnMount
+        // validateOnMount
         >
           {(formik) => {
-            console.log("Formik props", formik);
+
             return (
               <Form>
                 <NameFieldContainer>
@@ -155,14 +195,14 @@ export const LandLordSignUp = () => {
                 </FormContainer>
 
                 <FormContainer>
-                  <StyledLabel htmlFor="phone">Phone</StyledLabel> <br />
+                  <StyledLabel htmlFor="phone_number">Phone</StyledLabel> <br />
                   <PhoneInputField
                     label="Phone Number"
-                    name="phone"
+                    name="phone_number"
                     type="tel"
                     placeholder="Write your phone number here"
                   />
-                  <ErrorMessage name="phone" component={TextError} />
+                  <ErrorMessage name="phone_number" component={TextError} />
                 </FormContainer>
                 <FormContainer>
                   <StyledLabel htmlFor="email">Email</StyledLabel>
@@ -172,29 +212,29 @@ export const LandLordSignUp = () => {
                 </FormContainer>
 
                 <FormContainer>
-                  <StyledLabel htmlFor="password">Password</StyledLabel>
+                  <StyledLabel htmlFor="password1">Password</StyledLabel>
                   <br />
                   <StyledField
                     type="password"
                     id="password"
-                    name="password"
+                    name="password1"
                     placeholder="Create a new password"
                   />
-                  <ErrorMessage name="password" component={TextError} />
+                  <ErrorMessage name="password1" component={TextError} />
                 </FormContainer>
                 <FormContainer>
-                  <StyledLabel htmlFor="passwordConfirmation">
+                  <StyledLabel htmlFor="password2">
                     Confirm Password
                   </StyledLabel>
                   <br />
                   <StyledField
                     type="text"
-                    id="passwordConfirmation"
-                    name="passwordConfirmation"
+                    id="password2"
+                    name="password2"
                     placeholder="Confirm your password"
                   />
                   <ErrorMessage
-                    name="passwordConfirmation"
+                    name="password2"
                     component={TextError}
                   />
                 </FormContainer>
@@ -206,7 +246,7 @@ export const LandLordSignUp = () => {
                 {/* <button type="reset">Reset</button> */}
                 <CustomBtn
                   type="submit"
-                  disabled={!formik.isValid || formik.isSubmitting}
+                // disabled={!formik.isValid || formik.isSubmitting}
                 >
                   Create my Account
                 </CustomBtn>
