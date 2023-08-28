@@ -357,16 +357,15 @@ function Preview() {
               </div>
             </PropertyPane>
           </div>
-
-          <div style={{ display: "flex" }}>
-            <Link to="" style={{ width: 420 }}>
-              <CustomBtnPrev type="button">Prev</CustomBtnPrev>
-            </Link>
-            <Link to={"/dashboard/listing/roomDetails"} style={{ width: 220 }}>
-              <CustomBtnNxt type="button">Next</CustomBtnNxt>
-            </Link>
-          </div>
         </div>
+      </div>
+      <div style={{ display: "flex" }}>
+        <Link to="" style={{ width: 420 }}>
+          <CustomBtnPrev type="button">Prev</CustomBtnPrev>
+        </Link>
+        <Link to={"/dashboard/listing/roomDetails"} style={{ width: 220 }}>
+          <CustomBtnNxt type="button">Next</CustomBtnNxt>
+        </Link>
       </div>
     </DashboardContainer>
   );
