@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { ParentContainer } from "../../utils/modules/modules";
 import { SearchBar } from "../searchAndFilterContainer/SearchBar";
 import styled from "styled-components";
@@ -8,11 +8,22 @@ import { Footer } from "../footer/Footer";
 import { FilerProperty } from "../searchAndFilterContainer/FilerProperty";
 import { SelectedHostelContext } from "../../context/selectedPropertyContext/SelectedPropertyContextProvider";
 import { FilterBtn } from "../../utils/searchModel/SearchComponent";
+import { apiUrl, base, csrfToken } from "../apis/APIs";
+import axios from "axios";
+import { useEffect } from "react";
 
 export const HomestelComponent = () => {
-  const { mockHotel, farm } = useContext(MockApiContext);
+  const { listedProperties, farm } = useContext(MockApiContext);
 
   const { filter } = useContext(SelectedHostelContext);
+
+
+  //==================== api int =============================//
+
+  console.log(listedProperties)
+
+
+
 
   const HomestelContainer = styled.div`
     height: 82vh;
@@ -28,15 +39,15 @@ export const HomestelComponent = () => {
 
         {filter && <FilerProperty />}
         <CardContainer>
-          {mockHotel &&
-            mockHotel.map((hotel) => {
+          {listedProperties &&
+            listedProperties.map((hotel) => {
               return (
                 <Card
-                  image={hotel.max_1440_photo_url}
-                  name={hotel.hotel_name}
-                  locationText={hotel.address}
+                  image={hotel.images[1]}
+                  name={'Will Provide names Later'}
+                  locationText={hotel.location}
                   review={hotel.review_score}
-                  price="300"
+                  price={hotel?.price}
                 />
               );
             })}

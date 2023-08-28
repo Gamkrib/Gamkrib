@@ -33,6 +33,7 @@ import { PhoneInputField } from "../../../../../utils/formModules/PhoneInputFiel
 import { SmallText } from "../../../../home/landingStyles";
 import { CustomBtnNxt, CustomBtnPrev } from "./PropertyDetetails";
 import { BiBed } from "react-icons/bi";
+import { Link } from "react-router-dom";
 // import { MidText } from "../../utils/modules/modules";
 
 const MySwal = withReactContent(Swal);
@@ -229,12 +230,17 @@ export const RoomDetetails = () => {
                   <div style={{ display: "flex", gap: "10%" }}>
                     <CustomBtnPrev type="button">Prev</CustomBtnPrev>
 
-                    <CustomBtnNxt
-                      type="submit"
-                      disabled={!formik.isValid || formik.isSubmitting}
+                    <Link
+                      to={"/dashboard/listing/roomPricing"}
+                      style={{ width: 260 }}
                     >
-                      Next
-                    </CustomBtnNxt>
+                      <CustomBtnNxt
+                        type="submit"
+                        disabled={!formik.isValid || formik.isSubmitting}
+                      >
+                        Next
+                      </CustomBtnNxt>
+                    </Link>
                   </div>
                 </Form>
               );

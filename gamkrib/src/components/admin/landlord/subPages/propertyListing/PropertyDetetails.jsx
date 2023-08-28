@@ -31,6 +31,9 @@ import { TextError } from "../../../../../utils/formModules/ErrorText";
 import { SelectComponent } from "../../../../../utils/formModules/SelectComponent";
 import { PhoneInputField } from "../../../../../utils/formModules/PhoneInputField";
 import { SmallText } from "../../../../home/landingStyles";
+import axios from "axios";
+import { apiUrl, csrfToken } from "../../../../apis/APIs";
+import { Link } from "react-router-dom";
 // import { MidText } from "../../utils/modules/modules";
 
 const MySwal = withReactContent(Swal);
@@ -46,6 +49,37 @@ const initialValues = {
 const onSubmit = (values, submitProps) => {
   console.log("Form data", values);
   console.log("submitProps", submitProps);
+  const base = async (route) => {
+    try {
+      const res = await axios.post(`${apiUrl}${route}/`, values, {
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrfToken,
+        },
+      });
+      MySwal.fire({
+        title: "Form Submitted Successfully!",
+        res,
+        text: "Click okay to return",
+        icon: "success",
+        confirmButtonColor: "#30D158",
+      });
+
+      submitProps.setSubmitting(false);
+      submitProps.resetForm();
+    } catch (error) {
+      MySwal.fire({
+        title: "Ops, Field to Submit Forms!",
+        text: "Click okay to return",
+        icon: "error",
+        confirmButtonColor: "#30D158",
+      });
+      return console.log(error);
+    } finally {
+    }
+  };
+  base("users/register");
   submitProps.setSubmitting(false);
   submitProps.resetForm();
 
@@ -187,13 +221,17 @@ export const PropertyDetails = () => {
                   {/* <button type="reset">Reset</button> */}
                   <div style={{ display: "flex", gap: "10%" }}>
                     <CustomBtnPrev type="button">Prev</CustomBtnPrev>
-
-                    <CustomBtnNxt
-                      type="button"
-                      disabled={!formik.isValid || formik.isSubmitting}
+                    <Link
+                      to={"/dashboard/listing/preview"}
+                      style={{ width: 220 }}
                     >
-                      Next
-                    </CustomBtnNxt>
+                      <CustomBtnNxt
+                        type="button"
+                        disabled={!formik.isValid || formik.isSubmitting}
+                      >
+                        Next
+                      </CustomBtnNxt>
+                    </Link>
                   </div>
                 </Form>
               );

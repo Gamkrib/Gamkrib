@@ -18,6 +18,8 @@ import {
 } from "@syncfusion/ej2-base";
 import { DashboardContainer } from "../../../pages/Listing";
 import { RiImageAddLine } from "react-icons/ri";
+import { CustomBtnNxt, CustomBtnPrev } from "../PropertyDetetails";
+import { Link } from "react-router-dom";
 
 function Preview() {
   React.useEffect(() => {
@@ -333,23 +335,37 @@ function Preview() {
           </div>
           <div className="property-section uploader-panel col-lg-3">
             <PropertyPane title="">
-              <div className="panel-style">
-                <button className="e-btn e-css" id="clearbtn" title="Clear All">
-                  Clear All
-                </button>
-              </div>
-              <div className="panel-style">
-                <button
-                  className="e-btn e-css"
-                  id="uploadbtn"
-                  title="Upload All"
-                >
-                  Upload All
-                </button>
+              <div style={{ display: "flex", gap: 40 }}>
+                <div className="panel-style">
+                  <button
+                    className="e-btn e-css"
+                    id="clearbtn"
+                    title="Clear All"
+                  >
+                    Clear All
+                  </button>
+                </div>
+                <div className="panel-style">
+                  <button
+                    className="e-btn e-css"
+                    id="uploadbtn"
+                    title="Upload All"
+                  >
+                    Upload All
+                  </button>
+                </div>
               </div>
             </PropertyPane>
           </div>
         </div>
+      </div>
+      <div style={{ display: "flex" }}>
+        <Link to="" style={{ width: 420 }}>
+          <CustomBtnPrev type="button">Prev</CustomBtnPrev>
+        </Link>
+        <Link to={"/dashboard/listing/roomDetails"} style={{ width: 220 }}>
+          <CustomBtnNxt type="button">Next</CustomBtnNxt>
+        </Link>
       </div>
     </DashboardContainer>
   );

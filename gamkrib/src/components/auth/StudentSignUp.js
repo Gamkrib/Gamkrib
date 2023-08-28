@@ -13,13 +13,16 @@ import {
 import { SelectComponent } from "../../utils/formModules/SelectComponent";
 import { PhoneInputField } from "../../utils/formModules/PhoneInputField";
 import { TextError } from "../../utils/formModules/ErrorText";
-// import TextError from "./TextError";
+//import TextError from "./TextError";
 
 import stuSignUpImg from "../../asserts/backgroundImages/stSU.webp";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { MidText } from "../../utils/modules/modules";
+import axios from "axios";
+import { apiUrl, csrfToken } from "../apis/APIs";
+
 
 const MySwal = withReactContent(Swal);
 
@@ -30,26 +33,14 @@ const initialValues = {
   school: "",
   gender: "",
   level: "",
-  phone: "",
-  password: "",
-  passwordConfirmation: "",
+  phone_number: "",
+  password1: "",
+  password2: "",
+  is_landlord: false,
+  location: 'null'
 };
 
 //get all values of the forms from this section
-const onSubmit = (values, submitProps) => {
-  console.log("Form data", values);
-  console.log("submitProps", submitProps);
-  submitProps.setSubmitting(false);
-  submitProps.resetForm();
-
-  // this gives the user an alert message if from values are collected
-  MySwal.fire({
-    title: "Form Submitted Successfully!",
-    text: "Click okay to return",
-    icon: "success",
-    confirmButtonColor: "#30D158",
-  });
-};
 
 /* ========================= form Validation ======================== */
 
@@ -64,16 +55,16 @@ const validationSchema = Yup.object({
     .required("Required")
     .min(3, "must be at least 3 characters long"),
   email: Yup.string().email("Invalid email format").required("Required"),
-  password: Yup.string()
+  password1: Yup.string()
     .required("Required")
     .min(6, " Password must be at least 6 characters long"),
-  passwordConfirmation: Yup.string()
+  password2: Yup.string()
     .required("Confirm password is required")
-    .oneOf([Yup.ref("password"), null], "Password mismatched"),
+    .oneOf([Yup.ref("password1"), null], "Password mismatched"),
   school: Yup.string().required("Required"),
   gender: Yup.string().required("Required"),
   level: Yup.string().required("Required"),
-  phone: Yup.string()
+  phone_number: Yup.string()
     .required("required")
     .matches(phoneRegExp, "Phone number is not valid")
     .min(12, "enter a valid phone number please")
@@ -84,7 +75,56 @@ const validationSchema = Yup.object({
 
 export const StudentSignUp = () => {
   const [formValues, setFormValues] = useState(null);
+  const [isLoading, setIsLoading] = useState(true)
 
+
+  const onSubmit = (values, submitProps) => {
+    console.log("Form data", values);
+
+    const base = async (route) => {
+
+      try {
+        setIsLoading(true)
+        const res = await axios.post(`${apiUrl}${route}/`, values,
+          {
+            headers: {
+              'accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrfToken,
+            }
+          })
+        MySwal.fire({
+          title: "Form Submitted Successfully!", res,
+          text: "Click okay to return",
+          icon: "success",
+          confirmButtonColor: "#30D158",
+        });
+        setIsLoading(false)
+        submitProps.setSubmitting(false);
+        submitProps.resetForm();
+      } catch (error) {
+        setIsLoading(false)
+        MySwal.fire({
+          title: "Ops, Field to Submit Forms!",
+          text: "Click okay to return",
+          icon: "error",
+          confirmButtonColor: "#30D158",
+        });
+        return console.log(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    base('users/register')
+    submitProps.setSubmitting(false);
+    submitProps.resetForm();
+
+    // this gives the user an alert message if from values are collected
+
+  };
+
+
+  console.log(formValues)
   /*================== Dropdown Options  =========================*/
 
   const dropDownOptionsForSchool = [
@@ -123,6 +163,7 @@ export const StudentSignUp = () => {
 
   return (
     <ParentContainer>
+
       <FormParent>
         <div
           style={{
@@ -143,11 +184,12 @@ export const StudentSignUp = () => {
           enableReinitialize
           validateOnChange={false}
           validateOnBlur={true}
-          // validateOnMount
+        // validateOnMount
         >
           {(formik) => {
-            console.log("Formik props", formik);
+
             return (
+
               <Form>
                 <NameFieldContainer>
                   <FormContainer>
@@ -196,14 +238,14 @@ export const StudentSignUp = () => {
                   <ErrorMessage name="level" component={TextError} />
                 </FormContainer>
                 <FormContainer>
-                  <StyledLabel htmlFor="phone">Phone</StyledLabel> <br />
+                  <StyledLabel htmlFor="phone_number">Phone</StyledLabel> <br />
                   <PhoneInputField
                     label="Phone Number"
-                    name="phone"
+                    name="phone_number"
                     type="tel"
-                    placeholder="Write your phone number here"
+                    placeholder="Type your phone number here"
                   />
-                  <ErrorMessage name="phone" component={TextError} />
+                  <ErrorMessage name="phone_number" component={TextError} />
                 </FormContainer>
 
                 <FormContainer>
@@ -214,29 +256,29 @@ export const StudentSignUp = () => {
                 </FormContainer>
 
                 <FormContainer>
-                  <StyledLabel htmlFor="password">Password</StyledLabel>
+                  <StyledLabel htmlFor="password1">Password</StyledLabel>
                   <br />
                   <StyledField
                     type="password"
-                    id="password"
-                    name="password"
+                    id="password1"
+                    name="password1"
                     placeholder="Create a new password"
                   />
-                  <ErrorMessage name="password" component={TextError} />
+                  <ErrorMessage name="password1" component={TextError} />
                 </FormContainer>
                 <FormContainer>
-                  <StyledLabel htmlFor="passwordConfirmation">
+                  <StyledLabel htmlFor="password2">
                     Confirm Password
                   </StyledLabel>
                   <br />
                   <StyledField
                     type="text"
-                    id="passwordConfirmation"
-                    name="passwordConfirmation"
+                    id="password2"
+                    name="password2"
                     placeholder="Confirm your password"
                   />
                   <ErrorMessage
-                    name="passwordConfirmation"
+                    name="password2"
                     component={TextError}
                   />
                 </FormContainer>
@@ -248,7 +290,7 @@ export const StudentSignUp = () => {
                 {/* <button type="reset">Reset</button> */}
                 <CustomBtn
                   type="submit"
-                  disabled={!formik.isValid || formik.isSubmitting}
+                //  disabled={!formik.isValid || formik.isSubmitting}
                 >
                   Create my Account
                 </CustomBtn>
