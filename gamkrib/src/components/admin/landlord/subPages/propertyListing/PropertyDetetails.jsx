@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  DashBoardNavContainer,
-  MidText,
-} from "../../../../../utils/modules/modules";
+
+import { MidText } from "../../../../../utils/modules/modules";
 import { DashboardContainer } from "../../pages/Listing";
 
 import "../../../../auth/auth.css";
@@ -13,9 +10,7 @@ import styled from "styled-components";
 
 import {
   FormContainer,
-  NameFieldContainer,
   StyledField,
-  StyledFieldForName,
   StyledLabel,
 } from "../../../../auth/FormStyles";
 
@@ -29,11 +24,11 @@ import {
 } from "../../../../auth/StudentSignUp";
 import { TextError } from "../../../../../utils/formModules/ErrorText";
 import { SelectComponent } from "../../../../../utils/formModules/SelectComponent";
-import { PhoneInputField } from "../../../../../utils/formModules/PhoneInputField";
+
 import { SmallText } from "../../../../home/landingStyles";
-import axios from "axios";
-import { apiUrl, csrfToken } from "../../../../apis/APIs";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { PostingPropsContextProvider } from "../../../../../context/PostingPropertyContext";
 // import { MidText } from "../../utils/modules/modules";
 
 const MySwal = withReactContent(Swal);
@@ -46,56 +41,8 @@ const initialValues = {
 };
 
 //get all values of the forms from this section
-const onSubmit = (values, submitProps) => {
-  console.log("Form data", values);
-  console.log("submitProps", submitProps);
-  const base = async (route) => {
-    try {
-      const res = await axios.post(`${apiUrl}${route}/`, values, {
-        headers: {
-          accept: "application/json",
-          "Content-Type": "application/json",
-          "X-CSRFToken": csrfToken,
-        },
-      });
-      MySwal.fire({
-        title: "Form Submitted Successfully!",
-        res,
-        text: "Click okay to return",
-        icon: "success",
-        confirmButtonColor: "#30D158",
-      });
-
-      submitProps.setSubmitting(false);
-      submitProps.resetForm();
-    } catch (error) {
-      MySwal.fire({
-        title: "Ops, Field to Submit Forms!",
-        text: "Click okay to return",
-        icon: "error",
-        confirmButtonColor: "#30D158",
-      });
-      return console.log(error);
-    } finally {
-    }
-  };
-  base("users/register");
-  submitProps.setSubmitting(false);
-  submitProps.resetForm();
-
-  // this gives the user an alert message if from values are collected
-  MySwal.fire({
-    title: "Form Submitted Successfully!",
-    text: "Click okay to return",
-    icon: "success",
-    confirmButtonColor: "#30D158",
-  });
-};
 
 /* ========================= form Validation ======================== */
-
-const phoneRegExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validationSchema = Yup.object({
   propertyName: Yup.string()
@@ -110,7 +57,7 @@ const validationSchema = Yup.object({
 
 export const PropertyDetails = () => {
   const [formValues, setFormValues] = useState(null);
-
+  const { setValues, values } = useContext(PostingPropsContextProvider);
   /*================== Dropdown Options  =========================*/
 
   const dropDownOptionsForSchool = [
@@ -134,6 +81,20 @@ export const PropertyDetails = () => {
   ];
 
   /*=========xxx========= Dropdown Options  ============xxx=============*/
+
+  //======================saving the values to context ===========================//
+  const onSubmit = (values, submitProps) => {
+    console.log("Form data", values);
+    setValues(values);
+
+    // this gives the user an alert message if from values are collected
+    MySwal.fire({
+      title: "Form Submitted Successfully!",
+      text: "Click okay to return",
+      icon: "success",
+      confirmButtonColor: "#30D158",
+    });
+  };
 
   return (
     <DashboardContainer>
@@ -185,7 +146,6 @@ export const PropertyDetails = () => {
             // validateOnMount
           >
             {(formik) => {
-              console.log("Formik props", formik);
               return (
                 <Form>
                   <FormContainer>
@@ -221,17 +181,17 @@ export const PropertyDetails = () => {
                   {/* <button type="reset">Reset</button> */}
                   <div style={{ display: "flex", gap: "10%" }}>
                     <CustomBtnPrev type="button">Prev</CustomBtnPrev>
-                    <Link
-                      to={"/dashboard/listing/preview"}
-                      style={{ width: 220 }}
+                    <CustomBtnNxt
+                      disabled={!formik.isValid || formik.isSubmitting}
                     >
-                      <CustomBtnNxt
+                      <Link
+                        to={"/dashboard/listing/preview"}
+                        style={{ width: 220 }}
                         type="button"
-                        disabled={!formik.isValid || formik.isSubmitting}
                       >
                         Next
-                      </CustomBtnNxt>
-                    </Link>
+                      </Link>
+                    </CustomBtnNxt>
                   </div>
                 </Form>
               );
