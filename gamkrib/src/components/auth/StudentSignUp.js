@@ -22,6 +22,7 @@ import withReactContent from "sweetalert2-react-content";
 import { MidText } from "../../utils/modules/modules";
 import axios from "axios";
 import { apiUrl, csrfToken } from "../apis/APIs";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const MySwal = withReactContent(Swal);
@@ -76,10 +77,9 @@ const validationSchema = Yup.object({
 export const StudentSignUp = () => {
   const [formValues, setFormValues] = useState(null);
   const [isLoading, setIsLoading] = useState(true)
-
+  const navigate = useNavigate();
 
   const onSubmit = (values, submitProps) => {
-    console.log("Form data", values);
 
     const base = async (route) => {
 
@@ -93,12 +93,15 @@ export const StudentSignUp = () => {
               'X-CSRFToken': csrfToken,
             }
           })
+        console.log(res)
         MySwal.fire({
           title: "Form Submitted Successfully!", res,
-          text: "Click okay to return",
+          text: res,
           icon: "success",
           confirmButtonColor: "#30D158",
         });
+
+        navigate("/");
         setIsLoading(false)
         submitProps.setSubmitting(false);
         submitProps.resetForm();
@@ -124,7 +127,7 @@ export const StudentSignUp = () => {
   };
 
 
-  console.log(formValues)
+
   /*================== Dropdown Options  =========================*/
 
   const dropDownOptionsForSchool = [
@@ -294,6 +297,11 @@ export const StudentSignUp = () => {
                 >
                   Create my Account
                 </CustomBtn>
+                <div style={{ marginTop: "10px" }}>A landLord? Click
+                  <Link to={"/landLordSignup"}>
+                    {" Here "}
+                  </Link>
+                  to signup </div>
               </Form>
             );
           }}

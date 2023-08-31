@@ -29,6 +29,7 @@ import {
 } from "./StudentSignUp";
 import { apiUrl, csrfToken } from "../apis/APIs";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const MySwal = withReactContent(Swal);
 
@@ -79,6 +80,7 @@ const validationSchema = Yup.object({
 
 export const LandLordSignUp = () => {
   const [formValues, setFormValues] = useState(null);
+  const navigate = useNavigate();
   const onSubmit = (values, submitProps) => {
     const base = async (route) => {
 
@@ -98,7 +100,7 @@ export const LandLordSignUp = () => {
           icon: "success",
           confirmButtonColor: "#30D158",
         });
-
+        navigate("/");
         submitProps.setSubmitting(false);
         submitProps.resetForm();
       } catch (error) {
@@ -147,7 +149,7 @@ export const LandLordSignUp = () => {
 
         <Formik
           initialValues={formValues || initialValues}
-          validationSchema={validationSchema}
+          // validationSchema={validationSchema}
           onSubmit={onSubmit}
           enableReinitialize
           validateOnChange={false}
@@ -250,6 +252,11 @@ export const LandLordSignUp = () => {
                 >
                   Create my Account
                 </CustomBtn>
+                <div style={{ marginTop: "10px" }}>A Student? Click
+                  <Link to={"/studentSignup"}>
+                    {" Here "}
+                  </Link>
+                  to signup </div>
               </Form>
             );
           }}
