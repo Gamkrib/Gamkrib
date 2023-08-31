@@ -60,6 +60,7 @@ function Preview() {
     removeUrl: "https://ej2.syncfusion.com/services/api/uploadbox/Remove",
   };
   allowedExtensions = ".jpg,.png,.jpeg";
+
   function renderComplete() {
     dropArea = dropAreaEle;
     dropElement = dropContainerEle;
@@ -197,6 +198,7 @@ function Preview() {
     readURL(liEle, file);
     document.querySelector(".e-upload-files").appendChild(liEle);
     filesList.push(liEle);
+    console.log(filesList);
   }
   function uploadFile(args) {
     uploadObj.upload(
@@ -289,6 +291,7 @@ function Preview() {
   function onRemoveFile(args) {
     args.postRawFile = false;
   }
+
   return (
     <DashboardContainer>
       <div className="control-pane" ref={dropContainerRef}>
@@ -360,12 +363,9 @@ function Preview() {
         </div>
       </div>
       <div style={{ display: "flex" }}>
-        <Link to="" style={{ width: 420 }}>
-          <CustomBtnPrev type="button">Prev</CustomBtnPrev>
-        </Link>
-        <Link to={"/dashboard/listing/roomDetails"} style={{ width: 220 }}>
-          <CustomBtnNxt type="button">Next</CustomBtnNxt>
-        </Link>
+        <CustomBtnPrev type="button">Prev</CustomBtnPrev>
+
+        <CustomBtnNxt type="button">Next</CustomBtnNxt>
       </div>
     </DashboardContainer>
   );

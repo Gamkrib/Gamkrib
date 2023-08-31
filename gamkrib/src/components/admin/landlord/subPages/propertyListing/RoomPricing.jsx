@@ -44,20 +44,6 @@ const initialValues = {
 };
 
 //get all values of the forms from this section
-const onSubmit = (values, submitProps) => {
-  console.log("Form data", values);
-  console.log("submitProps", submitProps);
-  submitProps.setSubmitting(false);
-  submitProps.resetForm();
-
-  // this gives the user an alert message if from values are collected
-  MySwal.fire({
-    title: "Form Submitted Successfully!",
-    text: "Click okay to return",
-    icon: "success",
-    confirmButtonColor: "#30D158",
-  });
-};
 
 /* ========================= form Validation ======================== */
 
@@ -90,6 +76,21 @@ export const RoomPricing = () => {
   //=========================radio options ==========================//
   const options = ["Private", "Shared"];
   const bedOptions = ["Full Bed", "Bunk Bed", "Twin Bed"];
+
+  const onSubmit = (values, submitProps) => {
+    console.log("Form data", values);
+    console.log("submitProps", submitProps);
+    submitProps.setSubmitting(false);
+    submitProps.resetForm();
+
+    // this gives the user an alert message if from values are collected
+    MySwal.fire({
+      title: "Form Submitted Successfully!",
+      text: "Click okay to return",
+      icon: "success",
+      confirmButtonColor: "#30D158",
+    });
+  };
 
   return (
     <DashboardContainer>
@@ -213,17 +214,12 @@ export const RoomPricing = () => {
                   <div style={{ display: "flex", gap: "10%" }}>
                     <CustomBtnPrev type="button">Prev</CustomBtnPrev>
 
-                    <Link
-                      to={"/dashboard/listing/facilityamenity"}
-                      style={{ width: 260 }}
+                    <CustomBtnNxt
+                      type="submit"
+                      disabled={!formik.isValid || formik.isSubmitting}
                     >
-                      <CustomBtnNxt
-                        type="submit"
-                        disabled={!formik.isValid || formik.isSubmitting}
-                      >
-                        Next
-                      </CustomBtnNxt>
-                    </Link>
+                      Next
+                    </CustomBtnNxt>
                   </div>
                 </Form>
               );

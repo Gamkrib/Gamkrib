@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import {
   DashBoardNavContainer,
@@ -33,7 +33,8 @@ import { PhoneInputField } from "../../../../../utils/formModules/PhoneInputFiel
 import { SmallText } from "../../../../home/landingStyles";
 import { CustomBtnNxt, CustomBtnPrev } from "./PropertyDetetails";
 import { BiBed } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { PostingPropsContextProvider } from "../../../../../context/PostingPropertyContext";
 // import { MidText } from "../../utils/modules/modules";
 
 const MySwal = withReactContent(Swal);
@@ -45,22 +46,6 @@ const initialValues = {
   password: "",
   bathRoom: "",
   bedType: "",
-};
-
-//get all values of the forms from this section
-const onSubmit = (values, submitProps) => {
-  console.log("Form data", values);
-  console.log("submitProps", submitProps);
-  submitProps.setSubmitting(false);
-  submitProps.resetForm();
-
-  // this gives the user an alert message if from values are collected
-  MySwal.fire({
-    title: "Form Submitted Successfully!",
-    text: "Click okay to return",
-    icon: "success",
-    confirmButtonColor: "#30D158",
-  });
 };
 
 /* ========================= form Validation ======================== */
@@ -77,9 +62,9 @@ const validationSchema = Yup.object({
 });
 export const RoomDetetails = () => {
   const [formValues, setFormValues] = useState(null);
-
+  const { setValues, value } = useContext(PostingPropsContextProvider);
   /*================== Dropdown Options  =========================*/
-
+  const navigate = useNavigate();
   const dropDownOptionsForSchool = [
     { key: "Select an Option", value: "" },
     { key: "Greater Accra Region", value: "GreaterAccraRegion" },
@@ -101,6 +86,25 @@ export const RoomDetetails = () => {
   ];
 
   /*=========xxx========= Dropdown Options  ============xxx=============*/
+
+  //get all values of the forms from this section
+  const onSubmit = (values, submitProps) => {
+    console.log("Form data", values);
+    console.log("submitProps", submitProps);
+    setValues({ ...value }, values);
+    navigate("/dashboard/listing/roomPricing");
+    console.log(values);
+    submitProps.setSubmitting(false);
+    submitProps.resetForm();
+
+    // this gives the user an alert message if from values are collected
+    MySwal.fire({
+      title: "Form Submitted Successfully!",
+      text: "Click okay to return",
+      icon: "success",
+      confirmButtonColor: "#30D158",
+    });
+  };
 
   //=========================radio options ==========================//
   const options = ["Private", "Shared"];

@@ -9,18 +9,21 @@ import {
   SelectedHostelContextProvider,
   SelectedPropertyContextProvider,
 } from "./context/selectedPropertyContext/SelectedPropertyContextProvider";
+import { PostingPropertyContext } from "./context/PostingPropertyContext";
 
 //will refactor this to improve performance
 function App() {
   return (
     <ThemeProvider ThemeProvider theme={theme}>
       <MockApiContextProvider>
-        <SelectedHostelContextProvider>
-          <SelectedPropertyContextProvider>
-            <IndexComponent />
-            <RouterProvider router={router} />
-          </SelectedPropertyContextProvider>
-        </SelectedHostelContextProvider>
+        <PostingPropertyContext>
+          <SelectedHostelContextProvider>
+            <SelectedPropertyContextProvider>
+              <IndexComponent />
+              <RouterProvider router={router} />
+            </SelectedPropertyContextProvider>
+          </SelectedHostelContextProvider>
+        </PostingPropertyContext>
       </MockApiContextProvider>
     </ThemeProvider>
   );
