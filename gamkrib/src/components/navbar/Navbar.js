@@ -55,7 +55,7 @@ export const Navbar = () => {
   //this puts a dommy image as profile will be replaced with user profile from api call
   let userProfilePicture = mockProfile;
 
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [toggle, setToggle] = useState("yes");
 
   const toggleNav = () => {
@@ -145,7 +145,7 @@ export const Navbar = () => {
                     </GreenBtnOutine>
                   </CustomLink>
 
-                  <CustomLink to={"/landLordSignup"}>
+                  <CustomLink to={"/studentSignup"}>
                     <GreenBtn whileTap={{ scale: 0.8 }}>Sign Up</GreenBtn>
                   </CustomLink>
                 </>

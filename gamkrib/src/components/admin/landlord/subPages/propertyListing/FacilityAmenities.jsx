@@ -37,20 +37,20 @@ export const FacilityAmenities = () => {
     });
   };
 
-  const validationSchema = Yup.object({
-    personsInRoom: Yup.string()
-      .required("Required")
-      .min(1, "must be at least 1 characters long"),
+  // const validationSchema = Yup.object({
+  //   personsInRoom: Yup.string()
+  //     .required("Required")
+  //     .min(1, "must be at least 1 characters long"),
 
-    amount: Yup.string().required("Required"),
-  });
+  //   amount: Yup.string().required("Required"),
+  // });
 
   return (
     <DashboardContainer>
       <FormParent>
         <Formik
           initialValues={formValues || initialValues}
-          validationSchema={validationSchema}
+          // validationSchema={validationSchema}
           onSubmit={onSubmit}
           enableReinitialize
           validateOnChange={false}
@@ -58,7 +58,7 @@ export const FacilityAmenities = () => {
           // validateOnMount
         >
           {(formik) => {
-            console.log("Formik props", formik);
+            // console.log("Formik props", formik);
             return (
               <Form>
                 <CheckGroup role="group" aria-labelledby="checkbox-group">
@@ -152,8 +152,9 @@ export const FacilityAmenities = () => {
                     <CustomBtnPrev type="button">Prev</CustomBtnPrev>
 
                     <CustomBtnNxt
+                      // onClick={submitForm}
                       type="submit"
-                      disabled={!formik.isValid || formik.isSubmitting}
+                      // disabled={!formik.isValid || formik.isSubmitting}
                     >
                       Publish
                     </CustomBtnNxt>

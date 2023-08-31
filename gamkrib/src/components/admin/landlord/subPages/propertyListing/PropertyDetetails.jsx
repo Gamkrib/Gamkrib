@@ -29,7 +29,7 @@ import { SmallText } from "../../../../home/landingStyles";
 import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { PostingPropsContextProvider } from "../../../../../context/PostingPropertyContext";
-// import { MidText } from "../../utils/modules/modules";
+import { useNavigate } from "react-router-dom";
 
 const MySwal = withReactContent(Swal);
 
@@ -58,6 +58,7 @@ const validationSchema = Yup.object({
 export const PropertyDetails = () => {
   const [formValues, setFormValues] = useState(null);
   const { setValues, values } = useContext(PostingPropsContextProvider);
+  const navigate = useNavigate();
   /*================== Dropdown Options  =========================*/
 
   const dropDownOptionsForSchool = [
@@ -86,14 +87,14 @@ export const PropertyDetails = () => {
   const onSubmit = (values, submitProps) => {
     console.log("Form data", values);
     setValues(values);
-
+    navigate("/dashboard/listing/preview");
     // this gives the user an alert message if from values are collected
-    MySwal.fire({
-      title: "Form Submitted Successfully!",
-      text: "Click okay to return",
-      icon: "success",
-      confirmButtonColor: "#30D158",
-    });
+    // MySwal.fire({
+    //   title: "Form Submitted Successfully!",
+    //   text: "Click okay to return",
+    //   icon: "success",
+    //   confirmButtonColor: "#30D158",
+    // });
   };
 
   return (
@@ -184,13 +185,7 @@ export const PropertyDetails = () => {
                     <CustomBtnNxt
                       disabled={!formik.isValid || formik.isSubmitting}
                     >
-                      <Link
-                        to={"/dashboard/listing/preview"}
-                        style={{ width: 220 }}
-                        type="button"
-                      >
-                        Next
-                      </Link>
+                      Next
                     </CustomBtnNxt>
                   </div>
                 </Form>
