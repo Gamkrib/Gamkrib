@@ -30,6 +30,7 @@ import { RoomDetetails } from "../admin/landlord/subPages/propertyListing/RoomDe
 import { RoomPricing } from "../admin/landlord/subPages/propertyListing/RoomPricing";
 import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/FacilityAmenities";
 import { PropertyDetailsPage } from "../admin/landlord/pages/PropertyDetailsPage";
+import { ImagePrev } from "../admin/landlord/subPages/propertyListing/ImagePrev";
 
 export const router = createBrowserRouter([
   {
@@ -93,7 +94,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <Listing /> },
           { path: "propertyDetails", element: <PropertyDetails /> },
-          { path: "preview", element: <Preview /> },
+          { path: "preview", element: <ImagePrev /> },
           { path: "roomDetails", element: <RoomDetetails /> },
           { path: "roomPricing", element: <RoomPricing /> },
           { path: "facilityamenity", element: <FacilityAmenities /> },
