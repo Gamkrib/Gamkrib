@@ -27,6 +27,27 @@ import { Footer } from "../footer/Footer";
 
 
 
+
+export const Banner = (props) => {
+  console.log(props, 1)
+  return <LandingContainer>
+    <LandingScript>
+      <LandingText>
+        FIND YOUR OFF-CAMPUS ACCOMMODATION {<br />} WITH EASE.
+      </LandingText>
+      <SmallText>
+        So we are writing some dommy text here because we have to write
+        something, We have some beautiful friends {<br />} with nice hand
+        writing brilliant and they are also nice to talk to
+      </SmallText>
+      {props.search && <div>{props.search}</div>}
+    </LandingScript>
+    <LandingImage>
+      <img src={landingImage} width="100%" />
+    </LandingImage>
+  </LandingContainer>
+}
+
 export const LandingPage = () => {
 
   //------------------------ listing api----------------//
@@ -36,21 +57,7 @@ export const LandingPage = () => {
 
   return (
     <>
-      <LandingContainer>
-        <LandingScript>
-          <LandingText>
-            FIND YOUR OFF-CAMPUS ACCOMMODATION {<br />} WITH EASE.
-          </LandingText>
-          <SmallText>
-            So we are writing some dommy text here because we have to write
-            something, We have some beautiful friends {<br />} with nice hand
-            writing brilliant and they are also nice to talk to
-          </SmallText>
-        </LandingScript>
-        <LandingImage>
-          <img src={landingImage} width="100%" />
-        </LandingImage>
-      </LandingContainer>
+      <Banner />
       <Spacer />
       <WhyGamkrib />
       <Spacer />
