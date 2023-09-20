@@ -38,9 +38,7 @@ export const Banner = (props) => {
         FIND YOUR OFF-CAMPUS ACCOMMODATION {<br />} WITH EASE.
       </LandingText>
       <SmallText>
-        So we are writing some dommy text here because we have to write
-        something, We have some beautiful friends {<br />} with nice hand
-        writing brilliant and they are also nice to talk to
+        Say Goodbye To the stress of finding accommodation off-campus
       </SmallText>
       {props.search && <div>{props.search}</div>}
     </LandingScript>
