@@ -11,6 +11,7 @@ import { FrequentlyAskedQuestions } from "./FrequentlyAskedQuestions";
 
 import bgImage from "../../asserts/backgroundImages/helpBg.webp";
 import { Footer } from "../footer/Footer";
+import { Paper } from "@mantine/core";
 
 export const Help = () => {
   return (
@@ -36,14 +37,22 @@ export const Help = () => {
               Let's Talk
             </MidText>
             <DescriptionText>
-              Lorem ipsum dolor sit amet consectetur.
+              support team is always available to assist students with any questions
               <br></br>
-              Lacus mi condimentum nibh pellentesque morbi fringilla.
+              or concerns they may have.
+
             </DescriptionText>
             <BtnContainer>
-              <GreenBtn whileTap={{ scale: 0.9 }}>WhatsApp</GreenBtn>
-              <GreenBtnOutine whileTap={{ scale: 0.9 }}> Call</GreenBtnOutine>
+              <a href='https://wa.me/+233554366620' target="_black">
+                <GreenBtn whileTap={{ scale: 0.9 }} href='https://wa.me/+233554366620' >WhatsApp</GreenBtn>
+              </a>
+
+              <GreenBtnOutine whileTap={{ scale: 0.9 }}> Call </GreenBtnOutine>
+              <Paper sx={{ width: '7rem', marginRight: '10rem', textAlign: 'center' }}>
+                0554366620
+              </Paper>
             </BtnContainer>
+
           </div>
         </ContactUsContainer>
       </ParentContainer>
