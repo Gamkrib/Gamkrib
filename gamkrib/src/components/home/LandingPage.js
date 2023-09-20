@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { ParentContainer, Spacer } from "../../utils/modules/modules";
 import {
@@ -24,6 +24,8 @@ import {
 } from "../help/FrequentlyAskedQuestions";
 import { EmailSubscriptions } from "../email/EmailSubscriptions";
 import { Footer } from "../footer/Footer";
+import { MockApiContext } from "../../context/MockApiContext";
+import { Container } from "@mantine/core";
 
 
 
@@ -51,7 +53,7 @@ export const Banner = (props) => {
 export const LandingPage = () => {
 
   //------------------------ listing api----------------//
-
+  const { listedProperties, farm } = useContext(MockApiContext);
 
   const [scroll, setScroll] = useState(0);
 
@@ -63,9 +65,28 @@ export const LandingPage = () => {
       <Spacer />
       <PropertyType />
       <Spacer />
-      <BrowseProperties scroll={scroll} />
-      <Testimonies />
-      <PropertyManagers />
+      <Container size='xl'>
+
+
+        <CardContainer>
+          {listedProperties &&
+            listedProperties.map((hotel) => {
+              return (
+                <Card
+                  image={hotel.images[1]}
+                  name={'Will Provide names Later'}
+                  locationText={hotel.location}
+                  review={hotel.review_score}
+                  price={hotel?.price}
+                />
+              );
+            })}
+        </CardContainer>
+      </Container>
+      {/* <BrowseProperties scroll={scroll} /> */}
+
+      {/* <Testimonies /> */}
+      {/* <PropertyManagers /> */}
       <FrequentlyAskedQuestions />
       <EmailSubscriptions />
       <Footer />
@@ -75,4 +96,12 @@ export const LandingPage = () => {
 
 const LandingContainer = styled(ParentContainer)`
   display: flex;
+`;
+
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem 1rem;
 `;

@@ -54,15 +54,15 @@ export const router = createBrowserRouter([
     ],
   },
 
-  {
-    path: "listProperties",
-    element: <ListProperties />,
-    children: [
-      { index: true, element: <HostelComponent /> },
-      { path: "homestel", element: <HomestelComponent /> },
-      { path: "apartment", element: <ApartmentComponent /> },
-    ],
-  },
+  // {
+  //   path: "listProperties",
+  //   element: <ListProperties />,
+  //   children: [
+  //     { index: true, element: <HostelComponent /> },
+  //     { path: "homestel", element: <HomestelComponent /> },
+  //     { path: "apartment", element: <ApartmentComponent /> },
+  //   ],
+  // },
   {
     path: "studentSignup",
     element: <StudentSignUp />,
@@ -79,10 +79,10 @@ export const router = createBrowserRouter([
     path: "longInPage",
     element: <LoginPage />,
   },
-  {
-    path: "waitlist",
-    element: <WaitList />,
-  },
+  // {
+  //   path: "waitlist",
+  //   element: <WaitList />,
+  // },
   {
     path: "filterCard",
     element: <FilerProperty />,

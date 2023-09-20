@@ -109,13 +109,13 @@ export const Navbar = () => {
                   >
                     Help
                   </NavLinks>
-                  <NavLinks
+                  {/* <NavLinks
                     onClick={() => setActive("listProperties")}
                     className={active === "listProperties" ? "active" : ""}
                     to={`listProperties`}
                   >
                     List Properties
-                  </NavLinks>
+                  </NavLinks> */}
                 </Pages>
               </AnimatePresence>
             }
@@ -203,7 +203,7 @@ export const Navbar = () => {
                           </NavLinks>
                         </div>
                         <div>
-                          <NavLinks
+                          {/* <NavLinks
                             onClick={() => setActive("listProperties")}
                             className={
                               active === "listProperties" ? "active" : ""
@@ -211,7 +211,7 @@ export const Navbar = () => {
                             to={`listProperties`}
                           >
                             List Properties
-                          </NavLinks>
+                          </NavLinks> */}
                         </div>
                       </Pages>
                     </AnimatePresence>
