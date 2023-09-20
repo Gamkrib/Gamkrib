@@ -25,10 +25,12 @@ import { Review } from "../../components/admin/landlord/pages/Review";
 import { General } from "../../components/admin/landlord/pages/General";
 import { ParentListing } from "../admin/landlord/pages/ParentListing";
 import { PropertyDetails } from "../admin/landlord/subPages/propertyListing/PropertyDetetails";
-import Preview from "../admin/landlord/subPages/propertyListing/imageUploader/ImagePrev";
+
 import { RoomDetetails } from "../admin/landlord/subPages/propertyListing/RoomDetetails";
 import { RoomPricing } from "../admin/landlord/subPages/propertyListing/RoomPricing";
 import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/FacilityAmenities";
+import { ImagePrev } from "../admin/landlord/subPages/propertyListing/ImagePrev";
+
 
 export const router = createBrowserRouter([
   {
@@ -88,7 +90,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <Listing /> },
           { path: "propertyDetails", element: <PropertyDetails /> },
-          { path: "preview", element: <Preview /> },
+          { path: "preview", element: <ImagePrev /> },
           { path: "roomDetails", element: <RoomDetetails /> },
           { path: "roomPricing", element: <RoomPricing /> },
           { path: "facilityamenity", element: <FacilityAmenities /> },
