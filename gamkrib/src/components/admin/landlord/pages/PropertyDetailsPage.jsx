@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { GeneralNavbar } from "../../../navbar/Navbar";
 import { Footer } from "../../../footer/Footer";
 import { PageLayout } from "../../../../utils/modules/PageLayout";
@@ -8,13 +8,48 @@ import dummyImage from "../../../../asserts/images/Rectangle 22766.png";
 import dummyImage1 from "../../../../asserts/images/Rectangle 22735-1.png";
 import dummyImage2 from "../../../../asserts/images/Rectangle 22735-2.png";
 import dummyImage3 from "../../../../asserts/images/Rectangle 22735.png";
+import { PreviewProps } from "../../../home/propertyDetails/PreviewProps";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { apiUrl, csrfToken } from "../../../apis/APIs";
+import { LoadingOverlay } from "@mantine/core";
 export const PropertyDetailsPage = () => {
+  const { roomDetails: roomID } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [roomDetails, setRoomDetails] = useState();
+
+  //fetching data for a specific room
+  console.log(roomDetails);
+  useEffect(() => {
+    const base = async (route) => {
+      setLoading(true);
+      try {
+        const { data } = await axios(`${apiUrl}${route}/${roomID}`, {
+          headers: {
+            accept: "application/json",
+            "X-CSRFToken": csrfToken,
+          },
+        });
+        setRoomDetails(data);
+        setLoading(false);
+      } catch (error) {
+        return console.log(error);
+      }
+    };
+    base("listings");
+  }, [apiUrl]);
+
   return (
     <>
       <GeneralNavbar />
-
+      <LoadingOverlay
+        visible={loading}
+        loaderProps={{ color: "green", type: "bars" }}
+        zIndex={1000}
+        overlayProps={{ radius: "sm", blur: 2 }}
+      />
       <PageLayout>
-        <MainInfo>
+        {/* <MainInfo>
           <BigText style={{ fontWeight: 700, textAlign: "start" }}>
             Property Info
           </BigText>
@@ -33,7 +68,8 @@ export const PropertyDetailsPage = () => {
               <SmallImge src={dummyImage3} sizes="5rem" alt="img" />
             </SubImages>
           </ImageContainer>
-        </MainInfo>
+        </MainInfo> */}
+        <PreviewProps room={roomDetails} />
       </PageLayout>
       <Footer />
     </>

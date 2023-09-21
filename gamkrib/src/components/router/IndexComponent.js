@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
     element: <StudentSignUp />,
   },
   {
-    path: "propertydetailpage",
+    path: "propertydetailpage/:roomDetails",
     element: <PropertyDetailsPage />,
   },
   {

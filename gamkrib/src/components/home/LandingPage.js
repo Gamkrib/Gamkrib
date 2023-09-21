@@ -26,6 +26,7 @@ import { EmailSubscriptions } from "../email/EmailSubscriptions";
 import { Footer } from "../footer/Footer";
 import { MockApiContext } from "../../context/MockApiContext";
 import { Container } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 
 
@@ -70,13 +71,15 @@ export const LandingPage = () => {
           {listedProperties &&
             listedProperties.map((hotel) => {
               return (
-                <Card
-                  image={hotel.images[1]}
-                  name={'Will Provide names Later'}
-                  locationText={hotel.location}
-                  review={hotel.review_score}
-                  price={hotel?.price}
-                />
+                <Link style={{ textDecoration: 'none', color: 'ButtonText' }} to={`propertydetailpage/${hotel?.id}`}>
+                  <Card
+                    image={hotel.images[1]}
+                    name={'Will Provide names Later'}
+                    locationText={hotel.location}
+                    review={hotel.review_score}
+                    price={hotel?.price}
+                  />
+                </Link>
               );
             })}
         </CardContainer>
