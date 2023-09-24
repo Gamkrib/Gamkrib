@@ -1,5 +1,0 @@
-@layer base {
-    /* Disable all preflight styles for MyComponent */
-    @tailwind base;
-    @tailwind components;
-}

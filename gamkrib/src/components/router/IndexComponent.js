@@ -32,6 +32,7 @@ import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/Fa
 import { PropertyDetailsPage } from "../admin/landlord/pages/PropertyDetailsPage";
 
 import { ImagePrev } from "../admin/landlord/subPages/propertyListing/ImagePrev";
+import { StudentDashBoard } from "../admin/student/StudentDashBoard";
 
 
 
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
     element: <PropertyDetailsPage />,
   },
   {
+    path: "studentDashBoard",
+    element: <StudentDashBoard />,
+  },
+  {
     path: "landLordSignup",
     element: <LandLordSignUp />,
   },
@@ -91,28 +96,28 @@ export const router = createBrowserRouter([
     path: "notification",
     element: <NotificationComponent />,
   },
-  {
-    path: "dashboard",
-    element: <DashBoard />,
-    children: [
-      { index: true, element: <General /> },
-      {
-        path: "listing",
-        element: <ParentListing />,
-        children: [
-          { index: true, element: <Listing /> },
-          { path: "propertyDetails", element: <PropertyDetails /> },
-          { path: "preview", element: <ImagePrev /> },
-          { path: "roomDetails", element: <RoomDetetails /> },
-          { path: "roomPricing", element: <RoomPricing /> },
-          { path: "facilityamenity", element: <FacilityAmenities /> },
-        ],
-      },
-      { path: "sales", element: <Sales /> },
-      { path: "payment", element: <Payment /> },
-      { path: "review", element: <Review /> },
-    ],
-  },
+  // {
+  //   path: "dashboard",
+  //   element: <DashBoard />,
+  //   children: [
+  //     { index: true, element: <General /> },
+  //     {
+  //       path: "listing",
+  //       element: <ParentListing />,
+  //       children: [
+  //         { index: true, element: <Listing /> },
+  //         { path: "propertyDetails", element: <PropertyDetails /> },
+  //         { path: "preview", element: <ImagePrev /> },
+  //         { path: "roomDetails", element: <RoomDetetails /> },
+  //         { path: "roomPricing", element: <RoomPricing /> },
+  //         { path: "facilityamenity", element: <FacilityAmenities /> },
+  //       ],
+  //     },
+  //     { path: "sales", element: <Sales /> },
+  //     { path: "payment", element: <Payment /> },
+  //     { path: "review", element: <Review /> },
+  //   ],
+  // },
 
   {
     path: "productDetails",
