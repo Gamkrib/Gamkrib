@@ -45,9 +45,10 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: `light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5))`,
     },
     "& : [data-active]": {
+      backgroundColor: "var(--mantine-color-blue-light)",
       "&: hover": {
-        backgroundColor: `var(--mantine-color-blue-light)`,
-        color: `var(--mantine-color-blue-light-color)`,
+        backgroundColor: "var(--mantine-color-blue-light)",
+        color: "var(--mantine-color-blue-light-color)",
       },
     },
   },
@@ -69,12 +70,12 @@ function NavbarLink({ icon: Icon, label, active, onClick }) {
 
 const mockdata = [
   { icon: IconHome2, label: "Home" },
-  { icon: IconGauge, label: "Dashboard" },
-  { icon: IconDeviceDesktopAnalytics, label: "Analytics" },
-  { icon: IconCalendarStats, label: "Releases" },
-  { icon: IconUser, label: "Account" },
-  { icon: IconFingerprint, label: "Security" },
-  { icon: IconSettings, label: "Settings" },
+  //   { icon: IconGauge, label: "Dashboard" },
+  //   { icon: IconDeviceDesktopAnalytics, label: "Analytics" },
+  //   { icon: IconCalendarStats, label: "Releases" },
+  //   { icon: IconUser, label: "Account" },
+  //   { icon: IconFingerprint, label: "Security" },
+  //   { icon: IconSettings, label: "Settings" },
 ];
 
 export function StudentNavBar() {
@@ -90,7 +91,7 @@ export function StudentNavBar() {
   ));
 
   return (
-    <nav className={classes.navbar}>
+    <nav className={classes.navbar} style={{ background: "bff1cb" }}>
       <Center>{/* <MantineLogo type="mark" size={30} /> */}</Center>
 
       <div className={classes.navbarMain}>

@@ -49,29 +49,9 @@ export const PropertyDetailsPage = () => {
         zIndex={1000}
         overlayProps={{ radius: "sm", blur: 2 }}
       />
-      <PageLayout>
-        {/* <MainInfo>
-          <BigText style={{ fontWeight: 700, textAlign: "start" }}>
-            Property Info
-          </BigText>
-          <ImageContainer>
-            <BigImage>
-              <PreviewListing src={dummyImage} />
-            </BigImage>
-            <SubImages>
-              <SmallImge
-                src={dummyImage}
-                sizes="5rem"
-                alt="img will be changed later "
-              />
-              <SmallImge src={dummyImage1} sizes="5rem" alt="img" />
-              <SmallImge src={dummyImage2} sizes="5rem" alt="img" />
-              <SmallImge src={dummyImage3} sizes="5rem" alt="img" />
-            </SubImages>
-          </ImageContainer>
-        </MainInfo> */}
-        <PreviewProps room={roomDetails} />
-      </PageLayout>
+
+      <PreviewProps room={roomDetails} />
+
       <Footer />
     </>
   );

@@ -29,7 +29,7 @@ const icons = {
 
 
 
-export const PreviewProps = ({ room }) => {
+export const PreviewProps = ({ room, gap, width }) => {
     const data = [
         { title: 'Revenue', icon: 'receipt', value: '13,456', diff: 34 },
         { title: 'Profit', icon: 'coin', value: '4,145', diff: -13 },
@@ -37,7 +37,7 @@ export const PreviewProps = ({ room }) => {
         { title: 'New customers', icon: 'user', value: '188', diff: -30 },
     ]
 
-    const details = room?.images.map((pic) =>
+    const details = room?.images?.map((pic) =>
         <SwiperSlide>
             <Image src={pic} height='30rem' />
         </SwiperSlide>
@@ -45,8 +45,8 @@ export const PreviewProps = ({ room }) => {
 
 
     return (
-        <Container size='xl' color='blue' display="flex" sx={{ gap: '2rem', flexWrap: 'wrap' }}>
-            <Paper withBorder sx={{ width: '40rem', height: '30rem' }}>
+        <Container size='xl' color='blue' display="flex" sx={{ gap: gap || '2rem', flexWrap: 'wrap', }}>
+            <Paper withBorder sx={{ width: width || '40rem', height: '30rem' }}>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     {details}
                 </Swiper>
