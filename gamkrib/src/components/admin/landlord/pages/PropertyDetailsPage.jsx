@@ -19,8 +19,9 @@ export const PropertyDetailsPage = () => {
   const [roomDetails, setRoomDetails] = useState();
 
   //fetching data for a specific room
-  console.log(roomDetails);
+  console.log(roomID, roomDetails);
   useEffect(() => {
+    console.log("hi");
     const base = async (route) => {
       setLoading(true);
       try {
@@ -37,7 +38,7 @@ export const PropertyDetailsPage = () => {
       }
     };
     base("listings");
-  }, [apiUrl]);
+  }, [roomID, apiUrl]);
 
   return (
     <>

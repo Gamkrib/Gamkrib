@@ -15,7 +15,7 @@ export const BigButton = (props) => {
 export const GreenBtn = styled(motion.div)`
   display: flex;
   background-color: ${(p) => p.theme.colors.brand.primary};
-  height: 62px;
+  height: 42px;
   width: ${(p) => p.theme.sizes[8]};
   border-radius: ${(p) => p.theme.sizes[1]};
   color: white;

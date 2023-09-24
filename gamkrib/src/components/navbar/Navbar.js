@@ -55,7 +55,7 @@ export const Navbar = () => {
   //this puts a dommy image as profile will be replaced with user profile from api call
   let userProfilePicture = mockProfile;
 
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   const [toggle, setToggle] = useState("yes");
 
   const toggleNav = () => {
