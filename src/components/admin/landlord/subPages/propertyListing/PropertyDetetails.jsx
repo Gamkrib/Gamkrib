@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
 import { MidText } from "../../../../../utils/modules/modules";
 import { DashboardContainer } from "../../pages/Listing";
-
 import "../../../../auth/auth.css";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -12,10 +10,12 @@ import {
   FormContainer,
   StyledField,
   StyledLabel,
+  StyledTextArea,
 } from "../../../../auth/FormStyles";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+
 import {
   CustomBtn,
   FormParent,
@@ -26,7 +26,6 @@ import { TextError } from "../../../../../utils/formModules/ErrorText";
 import { SelectComponent } from "../../../../../utils/formModules/SelectComponent";
 
 import { SmallText } from "../../../../home/landingStyles";
-import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { PostingPropsContextProvider } from "../../../../../context/PostingPropertyContext";
 import { useNavigate } from "react-router-dom";
@@ -34,10 +33,12 @@ import { useNavigate } from "react-router-dom";
 const MySwal = withReactContent(Swal);
 
 const initialValues = {
-  propertyName: "",
-  city: "",
-  houseNumber: "",
-  region: "",
+  number_of_beds: "",
+  number_of_rooms: "",
+  price: "",
+  location: "",
+  gender: "",
+  describption: "",
 };
 
 //get all values of the forms from this section
@@ -45,14 +46,10 @@ const initialValues = {
 /* ========================= form Validation ======================== */
 
 const validationSchema = Yup.object({
-  propertyName: Yup.string()
-    .required("Required")
-    .min(3, "must be at least 3 characters long"),
-  city: Yup.string()
-    .required("Required")
-    .min(3, "must be at least 3 characters long"),
-  houseNumber: Yup.string().required("Required"),
-  region: Yup.string().required("Required"),
+  number_of_beds: Yup.number().required("Required"),
+  number_of_rooms: Yup.number().required("Required"),
+  price: Yup.number().required("Required"),
+  location: Yup.string().required("Required"),
 });
 
 export const PropertyDetails = () => {
@@ -63,22 +60,8 @@ export const PropertyDetails = () => {
 
   const dropDownOptionsForSchool = [
     { key: "Select an Option", value: "" },
-    { key: "Greater Accra Region", value: "GreaterAccraRegion" },
-    { key: "Ashanti Region", value: "AshantiRegion" },
-    { key: "Eastern Region", value: "EasternRegion" },
-    { key: "Oti Region", value: "OtiRegion" },
-    { key: "Bono East Region", value: "BonoEastRegion" },
-    { key: "Ahafo Region", value: "AhafoRegion" },
-    { key: "Bono Region", value: "BonoRegion" },
-    { key: "North East Region", value: "NorthEastRegion" },
-    { key: "Savannah Region", value: "SavannahRegion" },
-    { key: "Western North Region", value: "WesternNorthRegion" },
-    { key: "Western Region", value: "WesternRegion" },
-    { key: "Volta Region", value: "VoltaRegion" },
-    { key: "Central Region", value: "CentralRegion" },
-    { key: "Northern Region", value: "NorthernRegion" },
-    { key: "Upper East Region", value: "UpperEastRegion" },
-    { key: "Upper West Region", value: "UpperWestRegion" },
+    { key: "Female", value: "female" },
+    { key: "Male", value: "male" },
   ];
 
   /*=========xxx========= Dropdown Options  ============xxx=============*/
@@ -86,6 +69,8 @@ export const PropertyDetails = () => {
   //======================saving the values to context ===========================//
   const onSubmit = (values, submitProps) => {
     console.log("Form data", values);
+    let sValues = JSON.stringify(values);
+    localStorage.setItem("propDetails", sValues);
     setValues(values);
     navigate("/dashboard/listing/preview");
     // this gives the user an alert message if from values are collected
@@ -151,30 +136,67 @@ export const PropertyDetails = () => {
                 <Form>
                   <FormContainer>
                     <SelectComponent
-                      name="region"
-                      label="Region"
+                      name="gender"
+                      label="Gender"
                       options={dropDownOptionsForSchool}
                     />
-                    <ErrorMessage name="region" component={TextError} />
+                    <ErrorMessage name="gender" component={TextError} />
                   </FormContainer>
                   <FormContainer>
-                    <StyledLabel htmlFor="firstName">
-                      Street Name and House number
+                    <StyledLabel htmlFor="location">
+                      Please state the location of the property
                     </StyledLabel>{" "}
                     <br />
-                    <StyledField type="text" id="name" name="houseNumber" />
-                    <ErrorMessage name="houseNumber" component={TextError} />
+                    <StyledField type="text" id="location" name="location" />
+                    <ErrorMessage name="location" component={TextError} />
                   </FormContainer>
                   <FormContainer>
-                    <StyledLabel htmlFor="city">City</StyledLabel> <br />
-                    <StyledField type="text" id="city" name="city" />
-                    <ErrorMessage name="city" component={TextError} />
-                  </FormContainer>
-                  <FormContainer>
-                    <StyledLabel htmlFor="email">Property Name</StyledLabel>
+                    <StyledLabel htmlFor="price">Price in GHc</StyledLabel>{" "}
                     <br />
-                    <StyledField type="text" id="email" name="propertyName" />
-                    <ErrorMessage name="propertyName" component={TextError} />
+                    <StyledField type="number" id="price" name="price" />
+                    <ErrorMessage name="price" component={TextError} />
+                  </FormContainer>
+                  <FormContainer>
+                    <StyledLabel htmlFor="number_of_beds">
+                      Number of beds
+                    </StyledLabel>
+                    <br />
+                    <StyledField
+                      type="number"
+                      id="number_of_beds"
+                      name="number_of_beds"
+                    />
+                    <ErrorMessage name="number_of_beds" component={TextError} />
+                  </FormContainer>
+                  <FormContainer>
+                    <StyledLabel htmlFor="number_of_rooms">
+                      Number of Rooms
+                    </StyledLabel>
+                    <br />
+                    <StyledField
+                      type="number"
+                      id="number_of_rooms"
+                      name="number_of_rooms"
+                    />
+                    <ErrorMessage
+                      name="number_of_rooms"
+                      component={TextError}
+                    />
+                  </FormContainer>
+                  <FormContainer>
+                    <StyledLabel htmlFor="describption">
+                      Description{" "}
+                      <span style={{ fontSize: "13px" }}>
+                        (Some catchy words to hook student in)
+                      </span>
+                    </StyledLabel>{" "}
+                    <br />
+                    <StyledTextArea
+                      type="textArea"
+                      id="describption"
+                      name="describption"
+                    />
+                    <ErrorMessage name="describption" component={TextError} />
                   </FormContainer>
                   {/* <button type="button" onClick={() => setFormValues(savedValues)}>
                 Load saved data

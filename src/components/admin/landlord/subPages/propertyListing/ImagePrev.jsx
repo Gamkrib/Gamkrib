@@ -1,56 +1,98 @@
-import React from "react";
-import { Group, Text, useMantineTheme, rem } from "@mantine/core";
-import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
-import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from "@mantine/dropzone";
+import { useState } from "react";
 
+import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
+import CloudinaryUploadWidget from "./CWidjet";
+import { Button, Container, Flex } from "@mantine/core";
+import homeGif from "../../../../../asserts/images/3d-casual-life-happy-man-with-laptop-showing-ok-hand-sign.png";
+import { theme } from "../../../../../theme";
+import { data } from "autoprefixer";
 export const ImagePrev = (props) => {
-  const theme = useMantineTheme();
-  return (
-    <>
-      <Dropzone
-        onDrop={(files) => console.log("accepted files", files)}
-        onReject={(files) => console.log("rejected files", files)}
-        maxSize={3 * 1024 ** 2}
-        accept={IMAGE_MIME_TYPE}
-        {...props}
-      >
-        <Group
-          position="center"
-          spacing="xl"
-          style={{ minHeight: rem(220), pointerEvents: "none" }}
-        >
-          <Dropzone.Accept>
-            <IconUpload
-              size="3.2rem"
-              stroke={1.5}
-              color={
-                theme.colors[theme.primaryColor][
-                  theme.colorScheme === "dark" ? 4 : 6
-                ]
-              }
-            />
-          </Dropzone.Accept>
-          <Dropzone.Reject>
-            <IconX
-              size="3.2rem"
-              stroke={1.5}
-              color={theme.colors.red[theme.colorScheme === "dark" ? 4 : 6]}
-            />
-          </Dropzone.Reject>
-          <Dropzone.Idle>
-            <IconPhoto size="3.2rem" stroke={1.5} />
-          </Dropzone.Idle>
+  const [publicId, setPublicId] = useState("");
+  // Replace with your own cloud name
+  const [cloudName] = useState("djzn1iixv");
+  // Replace with your own upload preset
+  const [uploadPreset] = useState("halumx55");
 
-          <div>
-            <Text size="xl" inline>
-              Drag images here or click to select files
-            </Text>
-            <Text size="sm" color="dimmed" inline mt={7}>
-              Attach as many files as you like, each file should not exceed 5mb
-            </Text>
-          </div>
-        </Group>
-      </Dropzone>
-    </>
+  const [uwConfig] = useState({
+    cloudName,
+    uploadPreset,
+  });
+
+  // Create a Cloudinary instance and set your cloud name.
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName,
+    },
+  });
+
+  //previous fields
+  const a = localStorage.getItem("propDetails");
+  const previousFields = JSON.parse(a);
+  const s = localStorage.getItem("propStrings");
+  const uploadedeImages = JSON.parse(s);
+  const clearImages = () => {
+    localStorage.setItem("propStrings", "");
+  };
+
+  // Submitting properties
+  const submitListing = async () => {
+    try {
+      const formData = {
+        ...previousFields,
+        images: uploadedeImages,
+      };
+    } catch (error) {}
+  };
+
+  // submitListing();
+  return (
+    <div className="App">
+      <Container
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h3 style={{ textAlign: "center", marginTop: "1rem" }}>
+          Let add some images to make your listing awesome!🎉
+        </h3>
+        <img src={homeGif} alt="a man with a laptop" />
+        <Flex gap={10}>
+          <CloudinaryUploadWidget
+            uwConfig={uwConfig}
+            setPublicId={setPublicId}
+          />
+          <Button
+            onClick={clearImages}
+            style={{ backgroundColor: "red", height: "3.4em" }}
+          >
+            Clear
+          </Button>
+        </Flex>
+        <p></p>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          {uploadedeImages &&
+            uploadedeImages?.map((i) => (
+              <img style={{ width: "300px" }} alt="" src={i} />
+            ))}
+        </div>{" "}
+        <Button
+          disabled={!uploadedeImages}
+          mt={10}
+          style={{
+            backgroundColor: !uploadedeImages
+              ? "gray"
+              : theme.colors.brand.primary,
+            height: "3.4em",
+            width: "20em",
+          }}
+        >
+          Submit Listing
+        </Button>
+      </Container>
+    </div>
   );
 };

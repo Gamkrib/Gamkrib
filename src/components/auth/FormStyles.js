@@ -11,6 +11,16 @@ export const StyledField = styled(Field)`
     width: 90vw;
   }
 `;
+export const StyledTextArea = styled.textarea`
+  height: 2.9rem;
+  width: 28.75rem;
+  border: solid 1.5px #b7b7b7;
+  border-radius: 5px;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
+`;
 
 export const StyledFieldForName = styled(StyledField)`
   width: 13.5rem;

@@ -20,8 +20,6 @@ import stuSignUpImg from "../../asserts/backgroundImages/stSU.webp";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { MidText } from "../../utils/modules/modules";
-import axios from "axios";
-import { apiUrl, csrfToken } from "../apis/APIs";
 import { Link, useNavigate } from "react-router-dom";
 import { plainAPi } from "./axios/axios";
 
@@ -29,8 +27,8 @@ import { plainAPi } from "./axios/axios";
 const MySwal = withReactContent(Swal);
 
 const initialValues = {
-  firstname: "",
-  lastname: "",
+  firstName: "",
+  lastName: "",
   email: "",
   school: "",
   gender: "",
@@ -50,10 +48,10 @@ const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validationSchema = Yup.object({
-  firstname: Yup.string()
+  firstName: Yup.string()
     .required("Required")
     .min(3, "must be at least 3 characters long"),
-  lastname: Yup.string()
+  lastName: Yup.string()
     .required("Required")
     .min(3, "must be at least 3 characters long"),
   email: Yup.string().email("Invalid email format").required("Required"),
@@ -85,7 +83,7 @@ export const StudentSignUp = () => {
     const base = async (route) => {
 
       const subValues = {
-        username: values.firstname + values.lastname,
+        username: values.firstName + values.lastName,
         ...values
       }
       console.log(subValues)
@@ -95,12 +93,12 @@ export const StudentSignUp = () => {
         console.log(data)
         MySwal.fire({
           title: "Form Submitted Successfully!",
-          text: 'res',
+          text: 'Account created successfully',
           icon: "success",
           confirmButtonColor: "#30D158",
         });
 
-        // navigate("/");
+        navigate("/");
         setIsLoading(false)
         submitProps.setSubmitting(false);
         submitProps.resetForm();
@@ -195,24 +193,24 @@ export const StudentSignUp = () => {
               <Form>
                 <NameFieldContainer>
                   <FormContainer>
-                    <StyledLabel htmlFor="firstname">First Name</StyledLabel>{" "}
+                    <StyledLabel htmlFor="firstName">First Name</StyledLabel>{" "}
                     <br />
                     <StyledFieldForName
                       type="text"
                       id="name"
-                      name="firstname"
+                      name="firstName"
                     />
-                    <ErrorMessage name="firstname" component={TextError} />
+                    <ErrorMessage name="firstName" component={TextError} />
                   </FormContainer>
                   <FormContainer>
-                    <StyledLabel htmlFor="lastname">Last Name</StyledLabel>{" "}
+                    <StyledLabel htmlFor="lastName">Last Name</StyledLabel>{" "}
                     <br />
                     <StyledFieldForName
                       type="text"
-                      id="lastname"
-                      name="lastname"
+                      id="lastName"
+                      name="lastName"
                     />
-                    <ErrorMessage name="lastname" component={TextError} />
+                    <ErrorMessage name="lastName" component={TextError} />
                   </FormContainer>
                 </NameFieldContainer>
                 <FormContainer>
