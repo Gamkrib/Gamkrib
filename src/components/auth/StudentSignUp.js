@@ -23,19 +23,20 @@ import { MidText } from "../../utils/modules/modules";
 import axios from "axios";
 import { apiUrl, csrfToken } from "../apis/APIs";
 import { Link, useNavigate } from "react-router-dom";
+import { plainAPi } from "./axios/axios";
 
 
 const MySwal = withReactContent(Swal);
 
 const initialValues = {
-  firstName: "",
-  lastName: "",
+  firstname: "",
+  lastname: "",
   email: "",
   school: "",
   gender: "",
   level: "",
   phone_number: "",
-  password1: "",
+  password: "",
   password2: "",
   is_landlord: false,
   location: 'null'
@@ -49,19 +50,19 @@ const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validationSchema = Yup.object({
-  firstName: Yup.string()
+  firstname: Yup.string()
     .required("Required")
     .min(3, "must be at least 3 characters long"),
-  lastName: Yup.string()
+  lastname: Yup.string()
     .required("Required")
     .min(3, "must be at least 3 characters long"),
   email: Yup.string().email("Invalid email format").required("Required"),
-  password1: Yup.string()
+  password: Yup.string()
     .required("Required")
     .min(6, " Password must be at least 6 characters long"),
   password2: Yup.string()
     .required("Confirm password is required")
-    .oneOf([Yup.ref("password1"), null], "Password mismatched"),
+    .oneOf([Yup.ref("password"), null], "Password mismatched"),
   school: Yup.string().required("Required"),
   gender: Yup.string().required("Required"),
   level: Yup.string().required("Required"),
@@ -83,25 +84,23 @@ export const StudentSignUp = () => {
 
     const base = async (route) => {
 
+      const subValues = {
+        username: values.firstname + values.lastname,
+        ...values
+      }
+      console.log(subValues)
       try {
         setIsLoading(true)
-        const res = await axios.post(`${apiUrl}${route}/`, values,
-          {
-            headers: {
-              'accept': 'application/json',
-              'Content-Type': 'application/json',
-              'X-CSRFToken': csrfToken,
-            }
-          })
-        console.log(res)
+        const { data } = await plainAPi.post('/gamkrib_createuser', subValues)
+        console.log(data)
         MySwal.fire({
-          title: "Form Submitted Successfully!", res,
-          text: res,
+          title: "Form Submitted Successfully!",
+          text: 'res',
           icon: "success",
           confirmButtonColor: "#30D158",
         });
 
-        navigate("/");
+        // navigate("/");
         setIsLoading(false)
         submitProps.setSubmitting(false);
         submitProps.resetForm();
@@ -196,24 +195,24 @@ export const StudentSignUp = () => {
               <Form>
                 <NameFieldContainer>
                   <FormContainer>
-                    <StyledLabel htmlFor="firstName">First Name</StyledLabel>{" "}
+                    <StyledLabel htmlFor="firstname">First Name</StyledLabel>{" "}
                     <br />
                     <StyledFieldForName
                       type="text"
                       id="name"
-                      name="firstName"
+                      name="firstname"
                     />
-                    <ErrorMessage name="firstName" component={TextError} />
+                    <ErrorMessage name="firstname" component={TextError} />
                   </FormContainer>
                   <FormContainer>
-                    <StyledLabel htmlFor="lastName">Last Name</StyledLabel>{" "}
+                    <StyledLabel htmlFor="lastname">Last Name</StyledLabel>{" "}
                     <br />
                     <StyledFieldForName
                       type="text"
-                      id="lastName"
-                      name="lastName"
+                      id="lastname"
+                      name="lastname"
                     />
-                    <ErrorMessage name="lastName" component={TextError} />
+                    <ErrorMessage name="lastname" component={TextError} />
                   </FormContainer>
                 </NameFieldContainer>
                 <FormContainer>
@@ -259,15 +258,15 @@ export const StudentSignUp = () => {
                 </FormContainer>
 
                 <FormContainer>
-                  <StyledLabel htmlFor="password1">Password</StyledLabel>
+                  <StyledLabel htmlFor="password">Password</StyledLabel>
                   <br />
                   <StyledField
-                    type="password"
-                    id="password1"
-                    name="password1"
+                    type="text"
+                    id="password"
+                    name="password"
                     placeholder="Create a new password"
                   />
-                  <ErrorMessage name="password1" component={TextError} />
+                  <ErrorMessage name="password" component={TextError} />
                 </FormContainer>
                 <FormContainer>
                   <StyledLabel htmlFor="password2">
