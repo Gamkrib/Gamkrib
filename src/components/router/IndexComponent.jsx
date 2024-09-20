@@ -18,11 +18,11 @@ import { AdminContainer } from "../admin/home/AdminContainer";
 import { ProductDetails } from "../productDetails/ProductDetails";
 import { DashBoard } from "../admin/landlord/pages/DashBoard";
 
-import { Listing } from "../../components/admin/landlord/pages/Listing";
-import { Sales } from "../../components/admin/landlord/pages/Sales";
-import { Payment } from "../../components/admin/landlord/pages/Payment";
-import { Review } from "../../components/admin/landlord/pages/Review";
-import { General } from "../../components/admin/landlord/pages/General";
+import { Listing } from "../admin/landlord/pages/Listing";
+import { Sales } from "../admin/landlord/pages/Sales";
+import { Payment } from "../admin/landlord/pages/Payment";
+import { Review } from "../admin/landlord/pages/Review";
+import { General } from "../admin/landlord/pages/General";
 import { ParentListing } from "../admin/landlord/pages/ParentListing";
 import { PropertyDetails } from "../admin/landlord/subPages/propertyListing/PropertyDetetails";
 import Preview from "../admin/landlord/subPages/propertyListing/imageUploader/ImagePrev";
@@ -32,10 +32,7 @@ import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/Fa
 import { PropertyDetailsPage } from "../admin/landlord/pages/PropertyDetailsPage";
 
 import { ImagePrev } from "../admin/landlord/subPages/propertyListing/ImagePrev";
-import { NavbarMinimal } from "../admin/student/dashboard";
-
-
-
+import { DashboardStudent, NavbarMinimal } from "../admin/student/dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -118,7 +115,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "studentDashboard",
-    element: <NavbarMinimal />,
+    element: <DashboardStudent />,
   },
 ]);
 

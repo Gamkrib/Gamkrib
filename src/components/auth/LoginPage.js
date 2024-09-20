@@ -81,7 +81,8 @@ export const LoginPage = () => {
       const { data: { data } } = await plainAPi.post('/gamkrib_signin', values)
 
       // save userData for later use 
-      localStorage.setItem('gamkribUserData', data)
+      const s = JSON.stringify(data)
+      localStorage.setItem('gamkribUserData', s)
       localStorage.setItem('gamkribToken', data?.token)
       submitProps.setSubmitting(false);
       submitProps.resetForm();

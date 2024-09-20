@@ -30,6 +30,7 @@ import {
 import { apiUrl, csrfToken } from "../apis/APIs";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { plainAPi } from "./axios/axios";
 
 const MySwal = withReactContent(Swal);
 
@@ -81,29 +82,35 @@ const validationSchema = Yup.object({
 export const LandLordSignUp = () => {
   const [formValues, setFormValues] = useState(null);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true)
+    ;
   const onSubmit = (values, submitProps) => {
+
     const base = async (route) => {
 
+      const subValues = {
+        username: values.firstName + values.lastName,
+        is_landlord: true,
+        ...values
+      }
+      console.log(subValues)
       try {
-        console.log('hi')
-        await axios.post(`${apiUrl}${route}/`, values,
-          {
-            headers: {
-              'accept': 'application/json',
-              'Content-Type': 'application/json',
-              'X-CSRFToken': csrfToken,
-            }
-          })
+        setIsLoading(true)
+        const { data } = await plainAPi.post('/gamkrib_createuser', subValues)
+        console.log(data)
         MySwal.fire({
           title: "Form Submitted Successfully!",
-          text: "Click okay to return",
+          text: 'Account created successfully',
           icon: "success",
           confirmButtonColor: "#30D158",
         });
+
         navigate("/");
+        setIsLoading(false)
         submitProps.setSubmitting(false);
         submitProps.resetForm();
       } catch (error) {
+        setIsLoading(false)
         MySwal.fire({
           title: "Ops, Field to Submit Forms!",
           text: "Click okay to return",
@@ -112,23 +119,15 @@ export const LandLordSignUp = () => {
         });
         return console.log(error)
       } finally {
-
+        setIsLoading(false)
       }
     }
     base('users/register')
     submitProps.setSubmitting(false);
     submitProps.resetForm();
 
-    submitProps.setSubmitting(false);
-    submitProps.resetForm();
-
     // this gives the user an alert message if from values are collected
-    MySwal.fire({
-      title: "Form Submitted Successfully!",
-      text: "Click okay to return",
-      icon: "success",
-      confirmButtonColor: "#30D158",
-    });
+
   };
   /*=========xxx========= Dropdown Options  ============xxx=============*/
 
