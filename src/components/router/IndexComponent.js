@@ -32,6 +32,7 @@ import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/Fa
 import { PropertyDetailsPage } from "../admin/landlord/pages/PropertyDetailsPage";
 
 import { ImagePrev } from "../admin/landlord/subPages/propertyListing/ImagePrev";
+import { NavbarMinimal } from "../admin/student/dashboard";
 
 
 
@@ -58,7 +59,7 @@ export const router = createBrowserRouter([
     path: "listProperties",
     element: <ListProperties />,
     children: [
-      { index: true, element: <HostelComponent /> },
+      { index: true, element: <HomestelComponent /> },
       { path: "homestel", element: <HomestelComponent /> },
       { path: "apartment", element: <ApartmentComponent /> },
     ],
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
   {
     path: "productDetails",
     element: <ProductDetails />,
+  },
+  {
+    path: "studentDashboard",
+    element: <NavbarMinimal />,
   },
 ]);
 

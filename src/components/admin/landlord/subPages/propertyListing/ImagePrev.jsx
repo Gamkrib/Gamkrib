@@ -7,6 +7,7 @@ import { Button, Container, Flex } from "@mantine/core";
 import homeGif from "../../../../../asserts/images/3d-casual-life-happy-man-with-laptop-showing-ok-hand-sign.png";
 import { theme } from "../../../../../theme";
 import { data } from "autoprefixer";
+import base from "../../../../auth/axios/axios";
 export const ImagePrev = (props) => {
   const [publicId, setPublicId] = useState("");
   // Replace with your own cloud name
@@ -42,6 +43,7 @@ export const ImagePrev = (props) => {
         ...previousFields,
         images: uploadedeImages,
       };
+      const { data } = base.post("/admin/post/", formData);
     } catch (error) {}
   };
 
@@ -82,6 +84,7 @@ export const ImagePrev = (props) => {
         <Button
           disabled={!uploadedeImages}
           mt={10}
+          onClick={submitListing}
           style={{
             backgroundColor: !uploadedeImages
               ? "gray"

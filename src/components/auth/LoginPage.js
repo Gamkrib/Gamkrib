@@ -4,8 +4,6 @@ import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 import { FormContainer, StyledField, StyledLabel } from "./FormStyles";
-import { SelectComponent } from "../../utils/formModules/SelectComponent";
-import { PhoneInputField } from "../../utils/formModules/PhoneInputField";
 import { TextError } from "../../utils/formModules/ErrorText";
 // import TextError from "./TextError";
 
@@ -13,53 +11,97 @@ import loginImg from "../../asserts/backgroundImages/studentSignUp.webp";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { DescriptionText, MidText } from "../../utils/modules/modules";
+import { DescriptionText } from "../../utils/modules/modules";
 import {
   CustomBtn,
-  FormParent,
-  ModifiedMidText,
-  ParentContainer,
-  TextContainer,
+  FormParent, ParentContainer
 } from "./StudentSignUp";
 import { BigTextWithoutMargin } from "../home/landingStyles";
 import { LogoContainer } from "../navbar/navbarStyles";
 import { Logo } from "../../utils/modules/Logo";
+import { plainAPi } from "./axios/axios";
+import { Loader } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 const MySwal = withReactContent(Swal);
 
 const initialValues = {
-  email: "",
+  username: "",
 
   password: "",
 };
 
 //get all values of the forms from this section
-const onSubmit = (values, submitProps) => {
+const onSubmit = async (values, submitProps) => {
   console.log("Form data from landLord ", values);
   console.log("submitProps", submitProps);
-  submitProps.setSubmitting(false);
-  submitProps.resetForm();
+
+  try {
+    const { data: { data } } = await plainAPi.post('/gamkrib_signin', values)
+    console.log(data)
+    localStorage.setItem('gamkribToken', data?.token)
+    submitProps.setSubmitting(false);
+    submitProps.resetForm();
+    MySwal.fire({
+      title: "Form Submitted Successfully!",
+      text: "Click okay to return",
+      icon: "success",
+      confirmButtonColor: "#30D158",
+    });
+  } catch (error) {
+
+  }
+
 
   // this gives the user an alert message if from values are collected
-  MySwal.fire({
-    title: "Form Submitted Successfully!",
-    text: "Click okay to return",
-    icon: "success",
-    confirmButtonColor: "#30D158",
-  });
+
 };
 
 /* ========================= form Validation ======================== */
 
 const validationSchema = Yup.object({
-  email: Yup.string().email("Invalid email format").required("Required"),
+  username: Yup.string().required("Required"),
   password: Yup.string()
     .required("Required")
-    .min(6, "Login failed, check your email or password"),
+    .min(6, "Login failed, check your username or password"),
 });
 
 export const LoginPage = () => {
   const [formValues, setFormValues] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
+  const navigate = useNavigate();
+
+  ///form submission 
+  const onSubmit = async (values, submitProps) => {
+    console.log("Form data from landLord ", values);
+    console.log("submitProps", submitProps);
+
+    try {
+      setIsLoading(true)
+      const { data: { data } } = await plainAPi.post('/gamkrib_signin', values)
+
+      // save userData for later use 
+      localStorage.setItem('gamkribUserData', data)
+      localStorage.setItem('gamkribToken', data?.token)
+      submitProps.setSubmitting(false);
+      submitProps.resetForm();
+      setIsLoading(false)
+      MySwal.fire({
+        title: "Form Submitted Successfully!",
+        text: "Click okay to return",
+        icon: "success",
+        confirmButtonColor: "#30D158",
+      });
+      navigate("/dashboard/student");
+    } catch (error) {
+
+    }
+
+
+    // this gives the user an alert message if from values are collected
+
+  };
+
   return (
     <>
       <ParentContainer>
@@ -79,17 +121,16 @@ export const LoginPage = () => {
             enableReinitialize
             validateOnChange={false}
             validateOnBlur={true}
-            // validateOnMount
+          // validateOnMount
           >
             {(formik) => {
-              console.log("Formik props", formik);
               return (
                 <Form>
                   <FormContainer>
-                    <StyledLabel htmlFor="email">Email</StyledLabel>
+                    <StyledLabel htmlFor="username">User Name</StyledLabel>
                     <br />
-                    <StyledField type="email" id="email" name="email" />
-                    <ErrorMessage name="email" component={TextError} />
+                    <StyledField type="username" id="username" name="username" />
+                    <ErrorMessage name="username" component={TextError} />
                   </FormContainer>
 
                   <FormContainer>
@@ -104,16 +145,12 @@ export const LoginPage = () => {
                     <ErrorMessage name="password" component={TextError} />
                   </FormContainer>
 
-                  {/* <button type="button" onClick={() => setFormValues(savedValues)}>
-                Load saved data
-              </button> */}
-
-                  {/* <button type="reset">Reset</button> */}
                   <CustomBtn
                     type="submit"
                     disabled={!formik.isValid || formik.isSubmitting}
+                    style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                   >
-                    Log In
+                    {isLoading ? <Loader /> : "Log In"}
                   </CustomBtn>
                 </Form>
               );

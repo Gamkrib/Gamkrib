@@ -11,16 +11,29 @@ import { FilterBtn } from "../../utils/searchModel/SearchComponent";
 import { apiUrl, base, csrfToken } from "../apis/APIs";
 import axios from "axios";
 import { useEffect } from "react";
+import { plainAPi } from "../auth/axios/axios";
 
 export const HomestelComponent = () => {
   const { listedProperties, farm } = useContext(MockApiContext);
+  const [properties, setProperties] = useState([])
 
   const { filter } = useContext(SelectedHostelContext);
 
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await plainAPi.get('properties')
+        console.log(data)
+      } catch (error) {
+
+      }
+    })()
+
+  }, [])
   //==================== api int =============================//
 
-  console.log(listedProperties)
+
 
 
 
