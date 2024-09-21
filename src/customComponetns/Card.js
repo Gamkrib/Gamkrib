@@ -7,26 +7,35 @@ import reviewIcon from "../asserts/siteLogos/Vector(1).png";
 import { motion } from "framer-motion";
 import { SmallText } from "../components/home/landingStyles";
 import { DescriptionText } from "../utils/modules/modules";
+import { useNavigate } from "react-router-dom";
+import { image } from "@cloudinary/url-gen/qualifiers/source";
 
 export const Card = (props) => {
+  const nav = useNavigate()
+  const propertyDetails = (id) => {
+    const d = JSON.stringify(props)
+    localStorage.setItem('gamId', d)
+    nav('/propertydetailpage')
+  }
+  console.log(props.images)
   return (
-    <motion.div whileTap={{ scale: 0.9 }}>
+    <motion.div whileTap={{ scale: 0.9 }} onClick={() => propertyDetails(props.id)}>
       <Image src={props.image || picture} />
       <div>
-        <DescriptionText>{props.name} </DescriptionText>
+        <DescriptionText>Gender: {props.name} </DescriptionText>
       </div>
 
       <CardDescription>
         {props.locationText && (
           <div>
-            {props.icon && <IconImage src={props.icon || icon} />}
-            <LocationText> {props.locationText}</LocationText>
+
+            <LocationText>Location: {props.locationText}</LocationText>
           </div>
         )}
         {props.review && (
           <div>
-            <IconImage src={props.reviewIcon || reviewIcon} />
-            <LocationText> {props.review}</LocationText>
+
+            <LocationText>Number 0f beds: {props.review}</LocationText>
           </div>
         )}
       </CardDescription>

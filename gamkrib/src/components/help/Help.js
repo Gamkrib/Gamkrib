@@ -37,9 +37,7 @@ export const Help = () => {
               Let's Talk
             </MidText>
             <DescriptionText>
-              support team is always available to assist students with any questions
-              <br></br>
-              or concerns they may have.
+              This your go-to platform for connecting students and property owners in a hassle-free way. Whether you need help finding the perfect accommodation or have questions about your booking, our friendly support team is here to assist. We're committed to making your student living experience stress-free and enjoyable
 
             </DescriptionText>
             <BtnContainer>

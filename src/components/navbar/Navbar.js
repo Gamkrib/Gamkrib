@@ -57,7 +57,17 @@ export const Navbar = () => {
 
   const [user, setUser] = useState(false);
   const [toggle, setToggle] = useState("yes");
+  const s = localStorage.getItem('gamkribUserData')
+  const userData = JSON.parse(s)
 
+  useEffect(() => {
+
+    console.log(userData)
+    setUser(userData?.username)
+  }, [userData])
+
+  const userRoute = userData?.is_landlord ? '/dashboard' : '/student-dashboard'
+  console.log(userRoute)
   const toggleNav = () => {
     setToggle((prev) => (prev === "no" ? "yes" : "no"));
     console.log(displayNav);
@@ -95,13 +105,7 @@ export const Navbar = () => {
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <NavLinks
-                    onClick={() => setActive("aboutUs")}
-                    className={active === "aboutUs" ? "active" : ""}
-                    to={`aboutUs`}
-                  >
-                    About Us
-                  </NavLinks>
+
                   <NavLinks
                     onClick={() => setActive("help")}
                     className={active === "help" ? "active" : ""}
@@ -116,6 +120,24 @@ export const Navbar = () => {
                   >
                     List Properties
                   </NavLinks>
+
+                  <NavLinks
+                    onClick={() => setActive("aboutUs")}
+                    className={active === "aboutUs" ? "active" : ""}
+                    to={`aboutUs`}
+                  >
+                    About Us
+                  </NavLinks>
+                  {user && <NavLinks
+                    onClick={() => {
+                      localStorage.clear()
+                      setActive("aboutUs")
+                    }}
+                    className={active === "aboutUs" ? "active" : ""}
+                    to={`longInPage`}
+                  >
+                    Log out
+                  </NavLinks>}
                 </Pages>
               </AnimatePresence>
             }
@@ -124,18 +146,23 @@ export const Navbar = () => {
               {user ? (
                 <ProfileContainer>
                   <MainNotificationCount>6</MainNotificationCount>
-                  <NotificationIcon whileTap={{ scale: 0.8 }}>
-                    <div>
-                      <img height="22px" src={notificationIcon} alt="notification icon" />
-                    </div>
-                  </NotificationIcon>
-                  <ProfilePicture>
-                    <motion.img
-                      src={userProfilePicture || avatar}
-                      height="46px"
-                      whileTap={{ scale: 0.8 }}
-                    />
-                  </ProfilePicture>
+                  <Link to={'/notification'}>
+                    <NotificationIcon whileTap={{ scale: 0.8 }}>
+                      <div>
+                        <img style={{ height: 30 }} src={notificationIcon} alt="notification icon" />
+                      </div>
+                    </NotificationIcon>
+                  </Link>
+                  <Link to={userRoute}>
+                    <ProfilePicture>
+                      <motion.img
+                        src={userProfilePicture || avatar}
+                        height="10px"
+                        style={{ height: 40 }}
+                        whileTap={{ scale: 0.8 }}
+                      />
+                    </ProfilePicture>
+                  </Link>
                 </ProfileContainer>
               ) : (
                 <>

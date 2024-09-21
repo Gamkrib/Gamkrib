@@ -17,7 +17,7 @@ export const PropertyManagers = () => {
           Post your listing and market to thousands of students
         </DescriptionText>
       </div>
-      <BigButton title="List Properties" />
+      <BigButton navLink='/dashboard' title="List Properties" />
     </ModifiedParentContainer>
   );
 };

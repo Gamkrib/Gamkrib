@@ -69,7 +69,15 @@ export const PropertyDetails = () => {
   //======================saving the values to context ===========================//
   const onSubmit = (values, submitProps) => {
     console.log("Form data", values);
-    let sValues = JSON.stringify(values);
+    const s = localStorage.getItem("gamkribUserData");
+    console.log(s);
+    const userData = JSON.parse(s);
+    const ps = {
+      posted_by: userData.username,
+      ...values,
+    };
+
+    let sValues = JSON.stringify(ps);
     localStorage.setItem("propDetails", sValues);
     setValues(values);
     navigate("/dashboard/listing/preview");

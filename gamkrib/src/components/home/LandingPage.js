@@ -73,6 +73,7 @@ export const LandingPage = () => {
               return (
                 <Link style={{ textDecoration: 'none', color: 'ButtonText' }} to={`propertydetailpage/${hotel?.id}`}>
                   <Card
+                    images={hotel.images}
                     image={hotel.images[0]}
                     name={hotel.property_name}
                     locationText={hotel.location}

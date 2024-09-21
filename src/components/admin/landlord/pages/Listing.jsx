@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   GreenBtn,
   HeaderText,
@@ -17,11 +17,31 @@ import { colors } from "../../../../theme/colors";
 import "./minorStyles.css";
 import { Card } from "../../../../customComponetns/Card";
 import { Link } from "react-router-dom";
+import base from "../../../auth/axios/axios";
 
 export const Listing = () => {
   const { selectedList, isActive, setSelectedList, setIsActive } =
     useContext(DashBoardContext);
 
+  const [adminListing, setAdminListing] = useState();
+
+  const getAdminProperties = async () => {
+    const s = localStorage.getItem("gamkribUserData");
+    console.log(s);
+    const userData = JSON.parse(s);
+    console.log(userData);
+    try {
+      const { data } = await base.post(`/admin/get_adminProperties/`, {
+        posted_by: userData.username,
+      });
+      setAdminListing(data);
+      console.log(data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getAdminProperties();
+  }, []);
   /*===================Api to update various state of the app =====================*/
 
   return (

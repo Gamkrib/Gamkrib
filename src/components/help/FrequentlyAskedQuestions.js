@@ -15,51 +15,30 @@ export const FrequentlyAskedQuestions = () => {
       <MidText>Frequently Asked Questions</MidText>
       <CAccordion alwaysOpen activeItemKey={1} style={vars}>
         <CAccordionItem style={vars} itemKey={1}>
-          <CAccordionHeader style={vars}>Accordion Item #1</CAccordionHeader>
+          <CAccordionHeader style={vars}>How do I search for accommodation on your platform?</CAccordionHeader>
 
           <CAccordionBody>
-            <strong>This is the first item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
+            You can use our search bar to input your preferred location, budget, and other filters like room type or amenities. Our system will show you the best available options based on your preferences.
           </CAccordionBody>
         </CAccordionItem>
 
         <CAccordionItem itemKey={2}>
-          <CAccordionHeader>Accordion Item #2</CAccordionHeader>
+          <CAccordionHeader>Can I view the property before booking?</CAccordionHeader>
 
           <CAccordionBody>
-            <strong>This is the second item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
+            Yes, many of our listings offer virtual tours, and some landlords allow in-person viewings. Check the listing details for viewing options or contact our support team to arrange one
           </CAccordionBody>
         </CAccordionItem>
 
         <CAccordionItem itemKey={3}>
-          <CAccordionHeader>Accordion Item #3</CAccordionHeader>
+          <CAccordionHeader>Can I cancel my booking?</CAccordionHeader>
 
           <CAccordionBody>
-            <strong>This is the second item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
+            Yes, you can cancel your booking, but the cancellation policy varies depending on the accommodation. Some properties offer a full refund if canceled within a certain time frame, while others may have stricter rules. Please review the specific cancellation policy before booking.
           </CAccordionBody>
         </CAccordionItem>
       </CAccordion>
-    </ModifiedParentContainer>
+    </ModifiedParentContainer >
   );
 };
 

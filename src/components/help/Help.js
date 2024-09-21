@@ -36,9 +36,11 @@ export const Help = () => {
               Let's Talk
             </MidText>
             <DescriptionText>
-              Lorem ipsum dolor sit amet consectetur.
-              <br></br>
-              Lacus mi condimentum nibh pellentesque morbi fringilla.
+              This your go-to platform for connecting students and property <br />
+              owners in a hassle-free way. Whether you need help finding the perfect <br />
+              accommodation or have questions about your booking, our friendly
+              <br />support team is here to assist. We're committed to making your
+              <br />student living experience stress-free and enjoyable
             </DescriptionText>
             <BtnContainer>
               <GreenBtn whileTap={{ scale: 0.9 }}>WhatsApp</GreenBtn>

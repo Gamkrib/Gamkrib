@@ -89,8 +89,10 @@ export const StudentSignUp = () => {
       console.log(subValues)
       try {
         setIsLoading(true)
-        const { data } = await plainAPi.post('/gamkrib_createuser', subValues)
-        console.log(data)
+        const { data: { data } } = await plainAPi.post('/gamkrib_createuser', subValues)
+        const s = JSON.stringify(data)
+        localStorage.setItem('gamkribUserData', s)
+        localStorage.setItem('gamkribToken', data?.token)
         MySwal.fire({
           title: "Form Submitted Successfully!",
           text: 'Account created successfully',

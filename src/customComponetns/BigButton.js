@@ -2,13 +2,17 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 import icon from "../asserts/siteLogos/Vector(3).png";
+import { Link } from "react-router-dom";
 
 export const BigButton = (props) => {
   return (
-    <GreenBtn whileTap={{ scale: 0.9 }}>
-      {props.title}
-      <img width={25} height={15} src={props.icon || icon} />
-    </GreenBtn>
+    <Link style={{ textDecoration: 'none' }} to={props?.navLink}>
+      <GreenBtn whileTap={{ scale: 0.9 }}>
+        {props.title}
+        <img width={25} alt="" height={15} src={props.icon || icon} />
+      </GreenBtn>
+    </Link>
+
   );
 };
 

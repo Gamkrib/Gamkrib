@@ -31,6 +31,7 @@ import { apiUrl, csrfToken } from "../apis/APIs";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { plainAPi } from "./axios/axios";
+import { Loader } from "@mantine/core";
 
 const MySwal = withReactContent(Swal);
 
@@ -40,11 +41,9 @@ const initialValues = {
   email: "",
   school: "non",
   gender: "any",
-  ghanaCardNumber: "1243",
   level: "300",
   phone_number: "",
-  password1: "",
-  password2: "",
+  password: "",
   is_landlord: true,
   location: 'null'
 };
@@ -82,7 +81,7 @@ const validationSchema = Yup.object({
 export const LandLordSignUp = () => {
   const [formValues, setFormValues] = useState(null);
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
     ;
   const onSubmit = (values, submitProps) => {
 
@@ -93,11 +92,13 @@ export const LandLordSignUp = () => {
         is_landlord: true,
         ...values
       }
-      console.log(subValues)
       try {
         setIsLoading(true)
-        const { data } = await plainAPi.post('/gamkrib_createuser', subValues)
+        const { data: { data } } = await plainAPi.post('/gamkrib_createuser', subValues)
         console.log(data)
+        const s = JSON.stringify(data)
+        localStorage.setItem('gamkribUserData', s)
+        localStorage.setItem('gamkribToken', data?.token)
         MySwal.fire({
           title: "Form Submitted Successfully!",
           text: 'Account created successfully',
@@ -105,7 +106,7 @@ export const LandLordSignUp = () => {
           confirmButtonColor: "#30D158",
         });
 
-        navigate("/");
+        navigate("/dashboard");
         setIsLoading(false)
         submitProps.setSubmitting(false);
         submitProps.resetForm();
@@ -213,15 +214,15 @@ export const LandLordSignUp = () => {
                 </FormContainer>
 
                 <FormContainer>
-                  <StyledLabel htmlFor="password1">Password</StyledLabel>
+                  <StyledLabel htmlFor="password">Password</StyledLabel>
                   <br />
                   <StyledField
                     type="password"
                     id="password"
-                    name="password1"
+                    name="password"
                     placeholder="Create a new password"
                   />
-                  <ErrorMessage name="password1" component={TextError} />
+                  <ErrorMessage name="password" component={TextError} />
                 </FormContainer>
                 <FormContainer>
                   <StyledLabel htmlFor="password2">
@@ -246,16 +247,17 @@ export const LandLordSignUp = () => {
 
                 {/* <button type="reset">Reset</button> */}
                 <CustomBtn
-                  type="submit"
-                // disabled={!formik.isValid || formik.isSubmitting}
+                  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                  onClick={onSubmit}
+                  disabled={isLoading}
                 >
-                  Create my Account
+                  {isLoading ? <Loader /> : "Create my Account"}
                 </CustomBtn>
                 <div style={{ marginTop: "10px" }}>A Student? Click
                   <Link to={"/studentSignup"}>
                     {" Here "}
                   </Link>
-                  to signup </div>
+                  {"to signup "}</div>
               </Form>
             );
           }}

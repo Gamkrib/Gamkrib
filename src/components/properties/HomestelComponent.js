@@ -12,9 +12,11 @@ import { apiUrl, base, csrfToken } from "../apis/APIs";
 import axios from "axios";
 import { useEffect } from "react";
 import { plainAPi } from "../auth/axios/axios";
+import { Skeleton } from "@mantine/core";
 
 export const HomestelComponent = () => {
   const { listedProperties, farm } = useContext(MockApiContext);
+  const [loading, setLoading] = useState(false)
   const [properties, setProperties] = useState([])
 
   const { filter } = useContext(SelectedHostelContext);
@@ -23,8 +25,10 @@ export const HomestelComponent = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await plainAPi.get('properties')
-        console.log(data)
+        setLoading(true)
+        const { data: { data } } = await plainAPi.get('properties')
+        setProperties(data)
+        setLoading(false)
       } catch (error) {
 
       }
@@ -35,7 +39,7 @@ export const HomestelComponent = () => {
 
 
 
-
+  console.log(properties)
 
 
   const HomestelContainer = styled.div`
@@ -52,19 +56,31 @@ export const HomestelComponent = () => {
 
         {filter && <FilerProperty />}
         <CardContainer>
-          {listedProperties &&
-            listedProperties.map((hotel) => {
+          {loading ? <div style={{ display: 'flex' }}>
+            {[1, 4, 5, 6, 4].map((a) => <div style={{ width: '400px' }}>
+
+              <Skeleton height={8} radius="xl" />
+              <Skeleton height={8} mt={6} radius="xl" />
+              <Skeleton height={8} mt={6} width="300px" radius="xl" />
+            </div>)}
+
+          </div> : <>{properties &&
+            properties?.map((hotel) => {
               return (
                 <Card
+                  det={hotel}
+                  images={hotel.images}
+                  id={hotel.id}
                   image={hotel.images[1]}
-                  name={'Will Provide names Later'}
+                  name={hotel?.gender}
                   locationText={hotel.location}
-                  review={hotel.review_score}
+                  review={hotel.number_of_beds}
                   price={hotel?.price}
                 />
               );
-            })}
+            })}</>}
         </CardContainer>
+
       </ParentContainer>
       <Footer />
     </HomestelContainer>
