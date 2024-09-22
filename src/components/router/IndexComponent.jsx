@@ -1,5 +1,5 @@
-import React, { Children } from "react";
-import { createBrowserRouter, Route, Router } from "react-router-dom";
+import React from "react";
+import { createBrowserRouter } from "react-router-dom";
 import { AboutUs } from "../aboutus/AboutUs";
 import { LandLordSignUp } from "../auth/LandLordSignUp";
 import { LoginPage } from "../auth/LoginPage";
@@ -11,10 +11,8 @@ import { Navbar } from "../navbar/Navbar";
 import { NotificationComponent } from "../notification/NotificationComponent";
 import { ApartmentComponent } from "../properties/ApartmentComponent";
 import { HomestelComponent } from "../properties/HomestelComponent";
-import { HostelComponent } from "../properties/HostelComponent";
 import { ListProperties } from "../properties/ListProperties";
 import { FilerProperty } from "../searchAndFilterContainer/FilerProperty";
-import { AdminContainer } from "../admin/home/AdminContainer";
 import { ProductDetails } from "../productDetails/ProductDetails";
 import { DashBoard } from "../admin/landlord/pages/DashBoard";
 
@@ -25,14 +23,13 @@ import { Review } from "../admin/landlord/pages/Review";
 import { General } from "../admin/landlord/pages/General";
 import { ParentListing } from "../admin/landlord/pages/ParentListing";
 import { PropertyDetails } from "../admin/landlord/subPages/propertyListing/PropertyDetetails";
-import Preview from "../admin/landlord/subPages/propertyListing/imageUploader/ImagePrev";
 import { RoomDetetails } from "../admin/landlord/subPages/propertyListing/RoomDetetails";
 import { RoomPricing } from "../admin/landlord/subPages/propertyListing/RoomPricing";
 import { FacilityAmenities } from "../admin/landlord/subPages/propertyListing/FacilityAmenities";
 import { PropertyDetailsPage } from "../admin/landlord/pages/PropertyDetailsPage";
 
 import { ImagePrev } from "../admin/landlord/subPages/propertyListing/ImagePrev";
-import { DashboardStudent, NavbarMinimal } from "../admin/student/dashboard";
+import { DashboardStudent } from "../admin/student/dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -114,7 +111,7 @@ export const router = createBrowserRouter([
     element: <ProductDetails />,
   },
   {
-    path: "studentDashboard",
+    path: "student-dashboard",
     element: <DashboardStudent />,
   },
 ]);

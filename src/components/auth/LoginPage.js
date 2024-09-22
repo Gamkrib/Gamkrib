@@ -32,30 +32,7 @@ const initialValues = {
 };
 
 //get all values of the forms from this section
-const onSubmit = async (values, submitProps) => {
-  console.log("Form data from landLord ", values);
-  console.log("submitProps", submitProps);
 
-  try {
-    const { data: { data } } = await plainAPi.post('/gamkrib_signin', values)
-    console.log(data)
-    localStorage.setItem('gamkribToken', data?.token)
-    submitProps.setSubmitting(false);
-    submitProps.resetForm();
-    MySwal.fire({
-      title: "Form Submitted Successfully!",
-      text: "Click okay to return",
-      icon: "success",
-      confirmButtonColor: "#30D158",
-    });
-  } catch (error) {
-
-  }
-
-
-  // this gives the user an alert message if from values are collected
-
-};
 
 /* ========================= form Validation ======================== */
 
@@ -79,8 +56,8 @@ export const LoginPage = () => {
     try {
       setIsLoading(true)
       const { data: { data } } = await plainAPi.post('/gamkrib_signin', values)
-
       // save userData for later use 
+      console.log(data)
       const s = JSON.stringify(data)
       localStorage.setItem('gamkribUserData', s)
       localStorage.setItem('gamkribToken', data?.token)
@@ -93,7 +70,7 @@ export const LoginPage = () => {
         icon: "success",
         confirmButtonColor: "#30D158",
       });
-      navigate("/dashboard/student");
+      navigate("/student-dashboard");
     } catch (error) {
 
     }

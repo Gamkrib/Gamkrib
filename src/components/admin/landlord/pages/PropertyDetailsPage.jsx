@@ -53,8 +53,9 @@ export const PropertyDetailsPage = () => {
     const base = async (route) => {
       try {
         setIsLoading(true);
+        let v = JSON.stringify(values);
 
-        localStorage.setItem("gamkribUserBooked", values);
+        localStorage.setItem("gamkribUserBooked", v);
 
         MySwal.fire({
           title: "Payment Made successfully",
@@ -233,33 +234,33 @@ export const PropertyDetailsPage = () => {
   );
 };
 
-const MainInfo = styled.div`
+export const MainInfo = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
   display: flex;
   gap: 2rem;
   margin-bottom: 5rem;
 `;
 
-const BigImage = styled.div`
+export const BigImage = styled.div`
   width: 50%;
   border-radius: 30px;
 `;
-const SubImages = styled.div`
+export const SubImages = styled.div`
   width: 50%;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
 `;
 
-const PreviewListing = styled.img`
+export const PreviewListing = styled.img`
   width: 50rem;
   border-radius: 15px;
 `;
-const SmallImge = styled.img`
+export const SmallImge = styled.img`
   width: 22rem;
   height: 15rem;
   gap: 2rem;
