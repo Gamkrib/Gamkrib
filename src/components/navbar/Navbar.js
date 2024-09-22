@@ -121,13 +121,13 @@ export const Navbar = () => {
                     List Properties
                   </NavLinks>
 
-                  <NavLinks
+                  {/* <NavLinks
                     onClick={() => setActive("aboutUs")}
                     className={active === "aboutUs" ? "active" : ""}
                     to={`aboutUs`}
                   >
                     About Us
-                  </NavLinks>
+                  </NavLinks> */}
                   {user && <NavLinks
                     onClick={() => {
                       localStorage.clear()
@@ -212,13 +212,13 @@ export const Navbar = () => {
                         transition={{ duration: 0.2 }}
                       >
                         <div>
-                          <NavLinks
+                          {/* <NavLinks
                             onClick={() => setActive("aboutUs")}
                             className={active === "aboutUs" ? "active" : ""}
                             to={`aboutUs`}
                           >
                             About Us
-                          </NavLinks>
+                          </NavLinks> */}
                         </div>
                         <div>
                           <NavLinks
@@ -408,13 +408,13 @@ export const GeneralNavbar = () => {
                         transition={{ duration: 0.2 }}
                       >
                         <div>
-                          <NavLinks
+                          {/* <NavLinks
                             onClick={() => setActive("aboutUs")}
                             className={active === "aboutUs" ? "active" : ""}
                             to={`aboutUs`}
                           >
                             About Us
-                          </NavLinks>
+                          </NavLinks> */}
                         </div>
                         <div>
                           <NavLinks
@@ -589,13 +589,13 @@ export const DashBoardNav = () => {
                         transition={{ duration: 0.2 }}
                       >
                         <div>
-                          <NavLinks
+                          {/* <NavLinks
                             onClick={() => setActive("aboutUs")}
                             className={active === "aboutUs" ? "active" : ""}
                             to={`aboutUs`}
                           >
                             About Us
-                          </NavLinks>
+                          </NavLinks> */}
                         </div>
                         <div>
                           <NavLinks

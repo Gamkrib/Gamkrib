@@ -26,7 +26,7 @@ export const HomestelComponent = () => {
     (async () => {
       try {
         setLoading(true)
-        const { data: { data } } = await plainAPi.get('properties')
+        const { data: { data } } = await plainAPi.get('/properties')
         setProperties(data)
         setLoading(false)
       } catch (error) {

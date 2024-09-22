@@ -36,9 +36,7 @@ export const Banner = (props) => {
         FIND YOUR OFF-CAMPUS ACCOMMODATION {<br />} WITH EASE.
       </LandingText>
       <SmallText>
-        So we are writing some dommy text here because we have to write
-        something, We have some beautiful friends {<br />} with nice hand
-        writing brilliant and they are also nice to talk to
+        Welcome to Gamkrib, the ultimate student accommodation platform designed to make your housing search in Accra stress-free. We connect students with a wide range of affordable, secure, and conveniently located living spaces close to major universities. Whether you're looking for a private room or shared apartment, our listings come with detailed descriptions, virtual tours, and easy booking options. With 24/7 support, flexible payment plans, and verified landlords, we ensure you find the perfect home to focus on your studies and enjoy student life. Start your search today and experience hassle-free accommodation with Gamkrib!
       </SmallText>
       {props.search && <div>{props.search}</div>}
     </LandingScript>

@@ -13,17 +13,31 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
+import { plainAPi } from "../auth/axios/axios";
 
 export const BrowseProperties = ({ scroll }) => {
   const BrowseProperties = useRef();
 
   const { mockHotel, farm } = useContext(MockApiContext);
-
+  const [properties, setProperties] = useState([])
   const [swiperRef, setSwiperRef] = useState(null);
 
+
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data: { data } } = await plainAPi.get('/properties')
+        console.log(data)
+        setProperties(data)
+      } catch (error) {
+      }
+    })()
+
+  }, [])
   return (
     <ParentContainer ref={BrowseProperties}>
-      <MidText>Trending Properties 🔥🔥🔥</MidText>
+      {/* <MidText>Trending Properties 🔥🔥🔥</MidText>
       <BrowsePropsMain>
         <SwiSlider
           centeredSlides={false}
@@ -41,22 +55,23 @@ export const BrowseProperties = ({ scroll }) => {
           loop={true}
           autoplay={true}
         >
-          {mockHotel &&
-            mockHotel.map((hotel) => {
+          {properties &&
+            properties?.map((hotel) => {
               return (
-                <CardSlider>
-                  <Card
-                    image={hotel.max_1440_photo_url}
-                    name={hotel.hotel_name}
-                    locationText={hotel.address}
-                    review={hotel.review_score}
-                    price="300"
-                  />
-                </CardSlider>
+                <Card
+                  det={hotel}
+                  images={hotel.images}
+                  id={hotel.id}
+                  image={hotel.images[1]}
+                  name={hotel?.gender}
+                  locationText={hotel.location}
+                  review={hotel.number_of_beds}
+                  price={hotel?.price}
+                />
               );
             })}
         </SwiSlider>
-      </BrowsePropsMain>
+      </BrowsePropsMain> */}
     </ParentContainer>
   );
 };
